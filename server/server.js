@@ -1,4 +1,5 @@
 const express = require('express');
+const sanity = require('./sanity-utils');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -6,13 +7,16 @@ const BASE_PATH = '/permittering-og-omstilling';
 
 
 const startServer = async () => {
+
+    app.get(`${BASE_PATH}/internal/isAlive`, (req, res) =>
+        res.sendStatus(200)
+    );
+    app.get(`${BASE_PATH}/internal/isReady`, (req, res) =>
+        res.sendStatus(200)
+    );
+
     app.get(`${BASE_PATH}/innhold/`, (req, res) => {
-        const cacheInnhold = sanity.mainCacheInnhold.get(
-            sanity.mainCacheInnholdKey
-        );
-        cacheInnhold
-            ? res.send(sendDataObj(cacheInnhold))
-            : sanity.fetchInnhold(res);
+        sanity.fetchInnhold(res);
     });
 
     console.log('start regular server');
