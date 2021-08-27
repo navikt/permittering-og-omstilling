@@ -28,6 +28,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "test-ci": "CI=true react-scripts test --passWithNoTests",
     "eject": "craco-scripts eject",
     "server": "node server/server.js"
   },
