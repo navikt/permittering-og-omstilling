@@ -1,0 +1,32 @@
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: permittering-og-omstilling
+  namespace: permittering-og-nedbemanning
+  labels:
+    team: permittering-og-nedbemanning
+spec:
+  image: {{ version }}
+  team: permittering-og-nedbemanning
+  port: 3000
+  ingresses:
+    - https://permittering-og-omstilling.dev.nav.no/permittering-og-omstilling
+  liveness:
+    path: /permittering-og-omstilling/internal/isAlive
+    initialDelay: 20
+  readiness:
+    path: /permittering-og-omstilling/internal/isAlive
+    initialDelay: 20
+  replicas:
+    min: 2
+    max: 2
+  accessPolicy:
+    outbound:
+      external:
+        - host: utwe983u.api.sanity.io
+        - host: dekoratoren.dev.nav.no
+  envFrom:
+    - secret: permittering-og-omstilling-secrets
+  env:
+    - name: NODE_EXTRA_CA_CERTS
+      value: /etc/ssl/ca-bundle.pem
