@@ -11,6 +11,8 @@ const BASE_PATH = '/permittering-og-omstilling';
 
 const startServer = async () => {
 
+    app.use(BASE_PATH + '/', express.static(buildPath, { index: false }));
+
     app.get(`${BASE_PATH}/internal/isAlive`, (req, res) =>
         res.sendStatus(200)
     );
