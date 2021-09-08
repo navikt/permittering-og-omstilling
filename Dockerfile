@@ -4,7 +4,8 @@ ENV NODE_ENV production
 WORKDIR /app
 COPY public ./public
 COPY .next ./.next
-COPY package.json ./package.json yarn.lock ./yarn.lock
+COPY package.json ./package.json
+COPY yarn.lock ./yarn.lock
 USER root
 RUN chown -R apprunner:apprunner /app
 USER apprunner
