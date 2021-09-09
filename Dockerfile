@@ -1,16 +1,13 @@
-FROM navikt/node-express:14-alpine
-ENV NODE_ENV production
+FROM node:14-alpine
 
 WORKDIR /app
-COPY public ./public
-COPY .next ./.next
-COPY package.json ./package.json
-COPY yarn.lock ./yarn.lock
-USER root
-RUN chown -R apprunner:apprunner /app
-USER apprunner
+
+COPY package.json yarn.lock /app/
+
 RUN yarn install --frozen-lockfile
 
-EXPOSE 3000
-ENV NEXT_TELEMETRY_DISABLED 1
+ADD . /app/
+
+RUN yarn build
+
 CMD ["yarn", "start"]
