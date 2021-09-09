@@ -12,10 +12,10 @@ spec:
   ingresses:
     - https://permittering-og-omstilling.dev.nav.no/permittering-og-omstilling
   liveness:
-    path: /api/internal/isAlive
+    path: /permittering-og-omstilling/api/internal/isAlive
     initialDelay: 20
   readiness:
-    path: /api/internal/isAlive
+    path: /permittering-og-omstilling/api/internal/isAlive
     initialDelay: 20
   replicas:
     min: 2
