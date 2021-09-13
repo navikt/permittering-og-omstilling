@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e1f0e34-bdc4-4ede-9197-1b466a2f9437" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/api/internal/isAlive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/api/internal/isReady.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build-deploy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-deploy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nais/dev-gcp.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/nais/dev-gcp.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/hello.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +67,7 @@
       <workItem from="1631107775299" duration="1988000" />
       <workItem from="1631271848030" duration="1131000" />
       <workItem from="1631519871997" duration="1517000" />
+      <workItem from="1631529234804" duration="48000" />
     </task>
     <servers />
   </component>

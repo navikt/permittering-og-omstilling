@@ -12,10 +12,10 @@ spec:
   ingresses:
     - https://permittering-og-omstilling.dev.nav.no/permittering-og-omstilling
   liveness:
-    path: /permittering-og-omstilling/internal/isAlive
+    path: /permittering-og-omstilling/api/internal/isAlive
     initialDelay: 20
   readiness:
-    path: /permittering-og-omstilling/internal/isAlive
+    path: /permittering-og-omstilling/api/internal/isAlive
     initialDelay: 20
   replicas:
     min: 2
@@ -23,7 +23,6 @@ spec:
   accessPolicy:
     outbound:
       external:
-        - host: utwe983u.api.sanity.io
         - host: dekoratoren.dev.nav.no
   envFrom:
     - secret: permittering-og-omstilling-secrets
