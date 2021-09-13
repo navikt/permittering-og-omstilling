@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import "@navikt/ds-css"
-import { ContentContainer, Ingress, Loader, Title } from '@navikt/ds-react';
+import { ContentContainer, Ingress, Loader, Title } from '@navikt/ds-react'
 const Home: NextPage = () => {
   return (
       <div className="hovedside">
