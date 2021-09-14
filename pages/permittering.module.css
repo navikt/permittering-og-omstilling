@@ -1,0 +1,8 @@
+.meld-ifra-knapp {
+  width: 10rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
