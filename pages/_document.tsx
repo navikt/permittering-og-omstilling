@@ -18,7 +18,7 @@ class MyDocument extends Document<Props> {
         const initialProps = await Document.getInitialProps(ctx);
 
         const Decorator = await fetchDecoratorReact({
-            env: 'dev',
+            env: 'prod',
             chatbot: true,
             context: 'arbeidsgiver',
             breadcrumbs: [{ title: 'Permittering og omstilling', url: 'https://www.nav.no/no/bedrift/oppfolging/permittering-og-omstilling' }],
