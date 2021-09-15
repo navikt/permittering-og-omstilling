@@ -1,7 +1,8 @@
 .container {
-  display: flex;
-  justify-content: center;
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .meldIfraKnapp {
@@ -17,4 +18,20 @@
 .varselfristAccordion {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.forlengeRegelverkAlert {
+  margin-bottom: 2rem;
+}
+
+.nyePermitteringsreglerAlert {
+  margin-bottom: 2rem;
+}
+
+.kalkulator {
+  margin-top: 1.5rem;
+}
+
+.før1septemberTitle {
+  margin-top: 2rem;
 }
