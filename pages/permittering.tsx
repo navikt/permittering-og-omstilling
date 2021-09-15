@@ -405,12 +405,10 @@ const Permittering: NextPage = () => {
           <Title spacing size="s" className={styles.stegTitle}>
             Oppsigelse under permittering
           </Title>
-
           <BodyShort spacing>
             Ved oppsigelse avsluttes permitteringen umiddelbart. Du må betale
             lønn fra dagen oppsigelsen gis og ut oppsigelsestiden.
           </BodyShort>
-
           <BodyShort spacing>
             Hvis en permittert ansatt selv sier opp jobben sin, skal du
             vanligvis ikke utbetale lønn. Dette avhenger av for eksempel hva som
@@ -418,13 +416,36 @@ const Permittering: NextPage = () => {
             ansatt, og må undersøkes i hvert enkelt tilfelle. Oppsigelsestiden
             er kortere enn vanlig når en permittert ansatt sier opp selv.
           </BodyShort>
-
           <BodyShort>
             Les om regler for oppsigelsestid i{" "}
             <Link href="https://lovdata.no/nav/lov/2005-06-17-62/kap15">
               arbeidsmiljøloven § 15-3
             </Link>
           </BodyShort>
+        </Container>
+
+        <Container>
+          <Title spacing size="xl">
+            Informasjon til ansatte
+          </Title>
+          <BodyShort spacing>
+            Denne informasjonssiden er rettet mot arbeidsgivere og inneholder
+            kun et begrenset utvalg av informasjonen som angår den ansatte. Hvis
+            du ønsker å gi utfyllende informasjon til dine ansatte må du sette
+            deg inn i:
+          </BodyShort>
+          <ul>
+            <li>
+              <Link href="https://www.nav.no/arbeid/no/permittert/">
+                informasjon til den permitterte
+              </Link>
+            </li>
+            <li>
+              <Link href="https://www.nav.no/arbeid/no/dagpenger/">
+                informasjon til de som har søkt om eller mottar dagpenger
+              </Link>
+            </li>
+          </ul>
         </Container>
       </div>
     </>
