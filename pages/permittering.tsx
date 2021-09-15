@@ -1,13 +1,14 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import Container from "../components/container/Container";
-import { BodyShort, Button, Label, Title } from "@navikt/ds-react";
+import { BodyShort, Button, Header, Label, Title } from "@navikt/ds-react";
 
 import styles from "./permittering.module.css";
 
 const Permittering: NextPage = () => {
   return (
     <>
+      <Header>Veiviser for permittering</Header>
       <div className={styles.container}>
         <Container>
           <Title spacing size="xl">
