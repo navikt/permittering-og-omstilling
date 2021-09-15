@@ -1,8 +1,14 @@
-.meld-ifra-knapp {
-  width: 10rem;
-}
-
 .container {
   display: flex;
   justify-content: center;
+}
+
+.meldIfraKnapp {
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+}
+
+.stegTitle {
+  margin-top: 2rem;
 }
