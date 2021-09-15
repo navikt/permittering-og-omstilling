@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import Container from "../components/container/Container";
-import { BodyShort, Button, Header, Label, Title } from "@navikt/ds-react";
+import { Accordion, BodyShort, Header, Label, Title } from "@navikt/ds-react";
 
 import styles from "./permittering.module.css";
 
@@ -21,14 +21,9 @@ const Permittering: NextPage = () => {
             Skal du permittere ansatte melder du fra til NAV så tidlig som
             mulig.
           </BodyShort>
-          <Button
-            className={styles.meldIfraKnapp}
-            onClick={() => {
-              // TODO
-            }}
-          >
+          <Link href="https://www.nav.no/soknader/nb/bedrift/permitteringer-oppsigelser-og-konkurs/masseoppsigelser">
             Meld ifra
-          </Button>
+          </Link>
           <Title className={styles.stegTitle} spacing size="s">
             2. Send permitteringsvarsel
           </Title>
@@ -37,7 +32,25 @@ const Permittering: NextPage = () => {
             er hovedregelen. Når det skjer noe uforutsett, kan varselfristen
             være kun 2 dager.
           </BodyShort>
-          {/*  TODO: Les-mer-tekst */}
+          <Accordion
+            className={styles.varselfristAccordion}
+            heading="Les mer om varselfrist"
+          >
+            <BodyShort spacing>
+              Permitteringsordningen er i hovedsak regulert i avtaleverk mellom
+              partene i arbeidslivet. Dere må gjøre en selvstendig vurdering på
+              arbeidsplassen om hva som er riktig varselfrist ut ifra deres
+              avtaler om arbeidsforholdet. Er dere ikke omfattet av egne avtaler
+              er det hovedavtalen LO NHO og arbeidsmiljøloven som gjelder.
+            </BodyShort>
+            <BodyShort>
+              Permitteringer som skyldes koronaviruset kan være forventet eller
+              uforutsett. En plutselig nedstengning som den vi har sett i
+              enkelte kommuner er et eksempel på hendelse som kan falle inn
+              under uforutsett. Vi oppfordrer til å begrunne grunnlaget for
+              forkortet frist på en god måte i permitteringsvarslet.
+            </BodyShort>
+          </Accordion>
           <BodyShort> Varselet må inneholde disse opplysningene:</BodyShort>
           <ul>
             <li>Fortell hvorfor du permitterer ansatte.</li>
