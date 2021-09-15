@@ -1,10 +1,16 @@
 import type { NextPage } from "next";
-import {BodyLong, Ingress, Label, Link, Title} from "@navikt/ds-react";
+import {BodyLong, Header, Ingress, Label, Link, Title} from "@navikt/ds-react";
 import Container from "../components/container/Container";
 import styles from './oppsigelse.module.css'
+import React from "react";
 const Oppsigelse: NextPage = () => {
   return (
+      <>
+      <Header description="Ved oppsigelse er det vanlig at NAV samhandler med arbeidsgiver og gir bistand til berørte arbeidstakere">
+        Oppsigelse
+      </Header>
       <div className={styles.container}>
+
   <Container>
   <Title spacing={true} size={'l'}>Oppsigelse</Title>
     <Ingress spacing = {true}>
@@ -78,6 +84,7 @@ const Oppsigelse: NextPage = () => {
     </Label>
     </Container>
         </div>
+        </>
   );
 };
 
