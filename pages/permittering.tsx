@@ -129,7 +129,13 @@ const Permittering: NextPage = () => {
           <Title spacing size="s">
             Informasjonsfilm om permittering
           </Title>
-          {/* TODO: Film */}
+          <iframe
+            src="https://player.vimeo.com/video/398208025?h=a21e1f79cb"
+            width="100%"
+            height="300"
+            frameBorder="0"
+            allowFullScreen
+          />
         </Container>
       </div>
     </>
