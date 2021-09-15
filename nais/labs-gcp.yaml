@@ -1,0 +1,22 @@
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: permittering-og-omstilling
+  namespace: permittering-og-nedbemanning
+  labels:
+    team: permittering-og-nedbemanning
+spec:
+  image: {{image}}
+  team: permittering-og-nedbemanning
+  port: 3000
+  ingresses:
+    - https://permittering-og-omstilling.labs.nais.io/permittering-og-omstilling
+  liveness:
+    path: /permittering-og-omstilling/internal/isAlive
+    initialDelay: 10
+  readiness:
+    path: /permittering-og-omstilling/internal/isReady
+    initialDelay: 10
+  env:
+    - name: NODE_EXTRA_CA_CERTS
+      value: "/etc/ssl/ca-bundle.pem"

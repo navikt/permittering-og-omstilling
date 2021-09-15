@@ -52,20 +52,20 @@ jobs:
           RESOURCE: nais/dev-gcp.yaml
           PRINT_PAYLOAD: true
 
-  # deploy-to-labs-gcp:
-  #   name: Deploy to labs-gcp
-  #   if: github.ref == 'refs/heads/main'
-  #   needs: compile-test-and-build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v1
-  #     - uses: nais/deploy/actions/deploy@v1
-  #       env:
-  #         APIKEY: ${{ secrets.NAIS_DEPLOY_KEY_TEAM }}
-  #         CLUSTER: labs-gcp
-  #         VAR: version=${{ env.IMAGE }}
-  #         RESOURCE: nais/labs-gcp.yaml
-  #         PRINT_PAYLOAD: true
+   deploy-to-labs-gcp:
+     name: Deploy to labs-gcp
+     if: github.ref == 'refs/heads/main'
+     needs: compile-test-and-build
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v1
+       - uses: nais/deploy/actions/deploy@v1
+       env:
+           APIKEY: ${{ secrets.NAIS_DEPLOY_KEY_TEAM }}
+           CLUSTER: labs-gcp
+           VAR: version=${{ env.IMAGE }}
+           RESOURCE: nais/labs-gcp.yaml
+           PRINT_PAYLOAD: true
 
   # deploy-to-prod-gcp:
   #   name: Deploy to prod-gcp
