@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
-import {BodyLong, BodyShort, Ingress, Label, Link, Title} from "@navikt/ds-react";
+import {BodyLong, Ingress, Label, Link, Title} from "@navikt/ds-react";
 import Container from "../components/container/Container";
-
+import styles from './oppsigelse.module.css'
 const Oppsigelse: NextPage = () => {
   return (
+      <div className={styles.container}>
   <Container>
   <Title spacing={true} size={'l'}>Oppsigelse</Title>
     <Ingress spacing = {true}>
@@ -76,6 +77,7 @@ const Oppsigelse: NextPage = () => {
       <Link href={'https://arbeidsgiver.nav.no/arbeidsgiver-permittering/#hvordanPermittere'}>Se informasjon om permittering</Link>
     </Label>
     </Container>
+        </div>
   );
 };
 
