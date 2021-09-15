@@ -3,6 +3,7 @@ import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
 import type { NextPage } from "next";
 import Link from "next/link";
 import {
+  Alert,
   BodyLong,
   BodyShort,
   Header,
@@ -78,8 +79,9 @@ const Omstilling: NextPage = () => {
           <BodyShort>
             Se også informasjon om permittering og oppsigelse.
           </BodyShort>
-          <Panel border>
-            Fakta Omstilling kan skje i forbindelse med:
+          <Alert variant="info" className={styles.forlengeRegelverkAlert}>
+            <Title spacing size="m">Fakta</Title>
+            <BodyShort>Omstilling kan skje i forbindelse med</BodyShort>
             <ul>
               <li>Permittering</li>
               <li>Driftsinnskrenkning/nedbemanning</li>
@@ -88,7 +90,7 @@ const Omstilling: NextPage = () => {
               <li>Flytting av en virksomhet</li>
               <li>Konkurs og annen driftsstans</li>
             </ul>
-          </Panel>
+          </Alert>
         </Container>
       </div>
     </div>
