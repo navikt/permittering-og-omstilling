@@ -12,10 +12,10 @@ spec:
   ingresses:
     - https://permittering-og-omstilling.labs.nais.io/permittering-og-omstilling
   liveness:
-    path: /permittering-og-omstilling/internal/isAlive
+    path: /permittering-og-omstilling/api/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /permittering-og-omstilling/internal/isReady
+    path: /permittering-og-omstilling/api/internal/isReady
     initialDelay: 10
   env:
     - name: NODE_EXTRA_CA_CERTS
