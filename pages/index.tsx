@@ -10,9 +10,9 @@ const Home: NextPage = () => {
       <div className={styles.container}>
     <Container>
 
-      <LinkPanel href="/permittering">Veiviser for permittering</LinkPanel>
-      <LinkPanel href="/omstilling">Omstilling og nedbemanning</LinkPanel>
-      <LinkPanel href="/oppsigelse">Oppsigelse</LinkPanel>
+      <LinkPanel href={"permittering-og-omstilling" + "/permittering"}>Veiviser for permittering</LinkPanel>
+      <LinkPanel href={"permittering-og-omstilling" + "/omstilling"}>Omstilling og nedbemanning </LinkPanel>
+      <LinkPanel href={"permittering-og-omstilling" + "/oppsigelse"}>Oppsigelse</LinkPanel>
     </Container>
           </div>
   );
