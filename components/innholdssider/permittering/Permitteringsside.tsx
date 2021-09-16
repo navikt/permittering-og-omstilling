@@ -6,11 +6,36 @@ import Permitteringsperioden from "./Permitteringsperioden";
 import InfoTilAnsatte from "./InfoTilAnsatte";
 import VanligeSporsmal from "./VanligeSporsmal";
 import styles from "./permittering.module.css";
+import Innholdsmeny from "./innholdsmeny/Innholdsmeny";
+
+export const permitteringInnhold = {
+  hvordanPermittere: {
+    tittel: "Hvordan permittere ansatte?",
+    anker: "hvordan-permittere",
+  },
+  lønnsplikt: {
+    tittel: "Lønnsplikt ved permittering",
+    anker: "lonnsplikt",
+  },
+  permitteringsperioden: {
+    tittel: "I permitteringsperioden",
+    anker: "permitteringsperioden",
+  },
+  infoTilAnsatte: {
+    tittel: "Informasjon til ansatte",
+    anker: "infoTilAnsatte",
+  },
+  vanligeSpørsmål: {
+    tittel: "Vanlige spørsmål",
+    anker: "vanlige-sporsmal",
+  },
+};
 
 const Permitteringsside: NextPage = () => {
   return (
     <>
       <Header>Veiviser for permittering</Header>
+      <Innholdsmeny />
       <div className={styles.container}>
         <HvordanPermittere />
         <Lonnsplikt />

@@ -3,12 +3,13 @@ import Link from "next/link";
 import Container from "../../container/Container";
 
 import styles from "./permittering.module.css";
+import { permitteringInnhold } from "./Permitteringsside";
 
 const HvordanPermittere = () => {
   return (
     <Container>
-      <Title spacing size="xl">
-        Hvordan permittere ansatte?
+      <Title spacing size="xl" id={permitteringInnhold.hvordanPermittere.anker}>
+        {permitteringInnhold.hvordanPermittere.tittel}
       </Title>
       <Title spacing size="s">
         1. Meld fra til NAV

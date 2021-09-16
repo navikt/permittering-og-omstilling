@@ -2,13 +2,20 @@ import { Accordion, BodyShort, Title } from "@navikt/ds-react";
 import styles from "./permittering.module.css";
 import Link from "next/link";
 import Container from "../../container/Container";
-import { ForelengePerioderAlert } from "./Permitteringsside";
+import {
+  ForelengePerioderAlert,
+  permitteringInnhold,
+} from "./Permitteringsside";
 
 const Permitteringsperioden = () => {
   return (
     <Container>
-      <Title spacing size="xl">
-        I permitteringsperioden
+      <Title
+        spacing
+        size="xl"
+        id={permitteringInnhold.permitteringsperioden.anker}
+      >
+        {permitteringInnhold.permitteringsperioden.tittel}
       </Title>
 
       <Title spacing size="s">

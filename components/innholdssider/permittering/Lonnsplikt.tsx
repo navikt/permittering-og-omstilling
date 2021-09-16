@@ -1,15 +1,18 @@
 import { Alert, BodyShort, Label, Title } from "@navikt/ds-react";
 import Link from "next/link";
 import Container from "../../container/Container";
-import { ForelengePerioderAlert } from "./Permitteringsside";
+import {
+  ForelengePerioderAlert,
+  permitteringInnhold,
+} from "./Permitteringsside";
 
 import styles from "./permittering.module.css";
 
 const Lonnsplikt = () => {
   return (
     <Container>
-      <Title spacing size="xl">
-        Lønnsplikt ved permittering
+      <Title spacing size="xl" id={permitteringInnhold.lønnsplikt.anker}>
+        {permitteringInnhold.lønnsplikt.tittel}
       </Title>
       <ForelengePerioderAlert />
       <Alert variant="info" className={styles.nyePermitteringsreglerAlert}>

@@ -1,0 +1,6 @@
+.innholdsmeny {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--navds-color-white);
+  width: 20rem;
+}

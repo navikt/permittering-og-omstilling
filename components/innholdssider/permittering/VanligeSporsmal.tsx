@@ -2,12 +2,13 @@ import { BodyShort, Title } from "@navikt/ds-react";
 import styles from "./permittering.module.css";
 import Link from "next/link";
 import Container from "../../container/Container";
+import { permitteringInnhold } from "./Permitteringsside";
 
 const VanligeSporsmal = () => {
   return (
     <Container>
-      <Title spacing size="xl">
-        Vanlige spørsmål
+      <Title spacing size="xl" id={permitteringInnhold.vanligeSpørsmål.anker}>
+        {permitteringInnhold.vanligeSpørsmål.tittel}
       </Title>
       {/* TODO: Lenker til hvert spørsmål */}
       <Title spacing size="s" className={styles.stegTitle}>
