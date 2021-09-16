@@ -10,7 +10,9 @@ const Innholdsmeny = () => {
         Innhold på siden
       </Title>
       {Object.values(permitteringInnhold).map((innhold) => (
-        <Link href={`#${innhold.anker}`}>{innhold.tittel}</Link>
+        <Link href={`#${innhold.anker}`} key={innhold.anker}>
+          {innhold.tittel}
+        </Link>
       ))}
     </nav>
   );
