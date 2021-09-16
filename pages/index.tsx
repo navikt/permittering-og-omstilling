@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Link from "next/link";
 import "@navikt/ds-css";
 import {LinkPanel} from "@navikt/ds-react";
 import Container from "../components/container/Container";
