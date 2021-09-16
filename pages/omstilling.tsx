@@ -99,7 +99,7 @@ const Omstilling: NextPage = () => {
             </Container>
           </Cell>
           <Cell className={"navds-story-cell"} xs={12} sm={6} lg={4}>
-          <Accordion heading="Les mer om varselfrist">
+          <Accordion heading="Relatert innhold">
             <BodyShort>
               <Link href="/oppsigelse">Oppsigelse</Link>
             </BodyShort>
