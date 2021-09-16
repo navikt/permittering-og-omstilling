@@ -3,12 +3,12 @@ import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
 import type { NextPage } from "next";
 import Link from "next/link";
 import {
+  Accordion,
   Alert,
   BodyLong,
   BodyShort,
   Header,
-  Ingress,
-  Panel,
+  Label,
   Title,
 } from "@navikt/ds-react";
 import Container from "../components/container/Container";
@@ -76,12 +76,12 @@ const Omstilling: NextPage = () => {
             </Link>{" "}
             kan hjelpe arbeidssøkere som ønsker å jobbe i utlandet.
           </BodyShort>
-          <BodyShort>
-            Se også informasjon om permittering og oppsigelse.
+          <BodyShort spacing>
+            Se også informasjon om <Link href="/oppsigelse">permittering og oppsigelse.</Link>
           </BodyShort>
           <Alert variant="info" className={styles.forlengeRegelverkAlert}>
             <Title spacing size="m">Fakta</Title>
-            <BodyShort>Omstilling kan skje i forbindelse med</BodyShort>
+            <Label>Omstilling kan skje i forbindelse med</Label>
             <ul>
               <li>Permittering</li>
               <li>Driftsinnskrenkning/nedbemanning</li>
@@ -92,6 +92,16 @@ const Omstilling: NextPage = () => {
             </ul>
           </Alert>
         </Container>
+      </div>
+      <div className={styles.omstilling}>
+        <Accordion heading="Les mer om varselfrist">
+          <BodyShort>
+            <Link href="/oppsigelse">Oppsigelse</Link>
+          </BodyShort>
+          <BodyShort>
+            <Link href="https://www.nav.no/no/person/arbeid/dagpenger-ved-arbeidsloshet-og-permittering/ventelonn">Ventelønn</Link>
+          </BodyShort>
+        </Accordion>
       </div>
     </div>
   );
