@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
+import React from "react";
 import type { NextPage } from "next";
 import Link from "next/link";
 import {
@@ -15,7 +14,7 @@ import {
   Title,
 } from "@navikt/ds-react";
 import Container from "../../container/Container";
-
+import RelatertInnhold from "./RelatertInnhold";
 import styles from "./omstilling.module.css";
 
 const OmstillingsSide: NextPage = () => {
@@ -26,7 +25,7 @@ const OmstillingsSide: NextPage = () => {
       </Header>
       <ContentContainer>
         <Grid>
-          <Cell className={"navds-story-cell"} xs={12} sm={6} lg={6}>
+          <Cell className={"navds-story-cell"} xs={12} sm={6} lg={8}>
             <Container>
             <Title spacing size={"s"}>
               Hva kan NAV bistå med i en omstillingssituasjon?
@@ -88,14 +87,7 @@ const OmstillingsSide: NextPage = () => {
             </Container>
           </Cell>
           <Cell className={"navds-story-cell"} xs={12} sm={6} lg={4}>
-          <Accordion heading="Relatert innhold">
-            <BodyShort>
-              <Link href="/oppsigelse">Oppsigelse</Link>
-            </BodyShort>
-            <BodyShort>
-              <Link href="https://www.nav.no/no/person/arbeid/dagpenger-ved-arbeidsloshet-og-permittering/ventelonn">Ventelønn</Link>
-            </BodyShort>
-          </Accordion>
+            <RelatertInnhold/>
           </Cell>
         </Grid>
       </ContentContainer>
