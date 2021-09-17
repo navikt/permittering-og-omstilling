@@ -1,6 +1,12 @@
 .innholdsmeny {
+  top: 1rem;
+  position: sticky;
   display: flex;
   flex-direction: column;
   background-color: var(--navds-color-white);
-  width: 20rem;
+  align-self: flex-start;
+}
+
+.lenke {
+  margin-bottom: 0.5rem;
 }

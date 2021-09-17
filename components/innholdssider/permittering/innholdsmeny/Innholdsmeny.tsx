@@ -11,7 +11,7 @@ const Innholdsmeny = () => {
       </Title>
       {Object.values(permitteringInnhold).map((innhold) => (
         <Link href={`#${innhold.anker}`} key={innhold.anker}>
-          {innhold.tittel}
+          <a className={styles.lenke}>{innhold.tittel}</a>
         </Link>
       ))}
     </nav>

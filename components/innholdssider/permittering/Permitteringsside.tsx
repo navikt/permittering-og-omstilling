@@ -35,13 +35,15 @@ const Permitteringsside: NextPage = () => {
   return (
     <>
       <Header>Veiviser for permittering</Header>
-      <Innholdsmeny />
       <div className={styles.container}>
-        <HvordanPermittere />
-        <Lonnsplikt />
-        <Permitteringsperioden />
-        <InfoTilAnsatte />
-        <VanligeSporsmal />
+        <Innholdsmeny />
+        <div className={styles.innhold}>
+          <HvordanPermittere />
+          <Lonnsplikt />
+          <Permitteringsperioden />
+          <InfoTilAnsatte />
+          <VanligeSporsmal />
+        </div>
       </div>
     </>
   );
