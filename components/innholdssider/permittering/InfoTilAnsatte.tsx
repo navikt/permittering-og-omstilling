@@ -1,4 +1,4 @@
-import { BodyShort, Title } from "@navikt/ds-react";
+import { BodyShort, Heading } from "@navikt/ds-react";
 import Link from "next/link";
 import Container from "../../container/Container";
 import { permitteringInnhold } from "./Permitteringsside";
@@ -6,9 +6,13 @@ import { permitteringInnhold } from "./Permitteringsside";
 const InfoTilAnsatte = () => {
   return (
     <Container>
-      <Title spacing size="xl" id={permitteringInnhold.infoTilAnsatte.anker}>
+      <Heading
+        spacing
+        size="xlarge"
+        id={permitteringInnhold.infoTilAnsatte.anker}
+      >
         {permitteringInnhold.infoTilAnsatte.tittel}
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Denne informasjonssiden er rettet mot arbeidsgivere og inneholder kun et
         begrenset utvalg av informasjonen som angår den ansatte. Hvis du ønsker

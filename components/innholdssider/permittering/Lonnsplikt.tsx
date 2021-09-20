@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Label, Title } from "@navikt/ds-react";
+import { Alert, BodyShort, Label, Heading } from "@navikt/ds-react";
 import Link from "next/link";
 import Container from "../../container/Container";
 import {
@@ -11,14 +11,14 @@ import styles from "./permittering.module.css";
 const Lonnsplikt = () => {
   return (
     <Container>
-      <Title spacing size="xl" id={permitteringInnhold.lønnsplikt.anker}>
+      <Heading spacing size="xlarge" id={permitteringInnhold.lønnsplikt.anker}>
         {permitteringInnhold.lønnsplikt.tittel}
-      </Title>
+      </Heading>
       <ForelengePerioderAlert />
       <Alert variant="info" className={styles.nyePermitteringsreglerAlert}>
-        <Title spacing size="m">
+        <Heading spacing size="medium">
           Nye regler for permitteringsperioden fra 1. juli 2021
-        </Title>
+        </Heading>
         <Label>Dette gjelder for permitteringer som startet</Label>
         <ul>
           <li>
@@ -113,9 +113,9 @@ const Lonnsplikt = () => {
         ingen slik lønnsplikt for ansatte i fiskeforedlingsbedrifter.
       </BodyShort>
 
-      <Title spacing size="s" className={styles.før1septemberTitle}>
+      <Heading spacing size="small" className={styles.før1septemberTitle}>
         Lønnsplikt og lønnskompensasjon før 1. september 2020
-      </Title>
+      </Heading>
       <BodyShort spacing>
         For permitteringer som startet i perioden 20. mars til 31. august 2020,
         betalte du to dager med lønn til den permitterte. Deretter dekket NAV

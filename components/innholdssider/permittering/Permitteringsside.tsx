@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Alert, Header } from "@navikt/ds-react";
+import { Alert, PageHeader } from "@navikt/ds-react";
 import HvordanPermittere from "./HvordanPermittere";
 import Lonnsplikt from "./Lonnsplikt";
 import Permitteringsperioden from "./Permitteringsperioden";
@@ -34,7 +34,7 @@ export const permitteringInnhold = {
 const Permitteringsside: NextPage = () => {
   return (
     <>
-      <Header>Veiviser for permittering</Header>
+      <PageHeader>Veiviser for permittering</PageHeader>
       <div className={styles.container}>
         <Innholdsmeny />
         <div className={styles.innhold}>

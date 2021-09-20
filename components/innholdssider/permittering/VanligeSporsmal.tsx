@@ -1,4 +1,4 @@
-import { BodyShort, Title } from "@navikt/ds-react";
+import { BodyShort, Heading } from "@navikt/ds-react";
 import styles from "./permittering.module.css";
 import Link from "next/link";
 import Container from "../../container/Container";
@@ -7,13 +7,17 @@ import { permitteringInnhold } from "./Permitteringsside";
 const VanligeSporsmal = () => {
   return (
     <Container>
-      <Title spacing size="xl" id={permitteringInnhold.vanligeSpørsmål.anker}>
+      <Heading
+        spacing
+        size="xlarge"
+        id={permitteringInnhold.vanligeSpørsmål.anker}
+      >
         {permitteringInnhold.vanligeSpørsmål.tittel}
-      </Title>
+      </Heading>
       {/* TODO: Lenker til hvert spørsmål */}
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Vil dagpengemottakere få feriepenger for 2020?
-      </Title>
+      </Heading>
       <BodyShort>
         På grunn av koronasituasjonen har Stortinget vedtatt at de som mottok
         dagpenger i 2020 kan få utbetalt feriepenger av dagpenger innen utgangen
@@ -23,9 +27,9 @@ const VanligeSporsmal = () => {
         </Link>
         .
       </BodyShort>
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Kan den ansatte ta ferie under permittering?
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Ferie avvikles som normalt og teller ikke som permitteringstid.
       </BodyShort>
@@ -37,9 +41,9 @@ const VanligeSporsmal = () => {
         bestemmelser kan du pålegge den ansatte å avvikle ferie i
         permitteringstiden.
       </BodyShort>
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Kan jeg trekke eller utsette permitteringen før den er iverksatt?
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Ja, du kan trekke varselet om permittering når som helst før
         permitteringen starter. Du trenger bare gi beskjed til dine ansatte.
@@ -54,9 +58,9 @@ const VanligeSporsmal = () => {
         nytt permitteringsvarsel. Hvis bedriften er bundet av andre avtaler kan
         det gjelde andre vilkår.
       </BodyShort>
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Kan jeg permittere ansatte som er sykmeldt?
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Ja, du kan permittere ansatte selv om de er sykmeldte. Ditt ansvar for
         lønnsutbetalingene opphører den dagen permitteringen begynner. Dette
@@ -78,17 +82,17 @@ const VanligeSporsmal = () => {
         Hvis den ansatte allerede er 100% permittert og blir sykmeldt etter
         permitteringsdatoen, trenger du ikke sende inntektsopplysninger til NAV.
       </BodyShort>
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Kan jeg permittere en ansatt som får omsorgspenger?
-      </Title>
+      </Heading>
       <BodyShort>
         Ja, det kan du gjøre. Du sender ut varsel om permittering på vanlig måte
         og du betaler lønn i arbeidsgiverperioden.
       </BodyShort>
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Hvordan kan jeg være sikker på at permitteringen er gyldig, og at de
         ansatte får pengene sine?
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Du kan permittere dersom virksomheten din reduseres eller stanses i en
         periode. Dette går fram av{" "}
@@ -103,9 +107,9 @@ const VanligeSporsmal = () => {
         at bedriften har redusert eller stanset virksomheten på grunn av forhold
         du ikke har hatt mulighet til å påvirke.
       </BodyShort>
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Kan også tilkallingsvikarer permitteres?
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Tilkallingsvikarer/ringehjelper som ikke har krav på arbeid frem i tid i
         arbeidskontrakt/avtale, kan ikke permitteres og har ikke krav på
@@ -120,10 +124,10 @@ const VanligeSporsmal = () => {
         gjelder kun så lenge den avtalte vikarjobben varer. Det vil si siste
         dagen for det avtalte oppdraget.
       </BodyShort>
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Kan vi permittere ansatte som ikke kommer seg inn i landet som følge av
         reiserestriksjonene?
-      </Title>
+      </Heading>
       <BodyShort spacing>
         NAV har ikke myndighet til å avgjøre hva som er saklig grunn til å
         permittere.{" "}
@@ -142,18 +146,18 @@ const VanligeSporsmal = () => {
       <Link href="https://www.nav.no/no/bedrift/refusjon-ved-innreiseforbud-under-pandemien">
         Her finner du informasjon om refusjon ved innreiseforbud under pandemien
       </Link>
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Kan jeg endre permitteringsgraden?
-      </Title>
+      </Heading>
       <BodyShort>
         Ja. Hvis du utvider permitteringsgraden må du vurdere om du etter
         gjeldende avtaler må gi et nytt permitteringsvarsel der du oppgir ny
         permitteringsgrad. Du trenger ikke betale ny lønnsplikt hvis du utvider
         permitteringsgraden.
       </BodyShort>
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Kan jeg forlenge permitteringen?
-      </Title>
+      </Heading>
       <BodyShort>
         Ja, det kan du. Men du kan bare forlenge innenfor maksimal
         permitteringsperiode på 49 uker innenfor de siste 18 måneder. Ifølge{" "}
@@ -165,9 +169,9 @@ const VanligeSporsmal = () => {
         dager ved uforutsett hendelse). Hvis bedriften er bundet av andre
         avtaler kan det gjelde andre vilkår.
       </BodyShort>
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Hva er permittering?
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Permittering kan brukes når virksomheten reduseres i en periode eller
         stanses. Ansatte som permitteres skal ikke arbeide for deg mens de er
@@ -186,10 +190,10 @@ const VanligeSporsmal = () => {
         ansatte ha rett til dagpenger. Dagpengene sikrer inntekt, men er ikke
         like mye som vanlig lønn.
       </BodyShort>
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Hva skjer om jeg utbetaler lønn til en ansatt som er varslet om 100
         prosent permittering?
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Betaler du lønn til en ansatt som har fått varsel om 100 prosent
         permittering, er den ansatte i praksis kun delvis permittert fordi den
@@ -201,9 +205,9 @@ const VanligeSporsmal = () => {
         utbetaler 30 prosent av den ordinære lønnen til en ansatt, vil den
         ansatte være 70 prosent permittert.
       </BodyShort>
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Fant du ikke det du lette etter?
-      </Title>
+      </Heading>
       <Link href="https://www.nav.no/person/kontakt-oss/chat/arbeidsgiver">
         Chat med NAV om permittering.
       </Link>

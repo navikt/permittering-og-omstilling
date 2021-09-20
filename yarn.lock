@@ -188,20 +188,20 @@
   resolved "https://registry.yarnpkg.com/@napi-rs/triples/-/triples-1.0.3.tgz#76d6d0c3f4d16013c61e45dfca5ff1e6c31ae53c"
   integrity sha512-jDJTpta+P4p1NZTFVLHJ/TLFVYVcOqv6l8xwOeBKNPMgY/zDYH/YH7SJbvrr/h1RcS9GzbPcLKGzpuK9cV56UA==
 
-"@navikt/ds-css@^0.7.4":
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-0.7.4.tgz#b7264756b67c01538a8c6d0aa2f418390641d9c0"
-  integrity sha512-OIPuE6LM6dD0+mLCGK/MPLBwXAT6FBbr2exNIdra6f0HKeNwMYppJAFWZbvmSzeZLLKy+coascN58l9h/wWHyg==
+"@navikt/ds-css@^0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-0.8.1.tgz#1a10741750fb34a39549142d49d529a185797fcf"
+  integrity sha512-kbfmjrawPODflH/9wgc7xOc5AQt/hKcaC+/N12VdxIRM19xGgTL5RheH/pbH5TSgNxv7AjinguJFQ0ForbR+Fw==
 
 "@navikt/ds-icons@^0.5.2":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-0.5.2.tgz#3f1525def3c51a247a1f59c4d8fddd112521be9f"
   integrity sha512-e4bqKbUaWNQ8UewrmJPM1Z43ylMD+uYZJwo3+DOWQKUW1Y5U7ucvVSO0lNtYO1gADXgGiTF2LjCPZbw7BhmdSQ==
 
-"@navikt/ds-react@^0.7.7":
-  version "0.7.7"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-0.7.7.tgz#524be2c6778dfa418cd2ab8b7e496000a29d39ed"
-  integrity sha512-pAB3QKVNH6EoHRffYS0UFgrFr7uSWoo9ITqoa7p4fH4s1+HM4Wqcgms+H4PTkabauJL70Yh1/R8enononru6Sg==
+"@navikt/ds-react@^0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-0.8.1.tgz#c0cd64babcc917383c1eabf601c6d1c5a86f9133"
+  integrity sha512-9yyKkMTOrXSrtlXzL/caEK/QPPTpc7nefxae/7HDEh2/g8MxidS/mUSOVI9214DyY9sCPqjN4l/TvmifgC3cIg==
   dependencies:
     "@material-ui/core" "^4.12.2"
     "@navikt/ds-icons" "^0.5.2"
@@ -212,7 +212,7 @@
     react-merge-refs "^1.1.0"
     react-modal "3.12.1"
     react-popper "^2.2.4"
-    short-uuid "^4.2.0"
+    uuid "^8.3.2"
 
 "@navikt/nav-dekoratoren-moduler@^1.5.0":
   version "1.5.0"
@@ -489,11 +489,6 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   integrity sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==
   dependencies:
     color-convert "^2.0.1"
-
-any-base@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/any-base/-/any-base-1.1.0.tgz#ae101a62bc08a597b4c9ab5b7089d456630549fe"
-  integrity sha512-uMgjozySS8adZZYePpaWs8cxB9/kdzmpX6SgJZ+wbz1K5eYk5QMYDVJaZKhxyIHUdnnJkfR7SVgStgH7LkGUyg==
 
 anymatch@~3.1.1:
   version "3.1.2"
@@ -3356,14 +3351,6 @@ shell-quote@1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
-
-short-uuid@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/short-uuid/-/short-uuid-4.2.0.tgz#3706d9e7287ac589dc5ffe324d3e34817a07540b"
-  integrity sha512-r3cxuPPZSuF0QkKsK9bBR7u+7cwuCRzWzgjPh07F5N2iIUNgblnMHepBY16xgj5t1lG9iOP9k/TEafY1qhRzaw==
-  dependencies:
-    any-base "^1.1.0"
-    uuid "^8.3.2"
 
 side-channel@^1.0.4:
   version "1.0.4"

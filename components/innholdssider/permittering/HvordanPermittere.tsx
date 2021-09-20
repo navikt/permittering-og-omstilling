@@ -1,4 +1,4 @@
-import { Accordion, BodyShort, Label, Title } from "@navikt/ds-react";
+import { Accordion, BodyShort, Label, Heading } from "@navikt/ds-react";
 import Link from "next/link";
 import Container from "../../container/Container";
 
@@ -8,44 +8,50 @@ import { permitteringInnhold } from "./Permitteringsside";
 const HvordanPermittere = () => {
   return (
     <Container>
-      <Title spacing size="xl" id={permitteringInnhold.hvordanPermittere.anker}>
+      <Heading
+        spacing
+        size="xlarge"
+        id={permitteringInnhold.hvordanPermittere.anker}
+      >
         {permitteringInnhold.hvordanPermittere.tittel}
-      </Title>
-      <Title spacing size="s">
+      </Heading>
+      <Heading spacing size="small">
         1. Meld fra til NAV
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Skal du permittere ansatte melder du fra til NAV så tidlig som mulig.
       </BodyShort>
       <Link href="https://www.nav.no/soknader/nb/bedrift/permitteringer-oppsigelser-og-konkurs/masseoppsigelser">
         Meld ifra
       </Link>
-      <Title className={styles.stegTitle} spacing size="s">
+      <Heading className={styles.stegTitle} spacing size="small">
         2. Send permitteringsvarsel
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Du må varsle de ansatte som permitteres 14 dager på forhånd. Dette er
         hovedregelen. Når det skjer noe uforutsett, kan varselfristen være kun 2
         dager.
       </BodyShort>
-      <Accordion
-        className={styles.varselfristAccordion}
-        heading="Les mer om varselfrist"
-      >
-        <BodyShort spacing>
-          Permitteringsordningen er i hovedsak regulert i avtaleverk mellom
-          partene i arbeidslivet. Dere må gjøre en selvstendig vurdering på
-          arbeidsplassen om hva som er riktig varselfrist ut ifra deres avtaler
-          om arbeidsforholdet. Er dere ikke omfattet av egne avtaler er det
-          hovedavtalen LO NHO og arbeidsmiljøloven som gjelder.
-        </BodyShort>
-        <BodyShort>
-          Permitteringer som skyldes koronaviruset kan være forventet eller
-          uforutsett. En plutselig nedstengning som den vi har sett i enkelte
-          kommuner er et eksempel på hendelse som kan falle inn under
-          uforutsett. Vi oppfordrer til å begrunne grunnlaget for forkortet
-          frist på en god måte i permitteringsvarslet.
-        </BodyShort>
+      <Accordion className={styles.varselfristAccordion}>
+        <Accordion.Item>
+          <Accordion.Header>Les mer om varselfrist</Accordion.Header>
+          <Accordion.Content>
+            <BodyShort spacing>
+              Permitteringsordningen er i hovedsak regulert i avtaleverk mellom
+              partene i arbeidslivet. Dere må gjøre en selvstendig vurdering på
+              arbeidsplassen om hva som er riktig varselfrist ut ifra deres
+              avtaler om arbeidsforholdet. Er dere ikke omfattet av egne avtaler
+              er det hovedavtalen LO NHO og arbeidsmiljøloven som gjelder.
+            </BodyShort>
+            <BodyShort>
+              Permitteringer som skyldes koronaviruset kan være forventet eller
+              uforutsett. En plutselig nedstengning som den vi har sett i
+              enkelte kommuner er et eksempel på hendelse som kan falle inn
+              under uforutsett. Vi oppfordrer til å begrunne grunnlaget for
+              forkortet frist på en god måte i permitteringsvarslet.
+            </BodyShort>
+          </Accordion.Content>
+        </Accordion.Item>
       </Accordion>
       <BodyShort> Varselet må inneholde disse opplysningene:</BodyShort>
       <ul>
@@ -73,15 +79,15 @@ const HvordanPermittere = () => {
         </Link>{" "}
         hos Altinn.
       </BodyShort>
-      <Title className={styles.stegTitle} spacing size="s">
+      <Heading className={styles.stegTitle} spacing size="small">
         3. Du bør oppfordre de ansatte om å gjøre dette:
-      </Title>
+      </Heading>
       <Link href="https://www.nav.no/arbeid/no/permittert/">
         Les informasjon til permitterte.
       </Link>
-      <Title className={styles.stegTitle} spacing size="s">
+      <Heading className={styles.stegTitle} spacing size="small">
         4. Husk å rapportere permittering i a-meldingen
-      </Title>
+      </Heading>
       <Label>Hvordan rapporterer du?</Label>
       <BodyShort spacing>
         På Skatteetatens nettside finner du veiledning til{" "}
@@ -117,9 +123,9 @@ const HvordanPermittere = () => {
           lønnssystemleverandøren din for hjelp med utfyllingen i a-meldingen.
         </li>
       </ul>
-      <Title spacing size="s">
+      <Heading spacing size="small">
         Informasjonsfilm om permittering
-      </Title>
+      </Heading>
       <iframe
         src="https://player.vimeo.com/video/398208025?h=a21e1f79cb"
         width="100%"
