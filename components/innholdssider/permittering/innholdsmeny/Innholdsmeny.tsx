@@ -6,7 +6,7 @@ import { permitteringInnhold } from "../Permitteringsside";
 const Innholdsmeny = () => {
   return (
     <nav className={styles.innholdsmeny}>
-      <Title spacing size="s">
+      <Title size="s" className={styles.tittel}>
         Innhold på siden
       </Title>
       {Object.values(permitteringInnhold).map((innhold) => (

@@ -5,8 +5,17 @@
   flex-direction: column;
   background-color: var(--navds-color-white);
   align-self: flex-start;
+  padding: 1rem;
+  margin-right: 2rem;
+}
+
+.tittel {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 
 .lenke {
-  margin-bottom: 0.5rem;
+  border-top: 1px solid #eee;
+  padding: 1rem;
+  text-decoration-line: none;
 }
