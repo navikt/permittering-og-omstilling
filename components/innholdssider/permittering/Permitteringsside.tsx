@@ -33,29 +33,29 @@ export const permitteringInnhold = {
 
 const Permitteringsside: NextPage = () => {
   return (
-    <>
-      <PageHeader>Veiviser for permittering</PageHeader>
-      <div className={styles.container}>
-        <Innholdsmeny />
-        <div className={styles.innhold}>
-          <HvordanPermittere />
-          <Lonnsplikt />
-          <Permitteringsperioden />
-          <InfoTilAnsatte />
-          <VanligeSporsmal />
+      <>
+        <PageHeader className={styles.banner}>Veiviser for permittering</PageHeader>
+        <div className={styles.container}>
+          <Innholdsmeny />
+          <div className={styles.innhold}>
+            <HvordanPermittere />
+            <Lonnsplikt />
+            <Permitteringsperioden />
+            <InfoTilAnsatte />
+            <VanligeSporsmal />
+          </div>
         </div>
-      </div>
-    </>
+      </>
   );
 };
 
 export const ForelengePerioderAlert = () => {
   return (
-    <Alert variant="warning" className={styles.forlengeRegelverkAlert}>
-      Regjeringen har foreslått å forlenge dagpenge- og permitteringsperioder
-      som nærmer seg slutten frem til og med 31. oktober 2021. Vi oppdaterer
-      sidene så snart vi har mer informasjon.
-    </Alert>
+      <Alert variant="warning" className={styles.forlengeRegelverkAlert}>
+        Regjeringen har foreslått å forlenge dagpenge- og permitteringsperioder
+        som nærmer seg slutten frem til og med 31. oktober 2021. Vi oppdaterer
+        sidene så snart vi har mer informasjon.
+      </Alert>
   );
 };
 
