@@ -1,4 +1,4 @@
-import { Accordion, BodyShort, Title } from "@navikt/ds-react";
+import { Accordion, BodyShort, Heading } from "@navikt/ds-react";
 import styles from "./permittering.module.css";
 import Link from "next/link";
 import Container from "../../container/Container";
@@ -10,17 +10,17 @@ import {
 const Permitteringsperioden = () => {
   return (
     <Container>
-      <Title
+      <Heading
         spacing
-        size="xl"
+        size="xlarge"
         id={permitteringInnhold.permitteringsperioden.anker}
       >
         {permitteringInnhold.permitteringsperioden.tittel}
-      </Title>
+      </Heading>
 
-      <Title spacing size="s">
+      <Heading spacing size="small">
         Arbeid under permitteringen
-      </Title>
+      </Heading>
       <ForelengePerioderAlert />
       <BodyShort spacing>
         LO og NHO har avtalt nye permitteringsregler som vil gjelde i perioden
@@ -34,18 +34,29 @@ const Permitteringsperioden = () => {
         avtalen, derfor må du som arbeidsgiver selv ha oversikt over gjeldende
         avtale på din arbeidsplass.
       </BodyShort>
-      <Accordion heading="Regler for virksomheter som er omfattet av avtalen">
-        Den permitterte kan arbeide i inntil 10 uker uten at permitteringen
-        avbrytes. Hvis den ansatte er tilbake i sin vanlige stillingsstørrelse i
-        mer enn 10 uker sammenhengende, vil permitteringen regnes som avbrutt.
+      <Accordion>
+        <Accordion.Item>
+          <Accordion.Header>
+            Regler for virksomheter som er omfattet av avtalen
+          </Accordion.Header>
+          <Accordion.Content>
+            Den permitterte kan arbeide i inntil 10 uker uten at permitteringen
+            avbrytes. Hvis den ansatte er tilbake i sin vanlige
+            stillingsstørrelse i mer enn 10 uker sammenhengende, vil
+            permitteringen regnes som avbrutt.
+          </Accordion.Content>
+        </Accordion.Item>
       </Accordion>
-      <Accordion
-        heading="Regler for virksomheter som IKKE er omfattet av avtalen"
-        className={styles.ikkeOmfattetAvAvtalenAccordion}
-      >
-        Den permitterte kan arbeide i inntil 6 uker uten at permitteringen
-        avbrytes. Hvis den ansatte er tilbake i sin vanlige stillingsstørrelse i
-        mer enn 6 uker sammenhengende, vil permitteringen regnes som avbrutt.
+      <Accordion className={styles.ikkeOmfattetAvAvtalenAccordion}>
+        <Accordion.Item>
+          <Accordion.Header>Du må varsle de ansatte</Accordion.Header>
+          <Accordion.Content>
+            Den permitterte kan arbeide i inntil 6 uker uten at permitteringen
+            avbrytes. Hvis den ansatte er tilbake i sin vanlige
+            stillingsstørrelse i mer enn 6 uker sammenhengende, vil
+            permitteringen regnes som avbrutt.
+          </Accordion.Content>
+        </Accordion.Item>
       </Accordion>
       <BodyShort spacing>
         Merk at{" "}
@@ -71,18 +82,18 @@ const Permitteringsperioden = () => {
         gjelder egne regler.
       </BodyShort>
 
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Sykefravær under permitteringen
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Permitteringen avbrytes ikke av sykefravær. Men ved sykefravær i hele
         stillingen skal fraværsperioden holdes utenfor når en teller antall
         permitteringsuker arbeidsgiver har vært fritatt fra lønnsplikt.
       </BodyShort>
 
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Forlenge permitteringen
-      </Title>
+      </Heading>
       <BodyShort spacing>
         En permittering som løper, kan forlenges. Men du kan bare forlenge
         innenfor maksimal permitteringsperiode på 49 uker innenfor de siste 18
@@ -107,9 +118,9 @@ const Permitteringsperioden = () => {
         </Link>
       </BodyShort>
 
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Avbryte permitteringen
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Permitteringen kan avbrytes når som helst, uavhengig av varigheten som
         ble oppgitt i varslet. Den som er permittert må selv melde fra til NAV
@@ -142,9 +153,9 @@ const Permitteringsperioden = () => {
         <li>Oppsigelse er gitt til den permitterte</li>
       </ul>
 
-      <Title spacing size="s" className={styles.stegTitle}>
+      <Heading spacing size="small" className={styles.stegTitle}>
         Oppsigelse under permittering
-      </Title>
+      </Heading>
       <BodyShort spacing>
         Ved oppsigelse avsluttes permitteringen umiddelbart. Du må betale lønn
         fra dagen oppsigelsen gis og ut oppsigelsestiden.
