@@ -8,7 +8,7 @@ import Container from "../../container/Container";
 const OppsigelsesSide: NextPage = () => {
     return (
         <>
-            <Header description="Ved oppsigelse er det vanlig at NAV samhandler med arbeidsgiver og gir bistand til berørte arbeidstakere">
+            <Header className={styles.banner} description="Ved oppsigelse er det vanlig at NAV samhandler med arbeidsgiver og gir bistand til berørte arbeidstakere">
                 Oppsigelse
             </Header>
             <div className={styles.container}>

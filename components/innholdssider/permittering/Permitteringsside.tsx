@@ -34,7 +34,7 @@ export const permitteringInnhold = {
 const Permitteringsside: NextPage = () => {
   return (
     <>
-      <Header>Veiviser for permittering</Header>
+      <Header className={styles.banner} >Veiviser for permittering</Header>
       <div className={styles.container}>
         <Innholdsmeny />
         <div className={styles.innhold}>

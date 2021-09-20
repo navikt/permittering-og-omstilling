@@ -1,19 +1,23 @@
 import type { NextPage } from "next";
 import "@navikt/ds-css";
-import {LinkPanel} from "@navikt/ds-react";
+import {Header, LinkPanel} from "@navikt/ds-react";
 import Container from "../components/container/Container";
 import styles from './index.module.css'
 
 const Home: NextPage = () => {
   return (
+      <>
+      <Header className={styles.banner} description={'permittering, omstilling og nedbemanning'}>Forside</Header>
       <div className={styles.container}>
     <Container>
-
-      <LinkPanel href={"permittering-og-omstilling" + "/permittering"}>Veiviser for permittering</LinkPanel>
-      <LinkPanel href={"permittering-og-omstilling" + "/omstilling"}>Omstilling og nedbemanning </LinkPanel>
-      <LinkPanel href={"permittering-og-omstilling" + "/oppsigelse"}>Oppsigelse</LinkPanel>
+      <div className={styles.lenkepanelContainer}>
+      <LinkPanel className={styles.navdsPanel} href={"permittering-og-omstilling" + "/permittering"}>Veiviser for permittering</LinkPanel>
+      <LinkPanel className={styles.navdsPanel} href={"permittering-og-omstilling" + "/omstilling"}>Omstilling og nedbemanning </LinkPanel>
+      <LinkPanel className={styles.navdsPanel} href={"permittering-og-omstilling" + "/oppsigelse"}>Oppsigelse</LinkPanel>
+        </div>
     </Container>
           </div>
+        </>
   );
 };
 

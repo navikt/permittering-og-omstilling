@@ -2,4 +2,21 @@
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+
+}
+
+.navdsPanel {
+    display: flex;
+    justify-self: flex-start;
+    margin-top: 1.5rem;
+    max-width: 30rem;
+}
+
+.lenkepanelContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.banner {
+     background-color: var(--navds-color-blue-10);
 }
