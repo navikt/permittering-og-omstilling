@@ -1,4 +1,4 @@
-import { Accordion, BodyShort, Heading } from "@navikt/ds-react";
+import {Accordion, BodyShort, Heading, PageHeader} from "@navikt/ds-react";
 import styles from "./permittering.module.css";
 import Link from "next/link";
 import Container from "../../container/Container";
@@ -7,16 +7,15 @@ import {
   permitteringInnhold,
 } from "./Permitteringsside";
 
+<PageHeader className={styles.banner}>Veiviser for permittering</PageHeader>
 const Permitteringsperioden = () => {
   return (
     <Container>
-      <Heading
-        spacing
-        size="xlarge"
+      <PageHeader className={styles.header}
         id={permitteringInnhold.permitteringsperioden.anker}
       >
         {permitteringInnhold.permitteringsperioden.tittel}
-      </Heading>
+      </PageHeader>
 
       <Heading spacing size="small">
         Arbeid under permitteringen

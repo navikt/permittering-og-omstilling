@@ -19,7 +19,7 @@ import styles from "./omstilling.module.css";
 const OmstillingsSide: NextPage = () => {
   return (
     <div>
-      <PageHeader description="NAV samarbeider med virksomheter i omstilling der mange ansatte mister - eller står i fare for - å miste jobben.">
+      <PageHeader className={styles.banner} description="NAV samarbeider med virksomheter i omstilling der mange ansatte mister - eller står i fare for - å miste jobben.">
         Omstilling og nedbemanning
       </PageHeader>
       <ContentContainer>

@@ -1,13 +1,13 @@
 import type { NextPage } from "next";
 import "@navikt/ds-css";
-import {Header, LinkPanel} from "@navikt/ds-react";
+import { LinkPanel, PageHeader} from "@navikt/ds-react";
 import Container from "../components/container/Container";
 import styles from './index.module.css'
 
 const Home: NextPage = () => {
   return (
       <>
-      <Header className={styles.banner} description={'permittering, omstilling og nedbemanning'}>Forside</Header>
+          <PageHeader className={styles.banner}>Veiviser for permittering</PageHeader>
       <div className={styles.container}>
     <Container>
       <div className={styles.lenkepanelContainer}>
