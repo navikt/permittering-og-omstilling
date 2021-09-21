@@ -1,12 +1,12 @@
-import type { NextPage } from "next";
 import { Alert, PageHeader } from "@navikt/ds-react";
 import HvordanPermittere from "./HvordanPermittere";
 import Lonnsplikt from "./Lonnsplikt";
 import Permitteringsperioden from "./Permitteringsperioden";
 import InfoTilAnsatte from "./InfoTilAnsatte";
-import VanligeSporsmal from "./VanligeSporsmal";
+import VanligeSporsmal, { VanligSpørsmål } from "./VanligeSporsmal";
 import styles from "./permittering.module.css";
 import Innholdsmeny from "./innholdsmeny/Innholdsmeny";
+import { FunctionComponent } from "react";
 
 export const permitteringInnhold = {
   hvordanPermittere: {
@@ -31,21 +31,31 @@ export const permitteringInnhold = {
   },
 };
 
-const Permitteringsside: NextPage = () => {
+type Props = {
+  vanligeSpørsmål: VanligSpørsmål[];
+};
+
+const Permitteringsside: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
   return (
-      <>
-        <PageHeader className={styles.banner}>Veiviser for permittering</PageHeader>
-        <div className={styles.container}>
-          <Innholdsmeny />
-          <div className={styles.innhold}>
-            <HvordanPermittere />
-            <Lonnsplikt />
-            <Permitteringsperioden />
-            <InfoTilAnsatte />
-            <VanligeSporsmal />
-          </div>
+    <>
+      <PageHeader className={styles.banner}>Veiviser for permittering</PageHeader>
+      <div className={styles.container}>
+        <Innholdsmeny />
+        <div className={styles.innhold}>
+          <HvordanPermittere />
+          <Lonnsplikt />
+          <Permitteringsperioden />
+          <InfoTilAnsatte />
+          {vanligeSpørsmål.map((vanligSpørsmål) => (
+            <VanligeSporsmal
+              sporsmal={vanligSpørsmål.sporsmal}
+              svar={vanligSpørsmål.svar}
+              key={vanligSpørsmål.sporsmal}
+            />
+          ))}
         </div>
-      </>
+      </div>
+    </>
   );
 };
 
