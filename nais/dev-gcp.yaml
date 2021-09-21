@@ -24,6 +24,7 @@ spec:
     outbound:
       external:
         - host: dekoratoren.dev.nav.no
+        - host: utwe983u.api.sanity.io
   envFrom:
     - secret: permittering-og-omstilling-secrets
   env:
