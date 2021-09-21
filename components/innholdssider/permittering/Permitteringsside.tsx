@@ -38,7 +38,7 @@ type Props = {
 const Permitteringsside: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
   return (
     <>
-      <PageHeader>Veiviser for permittering</PageHeader>
+      <PageHeader className={styles.banner}>Veiviser for permittering</PageHeader>
       <div className={styles.container}>
         <Innholdsmeny />
         <div className={styles.innhold}>
@@ -61,11 +61,11 @@ const Permitteringsside: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
 
 export const ForelengePerioderAlert = () => {
   return (
-    <Alert variant="warning" className={styles.forlengeRegelverkAlert}>
-      Regjeringen har foreslått å forlenge dagpenge- og permitteringsperioder
-      som nærmer seg slutten frem til og med 31. oktober 2021. Vi oppdaterer
-      sidene så snart vi har mer informasjon.
-    </Alert>
+      <Alert variant="warning" className={styles.forlengeRegelverkAlert}>
+        Regjeringen har foreslått å forlenge dagpenge- og permitteringsperioder
+        som nærmer seg slutten frem til og med 31. oktober 2021. Vi oppdaterer
+        sidene så snart vi har mer informasjon.
+      </Alert>
   );
 };
 
