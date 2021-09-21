@@ -9,4 +9,6 @@ const config = {
   useCdn: false,
 };
 
+console.log("id?", process.env.SANITY_PROJECT_ID);
+
 export const sanityClient = createClient(config);
