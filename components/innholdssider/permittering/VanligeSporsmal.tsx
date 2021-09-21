@@ -3,10 +3,12 @@ import styles from "./permittering.module.css";
 import Link from "next/link";
 import Container from "../../container/Container";
 import { permitteringInnhold } from "./Permitteringsside";
+import BlockContent from '@sanity/block-content-to-react'
 
-const VanligeSporsmal = () => {
+const VanligeSporsmal = (props: any) => {
   return (
     <Container>
+      <BlockContent blocks={props.vanligeSporsmal[0].svar} />
       <Heading
         spacing
         size="xlarge"

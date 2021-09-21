@@ -31,7 +31,8 @@ export const permitteringInnhold = {
   },
 };
 
-const Permitteringsside: NextPage = () => {
+const Permitteringsside: NextPage = (props) => {
+  console.log("props", props)
   return (
     <>
       <PageHeader>Veiviser for permittering</PageHeader>
@@ -42,7 +43,7 @@ const Permitteringsside: NextPage = () => {
           <Lonnsplikt />
           <Permitteringsperioden />
           <InfoTilAnsatte />
-          <VanligeSporsmal />
+          <VanligeSporsmal {...props}/>
         </div>
       </div>
     </>
