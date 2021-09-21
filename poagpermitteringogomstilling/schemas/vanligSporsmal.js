@@ -11,7 +11,8 @@ export default {
         {
             title: "Svar",
             name: "svar",
-            type: "string"
+            type: 'array',
+            of: [{type: 'block'}]
         }
     ]
 }
