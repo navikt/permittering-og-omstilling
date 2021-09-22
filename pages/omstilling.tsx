@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
-import type { GetServerSideProps, GetServerSidePropsResult, NextPage } from "next";
+import type { GetServerSideProps, GetServerSidePropsResult, GetStaticProps, GetStaticPropsResult, NextPage } from "next";
 import OmstillingsSide from "../components/innholdssider/omstilling/Omstillingsside";
 import { sanityClient } from "../sanity/sanity";
 import { TemaInnhold } from "../components/innholdssider/TemaInnhold";
@@ -28,7 +28,7 @@ const Omstilling: NextPage<Props> = (props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (): Promise<GetServerSidePropsResult<Props>> => {
+export const getStaticProps: GetStaticProps = async (): Promise<GetStaticPropsResult<Props>> => {
   const query = '*[_type == "temainnhold" && tema->tema == "Omstilling"]';
   const relatertInnholdQuery = '*[_type == "relatertinnhold" && tema->tema == "Omstilling"]';
 
@@ -50,7 +50,8 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<GetServe
     props: { 
       omstillingInnhold: omstillingInnhold,
       relatertInnhold: relatertInnhold
-    }
+    },
+    revalidate: 60
   };
 }
 
