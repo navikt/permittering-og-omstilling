@@ -1,16 +1,14 @@
 import React, { useEffect } from "react";
 import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
 import type { GetServerSideProps, GetServerSidePropsResult, NextPage } from "next";
-
 import OmstillingsSide from "../components/innholdssider/omstilling/Omstillingsside";
-
-import { RelatertInnhold } from "../components/innholdssider/RelatertInnhold";
 import { sanityClient } from "../sanity/sanity";
 import { TemaInnhold } from "../components/innholdssider/TemaInnhold";
-import { attributesToProps } from "html-react-parser";
+import { RelatertInnhold } from "../components/innholdssider/RelatertInnhold";
 
 type Props = {
   omstillingInnhold: TemaInnhold[];
+  relatertInnhold: RelatertInnhold[];
 }
 
 const Omstilling: NextPage<Props> = (props) => {
@@ -26,21 +24,36 @@ const Omstilling: NextPage<Props> = (props) => {
     });
   });
   return (
-    <OmstillingsSide omstillingInnhold={props.omstillingInnhold}/>
+    <OmstillingsSide omstillingInnhold={props.omstillingInnhold} relatertInnhold={props.relatertInnhold}/>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async (): Promise<GetServerSidePropsResult<Props>> => {
   const query = '*[_type == "temainnhold" && tema->tema == "Omstilling"]';
-  const response = await sanityClient.fetch(query);
+  const relatertInnholdQuery = '*[_type == "relatertinnhold" && tema->tema == "Omstilling"]';
 
-  const omstillingInnhold: TemaInnhold[] = response.map((innhold: any) => ({
+  const innholdResponse = await sanityClient.fetch(query);
+  const relatertInnholdResponse = await sanityClient.fetch(relatertInnholdQuery);
+
+  const omstillingInnhold: TemaInnhold[] = innholdResponse.map((innhold: any) => ({
     tittel: innhold.tittel,
     ingress: innhold.ingress,
     innhold: innhold.innhold
   }));
 
-  return { props: { omstillingInnhold: omstillingInnhold } };
+  const relatertInnhold: RelatertInnhold[] = relatertInnholdResponse.map((innhold: any) => ({
+    navn: innhold.navn,
+    lenke: innhold.lenke
+  }));
+
+  console.log("relatert", relatertInnhold)
+
+  return {
+    props: { 
+      omstillingInnhold: omstillingInnhold,
+      relatertInnhold: relatertInnhold
+    }
+  };
 }
 
 export default Omstilling;

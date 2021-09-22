@@ -13,15 +13,17 @@ import {
   Heading,
 } from "@navikt/ds-react";
 import Container from "../../container/Container";
-import RelatertInnhold from "./RelatertInnhold";
+import { RelatertInnhold } from "../RelatertInnhold";
 import styles from "./omstilling.module.css";
 import { TemaInnhold } from "../TemaInnhold";
+import TemaRelatertInnhold from "./TemaRelatertInnhold";
 
 type Props = {
   omstillingInnhold: TemaInnhold[];
+  relatertInnhold: RelatertInnhold[];
 }
 
-const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold} ) => {
+const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold, relatertInnhold} ) => {
   return (
     <div>
       <PageHeader className={styles.banner} description="NAV samarbeider med virksomheter i omstilling der mange ansatte mister - eller står i fare for - å miste jobben.">
@@ -53,7 +55,7 @@ const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold} ) => {
             </Container>
           </Cell>
           <Cell className={"navds-story-cell"} xs={12} sm={6} lg={4}>
-            <RelatertInnhold />
+            <TemaRelatertInnhold relatertInnhold={relatertInnhold} />
           </Cell>
         </Grid>
       </ContentContainer>
