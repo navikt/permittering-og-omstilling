@@ -13,7 +13,7 @@ const TemaRelatertInnhold: FunctionComponent<Props> = ( {relatertInnhold} ) => {
           <Accordion.Header>Relatert innhold</Accordion.Header>
           <Accordion.Content>
             {relatertInnhold.map((innhold) => (
-              <BodyShort><Link href={innhold.lenke}>{innhold.navn}</Link></BodyShort>
+              <BodyShort key={innhold.navn}><Link href={innhold.lenke}>{innhold.navn}</Link></BodyShort>
             ))}
           </Accordion.Content>
         </Accordion.Item>

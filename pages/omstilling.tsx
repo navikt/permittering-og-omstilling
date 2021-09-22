@@ -46,8 +46,6 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<GetServe
     lenke: innhold.lenke
   }));
 
-  console.log("relatert", relatertInnhold)
-
   return {
     props: { 
       omstillingInnhold: omstillingInnhold,

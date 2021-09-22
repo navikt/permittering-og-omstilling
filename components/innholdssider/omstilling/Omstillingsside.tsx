@@ -34,9 +34,7 @@ const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold, relatert
           <Cell className={"navds-story-cell"} xs={12} sm={6} lg={8}>
             <Container>
               {omstillingInnhold.map((innhold) => (
-                <div>
-                  <BlockContent blocks={innhold.innhold} />
-                </div>
+                  <BlockContent blocks={innhold.innhold} key={innhold.tittel}/>
               ))}
               <Alert variant="info" className={styles.forlengeRegelverkAlert}>
                 <Heading spacing size="medium">
