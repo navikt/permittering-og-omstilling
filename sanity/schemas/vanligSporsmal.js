@@ -13,6 +13,12 @@ export default {
             name: "svar",
             type: 'array',
             of: [{type: 'block'}]
+        },
+        {
+            title: "Tema",
+            name: "tema",
+            type: "reference",
+            to: [{type: "tema"}]
         }
     ]
 }
