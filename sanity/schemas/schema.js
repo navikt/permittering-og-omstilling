@@ -7,6 +7,8 @@ import vanligSporsmal from './vanligSporsmal'
 import relatertInnhold from './relatertInnhold'
 import tema from './tema'
 import temainnhold from './temainnhold'
+import stegForSteg from "./stegForSteg";
+import steg from "./steg";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -16,8 +18,10 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     relatertInnhold,
+    steg,
+    stegForSteg,
     tema,
     temainnhold,
-    vanligSporsmal
+    vanligSporsmal,
   ]),
 })
