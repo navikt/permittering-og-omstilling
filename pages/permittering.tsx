@@ -3,6 +3,8 @@ import type {
   GetServerSidePropsResult,
   NextPage,
 } from "next";
+import React, { useEffect } from "react";
+import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
 import Permitteringsside, {
   PermitteringssideProps,
 } from "../components/innholdssider/permittering/Permitteringsside";
@@ -14,6 +16,17 @@ import { InfoTilAnsatteProps } from "../components/innholdssider/permittering/In
 import { PermitteringsperiodenProps } from "../components/innholdssider/permittering/Permitteringsperioden";
 
 const Permittering: NextPage<PermitteringssideProps> = (props) => {
+  useEffect(() => {
+    setBreadcrumbs([
+      {
+        title: "Permittering og omstilling",
+        url: "/permittering-og-omstilling",
+      },
+      { title: "Permittering", url: location.pathname },
+    ]).catch(() => {
+      console.error("klarte ikke å oppdatere breadcrumbs");
+    });
+  });
   return <Permitteringsside {...props} />;
 };
 

@@ -1,9 +1,10 @@
 import type { GetServerSideProps, GetServerSidePropsResult, NextPage } from "next";
 import { sanityClient } from "../sanity/sanity";
-import React from "react";
+import React, { useEffect } from "react";
 import OppsigelsesSide from "../components/innholdssider/oppsigelse/OppsigelsesSide";
 import { TemaInnhold } from "../components/innholdssider/TemaInnhold";
 import { RelatertInnhold } from "../components/innholdssider/RelatertInnhold";
+import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
 
 type Props = {
   oppsigelsesInnhold: TemaInnhold[];
@@ -11,6 +12,17 @@ type Props = {
 };
 
 const Oppsigelse: NextPage<Props> = (props) => {
+  useEffect(() => {
+    setBreadcrumbs([
+      {
+        title: "Permittering og omstilling",
+        url: "/permittering-og-omstilling",
+      },
+      { title: "Oppsigelse", url: location.pathname },
+    ]).catch(() => {
+      console.error("klarte ikke å oppdatere breadcrumbs");
+    });
+  });
   return (
       <OppsigelsesSide
         oppsigelsesInnhold={props.oppsigelsesInnhold}
