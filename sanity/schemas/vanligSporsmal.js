@@ -1,6 +1,6 @@
 export default {
     title: "Vanlig spørsmål",
-    name: "vanligsporsmal",
+    name: "vanligSporsmal",
     type: "document",
     fields: [
         {
