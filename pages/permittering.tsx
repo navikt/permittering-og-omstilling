@@ -11,6 +11,7 @@ import { HvordanPermittereProps } from "../components/innholdssider/permittering
 import { VanligSpørsmålType } from "../components/innholdssider/permittering/VanligeSpørsmål/VanligSpørsmål";
 import { LønnspliktProps } from "../components/innholdssider/permittering/Lønnsplikt";
 import { InfoTilAnsatteProps } from "../components/innholdssider/permittering/InfoTilAnsatte";
+import { PermitteringsperiodenProps } from "../components/innholdssider/permittering/Permitteringsperioden";
 
 const Permittering: NextPage<PermitteringssideProps> = (props) => {
   return <Permitteringsside {...props} />;
@@ -28,6 +29,7 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
       "nyePermitteringsregler": *[id == "nyePermitteringsregler"],
       "forlengeDagpengeperioder": *[id == "forlengeDagpengeperioder"],
       "infoTilAnsatte": *[id == "infoTilAnsatte"],
+      "permitteringsperioden": *[id == "permitteringsperioden"],
     }
   `;
 
@@ -68,12 +70,18 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
     innhold: response[0].infoTilAnsatte[0].innhold,
   };
 
+  const permitteringsperioden: PermitteringsperiodenProps = {
+    tittel: response[0].permitteringsperioden[0].tittel,
+    innhold: response[0].permitteringsperioden[0].innhold,
+  };
+
   return {
     props: {
       vanligeSpørsmål: vanligeSpørsmål,
       hvordanPermittere: hvordanPermittereAnsatte,
       lønnsplikt: lønnsplikt,
       infoTilAnsatte: infoTilAnsatte,
+      permitteringsperioden: permitteringsperioden,
     },
   };
 };

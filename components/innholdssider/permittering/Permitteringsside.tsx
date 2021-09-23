@@ -3,7 +3,9 @@ import HvordanPermittere, {
   HvordanPermittereProps,
 } from "./HvordanPermittere/HvordanPermittere";
 import Lønnsplikt, { LønnspliktProps } from "./Lønnsplikt";
-import Permitteringsperioden from "./Permitteringsperioden";
+import Permitteringsperioden, {
+  PermitteringsperiodenProps,
+} from "./Permitteringsperioden";
 import InfoTilAnsatte, { InfoTilAnsatteProps } from "./InfoTilAnsatte";
 import styles from "./permittering.module.css";
 import Innholdsmeny from "./innholdsmeny/Innholdsmeny";
@@ -39,6 +41,7 @@ export type PermitteringssideProps = {
   hvordanPermittere: HvordanPermittereProps;
   lønnsplikt: LønnspliktProps;
   infoTilAnsatte: InfoTilAnsatteProps;
+  permitteringsperioden: PermitteringsperiodenProps;
 };
 
 const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
@@ -46,6 +49,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   hvordanPermittere,
   lønnsplikt,
   infoTilAnsatte,
+  permitteringsperioden,
 }) => {
   return (
     <>
@@ -57,7 +61,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
         <div className={styles.innhold}>
           <HvordanPermittere {...hvordanPermittere} />
           <Lønnsplikt {...lønnsplikt} />
-          <Permitteringsperioden />
+          <Permitteringsperioden {...permitteringsperioden} />
           <InfoTilAnsatte {...infoTilAnsatte} />
           <VanligeSporsmal vanligeSpørsmål={vanligeSpørsmål} />
         </div>
