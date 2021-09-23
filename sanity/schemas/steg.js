@@ -1,7 +1,7 @@
 export default {
   title: "Steg",
   name: "steg",
-  type: "document",
+  type: "object",
   fields: [
     {
       title: "Steg",

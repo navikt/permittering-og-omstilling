@@ -1,12 +1,12 @@
 export default {
-    title: "Tema/Område",
-    name: "tema",
-    type: "document",
-    fields: [
-        {
-            title: "Tema",
-            name: "tema",
-            type: "string"
-        }
-    ]
-}
+  title: "Tema/Område",
+  name: "tema",
+  type: "object",
+  fields: [
+    {
+      title: "Tema",
+      name: "tema",
+      type: "string",
+    },
+  ],
+};
