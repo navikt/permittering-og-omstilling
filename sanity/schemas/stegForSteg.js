@@ -1,6 +1,6 @@
 export default {
   title: "Steg for steg",
-  name: "stegforsteg",
+  name: "stegForSteg",
   type: "document",
   fields: [
     {
