@@ -1,4 +1,4 @@
-import { Heading } from "@navikt/ds-react";
+import { Button, Heading } from "@navikt/ds-react";
 import Container from "../../../container/Container";
 import { permitteringInnhold } from "../Permitteringsside";
 import { FunctionComponent } from "react";

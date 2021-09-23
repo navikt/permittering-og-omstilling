@@ -1,11 +1,16 @@
 export default {
-  title: "Steg",
-  name: "steg",
+  title: "Infofelt",
+  name: "infofelt",
   type: "document",
   fields: [
     {
-      title: "Steg",
-      name: "steg",
+      title: "Tittel",
+      name: "tittel",
+      type: "string",
+    },
+    {
+      title: "ID",
+      name: "id",
       type: "string",
     },
     {
@@ -13,12 +18,6 @@ export default {
       name: "beskrivelse",
       type: "array",
       of: [{ type: "block" }],
-    },
-    {
-      title: "Tema",
-      name: "tema",
-      type: "reference",
-      to: [{ type: "tema" }],
     },
   ],
 };

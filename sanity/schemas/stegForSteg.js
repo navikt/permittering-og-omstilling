@@ -9,6 +9,11 @@ export default {
       type: "string",
     },
     {
+      title: "ID",
+      name: "id",
+      type: "string",
+    },
+    {
       type: "array",
       name: "steg",
       of: [

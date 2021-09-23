@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
-import type { GetServerSideProps, GetServerSidePropsResult, GetStaticProps, GetStaticPropsResult, NextPage } from "next";
+import {
+  GetServerSideProps,
+  GetServerSidePropsResult,
+  GetStaticProps,
+  GetStaticPropsResult,
+  NextPage,
+} from "next";
 import OmstillingsSide from "../components/innholdssider/omstilling/Omstillingsside";
 import { sanityClient } from "../sanity/sanity";
 import { TemaInnhold } from "../components/innholdssider/TemaInnhold";
@@ -9,7 +15,7 @@ import { RelatertInnhold } from "../components/innholdssider/RelatertInnhold";
 type Props = {
   omstillingInnhold: TemaInnhold[];
   relatertInnhold: RelatertInnhold[];
-}
+};
 
 const Omstilling: NextPage<Props> = (props) => {
   useEffect(() => {
@@ -24,35 +30,47 @@ const Omstilling: NextPage<Props> = (props) => {
     });
   });
   return (
-    <OmstillingsSide omstillingInnhold={props.omstillingInnhold} relatertInnhold={props.relatertInnhold}/>
+    <OmstillingsSide
+      omstillingInnhold={props.omstillingInnhold}
+      relatertInnhold={props.relatertInnhold}
+    />
   );
 };
 
-export const getStaticProps: GetStaticProps = async (): Promise<GetStaticPropsResult<Props>> => {
+export const getStaticProps: GetStaticProps = async (): Promise<
+  GetStaticPropsResult<Props>
+> => {
   const query = '*[_type == "temainnhold" && tema->tema == "Omstilling"]';
-  const relatertInnholdQuery = '*[_type == "relatertinnhold" && tema->tema == "Omstilling"]';
+  const relatertInnholdQuery =
+    '*[_type == "relatertinnhold" && tema->tema == "Omstilling"]';
 
   const innholdResponse = await sanityClient.fetch(query);
-  const relatertInnholdResponse = await sanityClient.fetch(relatertInnholdQuery);
+  const relatertInnholdResponse = await sanityClient.fetch(
+    relatertInnholdQuery
+  );
 
-  const omstillingInnhold: TemaInnhold[] = innholdResponse.map((innhold: any) => ({
-    tittel: innhold.tittel,
-    ingress: innhold.ingress,
-    innhold: innhold.innhold
-  }));
+  const omstillingInnhold: TemaInnhold[] = innholdResponse.map(
+    (innhold: any) => ({
+      tittel: innhold.tittel,
+      ingress: innhold.ingress,
+      innhold: innhold.innhold,
+    })
+  );
 
-  const relatertInnhold: RelatertInnhold[] = relatertInnholdResponse.map((innhold: any) => ({
-    navn: innhold.navn,
-    lenke: innhold.lenke
-  }));
+  const relatertInnhold: RelatertInnhold[] = relatertInnholdResponse.map(
+    (innhold: any) => ({
+      navn: innhold.navn,
+      lenke: innhold.lenke,
+    })
+  );
 
   return {
-    props: { 
+    props: {
       omstillingInnhold: omstillingInnhold,
-      relatertInnhold: relatertInnhold
+      relatertInnhold: relatertInnhold,
     },
-    revalidate: 60
+    revalidate: 60,
   };
-}
+};
 
 export default Omstilling;
