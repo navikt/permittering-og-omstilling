@@ -1,14 +1,13 @@
-import { BodyShort, Heading } from "@navikt/ds-react";
-import styles from "./permittering.module.css";
-import Link from "next/link";
+import { Heading } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { permitteringInnhold } from "./Permitteringsside";
 import BlockContent from "@sanity/block-content-to-react";
 import { FunctionComponent } from "react";
+import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 
 export type VanligSpørsmål = {
   sporsmal: string;
-  svar: any;
+  svar: SanityBlockContent;
 };
 
 const VanligeSporsmal: FunctionComponent<VanligSpørsmål> = ({

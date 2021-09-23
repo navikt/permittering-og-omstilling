@@ -1,5 +1,7 @@
 import { Alert, PageHeader } from "@navikt/ds-react";
-import HvordanPermittere from "./HvordanPermittere";
+import HvordanPermittere, {
+  HvordanPermittereProps,
+} from "./HvordanPermittere/HvordanPermittere";
 import Lonnsplikt from "./Lonnsplikt";
 import Permitteringsperioden from "./Permitteringsperioden";
 import InfoTilAnsatte from "./InfoTilAnsatte";
@@ -31,18 +33,24 @@ export const permitteringInnhold = {
   },
 };
 
-type Props = {
+export type PermitteringssideProps = {
   vanligeSpørsmål: VanligSpørsmål[];
+  hvordanPermittere: HvordanPermittereProps;
 };
 
-const Permitteringsside: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
+const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
+  vanligeSpørsmål,
+  hvordanPermittere,
+}) => {
   return (
     <>
-      <PageHeader className={styles.banner}>Veiviser for permittering</PageHeader>
+      <PageHeader className={styles.banner}>
+        Veiviser for permittering
+      </PageHeader>
       <div className={styles.container}>
         <Innholdsmeny />
         <div className={styles.innhold}>
-          <HvordanPermittere />
+          <HvordanPermittere {...hvordanPermittere} />
           <Lonnsplikt />
           <Permitteringsperioden />
           <InfoTilAnsatte />
@@ -61,11 +69,11 @@ const Permitteringsside: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
 
 export const ForelengePerioderAlert = () => {
   return (
-      <Alert variant="warning" className={styles.forlengeRegelverkAlert}>
-        Regjeringen har foreslått å forlenge dagpenge- og permitteringsperioder
-        som nærmer seg slutten frem til og med 31. oktober 2021. Vi oppdaterer
-        sidene så snart vi har mer informasjon.
-      </Alert>
+    <Alert variant="warning" className={styles.forlengeRegelverkAlert}>
+      Regjeringen har foreslått å forlenge dagpenge- og permitteringsperioder
+      som nærmer seg slutten frem til og med 31. oktober 2021. Vi oppdaterer
+      sidene så snart vi har mer informasjon.
+    </Alert>
   );
 };
 
