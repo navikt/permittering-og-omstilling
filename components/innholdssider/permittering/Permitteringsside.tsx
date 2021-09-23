@@ -5,10 +5,11 @@ import HvordanPermittere, {
 import Lonnsplikt from "./Lonnsplikt";
 import Permitteringsperioden from "./Permitteringsperioden";
 import InfoTilAnsatte from "./InfoTilAnsatte";
-import VanligeSporsmal, { VanligSpørsmål } from "./VanligeSporsmal";
 import styles from "./permittering.module.css";
 import Innholdsmeny from "./innholdsmeny/Innholdsmeny";
 import { FunctionComponent } from "react";
+import { VanligSpørsmålType } from "./VanligeSpørsmål/VanligSpørsmål";
+import VanligeSporsmal from "./VanligeSpørsmål/VanligeSporsmal";
 
 export const permitteringInnhold = {
   hvordanPermittere: {
@@ -34,7 +35,7 @@ export const permitteringInnhold = {
 };
 
 export type PermitteringssideProps = {
-  vanligeSpørsmål: VanligSpørsmål[];
+  vanligeSpørsmål: VanligSpørsmålType[];
   hvordanPermittere: HvordanPermittereProps;
 };
 
@@ -54,13 +55,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
           <Lonnsplikt />
           <Permitteringsperioden />
           <InfoTilAnsatte />
-          {vanligeSpørsmål.map((vanligSpørsmål) => (
-            <VanligeSporsmal
-              sporsmal={vanligSpørsmål.sporsmal}
-              svar={vanligSpørsmål.svar}
-              key={vanligSpørsmål.sporsmal}
-            />
-          ))}
+          <VanligeSporsmal vanligeSpørsmål={vanligeSpørsmål} />
         </div>
       </div>
     </>

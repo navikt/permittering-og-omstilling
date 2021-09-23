@@ -7,7 +7,7 @@ import Permitteringsside, {
   PermitteringssideProps,
 } from "../components/innholdssider/permittering/Permitteringsside";
 import { sanityClient } from "../sanity/sanity";
-import { VanligSpørsmål } from "../components/innholdssider/permittering/VanligeSporsmal";
+import { VanligSpørsmål } from "../components/innholdssider/permittering/VanligeSpørsmål/VanligeSporsmal";
 import { HvordanPermittereProps } from "../components/innholdssider/permittering/HvordanPermittere/HvordanPermittere";
 
 const Permittering: NextPage<PermitteringssideProps> = (props) => {
