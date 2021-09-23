@@ -1,4 +1,4 @@
-import { Accordion, Button, Heading } from "@navikt/ds-react";
+import { Accordion, BodyShort, Button, Heading } from "@navikt/ds-react";
 import Container from "../../../container/Container";
 import { permitteringInnhold } from "../Permitteringsside";
 import { FunctionComponent } from "react";

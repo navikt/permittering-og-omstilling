@@ -7,8 +7,9 @@ import Permitteringsside, {
   PermitteringssideProps,
 } from "../components/innholdssider/permittering/Permitteringsside";
 import { sanityClient } from "../sanity/sanity";
-import { VanligSpørsmål } from "../components/innholdssider/permittering/VanligeSpørsmål/VanligeSporsmal";
 import { HvordanPermittereProps } from "../components/innholdssider/permittering/HvordanPermittere/HvordanPermittere";
+import { VanligSpørsmålType } from "../components/innholdssider/permittering/VanligeSpørsmål/VanligSpørsmål";
+import { LønnspliktProps } from "../components/innholdssider/permittering/Lønnsplikt";
 
 const Permittering: NextPage<PermitteringssideProps> = (props) => {
   return <Permitteringsside {...props} />;
@@ -19,16 +20,18 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
 > => {
   const query = `
     *[tema == "Permittering"] {
-      "stegforsteg": *[_type == "stegforsteg" && references(^._id)],
+      "hvordanPermittere": *[id == "hvordanPermittere"],
       "vanligeSporsmal": *[_type == "vanligsporsmal" && references(^._id)],
-      "relatertInnhold": *[_type == "relatertinnhold" && references(^._id)],
-      "varselfrist": *[id == "varselfrist"]
+      "lonnsplikt": *[id == "lonnsplikt"],
+      "varselfrist": *[id == "varselfrist"],
+      "nyePermitteringsregler": *[id == "nyePermitteringsregler"],
+      "forlengeDagpengeperioder": *[id == "forlengeDagpengeperioder"],
     }
   `;
 
   const response = await sanityClient.fetch(query);
 
-  const vanligeSpørsmål: VanligSpørsmål[] = response[0].vanligeSporsmal.map(
+  const vanligeSpørsmål: VanligSpørsmålType[] = response[0].vanligeSporsmal.map(
     (spørsmål: any) => ({
       sporsmal: spørsmål.sporsmal,
       svar: spørsmål.svar,
@@ -36,8 +39,8 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
   );
 
   const hvordanPermittereAnsatte: HvordanPermittereProps = {
-    tittel: response[0].stegforsteg[0].tittel,
-    alleSteg: response[0].stegforsteg[0].steg.map((steg: any) => ({
+    tittel: response[0].hvordanPermittere[0].tittel,
+    alleSteg: response[0].hvordanPermittere[0].steg.map((steg: any) => ({
       steg: steg.steg,
       beskrivelse: steg.beskrivelse,
     })),
@@ -47,10 +50,22 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
     },
   };
 
+  const lønnsplikt: LønnspliktProps = {
+    tittel: response[0].lonnsplikt[0].tittel,
+    innhold: response[0].lonnsplikt[0].innhold,
+    nyePermitteringsregler: {
+      tittel: response[0].nyePermitteringsregler[0].tittel,
+      beskrivelse: response[0].nyePermitteringsregler[0].beskrivelse,
+    },
+    forlengeDagpengeperioder:
+      response[0].forlengeDagpengeperioder[0].beskrivelse,
+  };
+
   return {
     props: {
       vanligeSpørsmål: vanligeSpørsmål,
       hvordanPermittere: hvordanPermittereAnsatte,
+      lønnsplikt: lønnsplikt,
     },
   };
 };

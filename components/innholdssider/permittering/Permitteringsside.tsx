@@ -2,7 +2,7 @@ import { Alert, PageHeader } from "@navikt/ds-react";
 import HvordanPermittere, {
   HvordanPermittereProps,
 } from "./HvordanPermittere/HvordanPermittere";
-import Lonnsplikt from "./Lonnsplikt";
+import Lønnsplikt, { LønnspliktProps } from "./Lønnsplikt";
 import Permitteringsperioden from "./Permitteringsperioden";
 import InfoTilAnsatte from "./InfoTilAnsatte";
 import styles from "./permittering.module.css";
@@ -37,11 +37,13 @@ export const permitteringInnhold = {
 export type PermitteringssideProps = {
   vanligeSpørsmål: VanligSpørsmålType[];
   hvordanPermittere: HvordanPermittereProps;
+  lønnsplikt: LønnspliktProps;
 };
 
 const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   vanligeSpørsmål,
   hvordanPermittere,
+  lønnsplikt,
 }) => {
   return (
     <>
@@ -52,23 +54,13 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
         <Innholdsmeny />
         <div className={styles.innhold}>
           <HvordanPermittere {...hvordanPermittere} />
-          <Lonnsplikt />
+          <Lønnsplikt {...lønnsplikt} />
           <Permitteringsperioden />
           <InfoTilAnsatte />
           <VanligeSporsmal vanligeSpørsmål={vanligeSpørsmål} />
         </div>
       </div>
     </>
-  );
-};
-
-export const ForelengePerioderAlert = () => {
-  return (
-    <Alert variant="warning" className={styles.forlengeRegelverkAlert}>
-      Regjeringen har foreslått å forlenge dagpenge- og permitteringsperioder
-      som nærmer seg slutten frem til og med 31. oktober 2021. Vi oppdaterer
-      sidene så snart vi har mer informasjon.
-    </Alert>
   );
 };
 
