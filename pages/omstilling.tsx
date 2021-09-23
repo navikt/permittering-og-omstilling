@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
 import {
-  GetServerSideProps,
-  GetServerSidePropsResult,
   GetStaticProps,
   GetStaticPropsResult,
   NextPage,

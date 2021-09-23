@@ -1,10 +1,7 @@
 import React, { FunctionComponent } from "react";
 import BlockContent from "@sanity/block-content-to-react";
-import Link from "next/link";
 import {
   Alert,
-  BodyLong,
-  BodyShort,
   Cell,
   ContentContainer,
   Grid,
@@ -14,8 +11,8 @@ import {
 } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { RelatertInnhold } from "../RelatertInnhold";
-import styles from "./omstilling.module.css";
 import { TemaInnhold } from "../TemaInnhold";
+import styles from "./omstilling.module.css";
 import TemaRelatertInnhold from "./TemaRelatertInnhold";
 
 type Props = {
