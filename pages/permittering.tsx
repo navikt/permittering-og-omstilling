@@ -21,7 +21,8 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
     *[tema == "Permittering"] {
       "stegforsteg": *[_type == "stegforsteg" && references(^._id)],
       "vanligeSporsmal": *[_type == "vanligsporsmal" && references(^._id)],
-      "relatertInnhold": *[_type == "relatertinnhold" && references(^._id)]
+      "relatertInnhold": *[_type == "relatertinnhold" && references(^._id)],
+      "varselfrist": *[id == "varselfrist"]
     }
   `;
 
@@ -40,6 +41,10 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
       steg: steg.steg,
       beskrivelse: steg.beskrivelse,
     })),
+    varselfristinfo: {
+      tittel: response[0].varselfrist[0].tittel,
+      beskrivelse: response[0].varselfrist[0].beskrivelse,
+    },
   };
 
   return {
