@@ -1,23 +1,33 @@
 export default {
-    title: "Relatert innhold",
-    name: "relatertinnhold",
-    type: "document",
-    fields: [
+  title: "Relatert innhold",
+  name: "relatertinnhold",
+  type: "document",
+  fields: [
+    {
+      title: "Tittel",
+      name: "tittel",
+      type: "string",
+    },
+    {
+      title: "ID",
+      name: "id",
+      type: "string",
+    },
+    {
+      type: "array",
+      name: "lenker",
+      of: [
         {
-            title: "Navn",
-            name: "navn",
-            type: "string"
+          title: "lenker",
+          type: "relatertinnholdlenke",
         },
-        {
-            title: "Lenke",
-            name: "lenke",
-            type: "url"
-        },
-        {
-            title: "Tema",
-            name: "tema",
-            type: "reference",
-            to: [{type: "tema"}]
-        }
-    ]
-}
+      ],
+    },
+    {
+      title: "Tema",
+      name: "tema",
+      type: "reference",
+      to: [{ type: "tema" }],
+    },
+  ],
+};

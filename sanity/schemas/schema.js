@@ -10,6 +10,7 @@ import temainnhold from "./temainnhold";
 import stegForSteg from "./stegForSteg";
 import steg from "./steg";
 import infofelt from "./infofelt";
+import relatertInnholdLenke from "./relatertInnholdLenke";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -18,12 +19,13 @@ export default createSchema({
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
+    infofelt,
     relatertInnhold,
+    relatertInnholdLenke,
     steg,
     stegForSteg,
     tema,
     temainnhold,
     vanligSporsmal,
-    infofelt,
   ]),
 });

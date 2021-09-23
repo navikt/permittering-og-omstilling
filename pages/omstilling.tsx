@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
 > => {
   const query = '*[_type == "temainnhold" && tema->tema == "Omstilling"]';
   const relatertInnholdQuery =
-    '*[_type == "relatertinnhold" && tema->tema == "Omstilling"]';
+    '*[_type == "relatertinnhold" && tema->tema == "Omstilling"]{tittel, lenker}';
 
   const innholdResponse = await sanityClient.fetch(query);
   const relatertInnholdResponse = await sanityClient.fetch(
@@ -56,9 +56,9 @@ export const getStaticProps: GetStaticProps = async (): Promise<
   );
 
   const relatertInnhold: RelatertInnhold[] = relatertInnholdResponse.map(
-    (innhold: any) => ({
-      navn: innhold.navn,
-      lenke: innhold.lenke,
+    (innhold: any) => ({ 
+      tittel: innhold.tittel,
+      lenker: innhold.lenker
     })
   );
 
