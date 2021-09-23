@@ -9,8 +9,8 @@ type Props = {
 const TemaRelatertInnhold: FunctionComponent<Props> = ( {relatertInnhold} ) => {
   return (
     <>
-      {relatertInnhold.map((innhold: RelatertInnhold) => (
-        <Accordion>
+      {relatertInnhold.map((innhold: RelatertInnhold, index) => (
+        <Accordion key={index}>
           <Accordion.Item>
             <Accordion.Header>{innhold.tittel}</Accordion.Header>
             <Accordion.Content>
