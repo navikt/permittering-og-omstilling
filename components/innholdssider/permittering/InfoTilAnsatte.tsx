@@ -1,9 +1,19 @@
-import { BodyShort, Heading } from "@navikt/ds-react";
-import Link from "next/link";
+import { Heading } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { permitteringInnhold } from "./Permitteringsside";
+import React, { FunctionComponent } from "react";
+import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
+import BlockContent from "@sanity/block-content-to-react";
 
-const InfoTilAnsatte = () => {
+export type InfoTilAnsatteProps = {
+  tittel: string;
+  innhold: SanityBlockContent;
+};
+
+const InfoTilAnsatte: FunctionComponent<InfoTilAnsatteProps> = ({
+  tittel,
+  innhold,
+}) => {
   return (
     <Container>
       <Heading
@@ -11,25 +21,9 @@ const InfoTilAnsatte = () => {
         size="xlarge"
         id={permitteringInnhold.infoTilAnsatte.anker}
       >
-        {permitteringInnhold.infoTilAnsatte.tittel}
+        {tittel}
       </Heading>
-      <BodyShort spacing>
-        Denne informasjonssiden er rettet mot arbeidsgivere og inneholder kun et
-        begrenset utvalg av informasjonen som angår den ansatte. Hvis du ønsker
-        å gi utfyllende informasjon til dine ansatte må du sette deg inn i:
-      </BodyShort>
-      <ul>
-        <li>
-          <Link href="https://www.nav.no/arbeid/no/permittert/">
-            informasjon til den permitterte
-          </Link>
-        </li>
-        <li>
-          <Link href="https://www.nav.no/arbeid/no/dagpenger/">
-            informasjon til de som har søkt om eller mottar dagpenger
-          </Link>
-        </li>
-      </ul>
+      <BlockContent blocks={innhold} />
     </Container>
   );
 };

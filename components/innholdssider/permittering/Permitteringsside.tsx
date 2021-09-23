@@ -1,10 +1,10 @@
-import { Alert, PageHeader } from "@navikt/ds-react";
+import { PageHeader } from "@navikt/ds-react";
 import HvordanPermittere, {
   HvordanPermittereProps,
 } from "./HvordanPermittere/HvordanPermittere";
 import Lønnsplikt, { LønnspliktProps } from "./Lønnsplikt";
 import Permitteringsperioden from "./Permitteringsperioden";
-import InfoTilAnsatte from "./InfoTilAnsatte";
+import InfoTilAnsatte, { InfoTilAnsatteProps } from "./InfoTilAnsatte";
 import styles from "./permittering.module.css";
 import Innholdsmeny from "./innholdsmeny/Innholdsmeny";
 import { FunctionComponent } from "react";
@@ -38,12 +38,14 @@ export type PermitteringssideProps = {
   vanligeSpørsmål: VanligSpørsmålType[];
   hvordanPermittere: HvordanPermittereProps;
   lønnsplikt: LønnspliktProps;
+  infoTilAnsatte: InfoTilAnsatteProps;
 };
 
 const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   vanligeSpørsmål,
   hvordanPermittere,
   lønnsplikt,
+  infoTilAnsatte,
 }) => {
   return (
     <>
@@ -56,7 +58,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
           <HvordanPermittere {...hvordanPermittere} />
           <Lønnsplikt {...lønnsplikt} />
           <Permitteringsperioden />
-          <InfoTilAnsatte />
+          <InfoTilAnsatte {...infoTilAnsatte} />
           <VanligeSporsmal vanligeSpørsmål={vanligeSpørsmål} />
         </div>
       </div>

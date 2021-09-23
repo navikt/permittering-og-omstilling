@@ -10,6 +10,7 @@ import { sanityClient } from "../sanity/sanity";
 import { HvordanPermittereProps } from "../components/innholdssider/permittering/HvordanPermittere/HvordanPermittere";
 import { VanligSpørsmålType } from "../components/innholdssider/permittering/VanligeSpørsmål/VanligSpørsmål";
 import { LønnspliktProps } from "../components/innholdssider/permittering/Lønnsplikt";
+import { InfoTilAnsatteProps } from "../components/innholdssider/permittering/InfoTilAnsatte";
 
 const Permittering: NextPage<PermitteringssideProps> = (props) => {
   return <Permitteringsside {...props} />;
@@ -26,6 +27,7 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
       "varselfrist": *[id == "varselfrist"],
       "nyePermitteringsregler": *[id == "nyePermitteringsregler"],
       "forlengeDagpengeperioder": *[id == "forlengeDagpengeperioder"],
+      "infoTilAnsatte": *[id == "infoTilAnsatte"],
     }
   `;
 
@@ -61,11 +63,17 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
       response[0].forlengeDagpengeperioder[0].beskrivelse,
   };
 
+  const infoTilAnsatte: InfoTilAnsatteProps = {
+    tittel: response[0].infoTilAnsatte[0].tittel,
+    innhold: response[0].infoTilAnsatte[0].innhold,
+  };
+
   return {
     props: {
       vanligeSpørsmål: vanligeSpørsmål,
       hvordanPermittere: hvordanPermittereAnsatte,
       lønnsplikt: lønnsplikt,
+      infoTilAnsatte: infoTilAnsatte,
     },
   };
 };
