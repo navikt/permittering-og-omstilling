@@ -1,0 +1,21 @@
+.relatertinnhold {
+    top: 1rem;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--navds-color-white);
+    margin-left: 2rem;
+    align-self: flex-start;
+  }
+  
+  .tittel {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .lenke {
+    border-top: 1px solid #eee;
+    padding: 1rem;
+    text-decoration-line: none;
+  }
+  

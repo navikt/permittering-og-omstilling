@@ -1,11 +1,11 @@
 .container {
-    max-width: 37.5rem;
-    padding: 2.8rem;
-    border-radius: 0.25rem;
-    background-color: var(--navds-color-white);
-    margin-bottom: 2rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
-.banner {
-    background-color: var(--navds-color-blue-10);
+.innhold {
+  display: flex;
+  flex-direction: column;
 }
+  

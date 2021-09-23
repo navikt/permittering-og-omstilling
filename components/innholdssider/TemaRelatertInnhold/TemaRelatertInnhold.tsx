@@ -1,5 +1,6 @@
 import { Accordion, BodyShort, Link } from "@navikt/ds-react";
 import { FunctionComponent } from "react";
+import styles from "./TemaRelatertInnhold.module.css";
 import { RelatertInnhold, RelatertInnholdLenke } from "../RelatertInnhold";
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 
 const TemaRelatertInnhold: FunctionComponent<Props> = ( {relatertInnhold} ) => {
   return (
-    <>
+    <div className={styles.relatertinnhold}>
       {relatertInnhold.map((innhold: RelatertInnhold, index) => (
         <Accordion key={index}>
           <Accordion.Item>
@@ -22,7 +23,7 @@ const TemaRelatertInnhold: FunctionComponent<Props> = ( {relatertInnhold} ) => {
         </Accordion>
       ))
       }
-    </>
+    </div>
   );
 };
 
