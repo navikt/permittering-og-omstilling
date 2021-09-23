@@ -1,6 +1,6 @@
 export default {
   title: "Relatert innhold",
-  name: "relatertinnhold",
+  name: "relatertInnhold",
   type: "document",
   fields: [
     {
@@ -19,7 +19,7 @@ export default {
       of: [
         {
           title: "lenker",
-          type: "relatertinnholdlenke",
+          type: "relatertInnholdLenke",
         },
       ],
     },

@@ -38,9 +38,9 @@ const Omstilling: NextPage<Props> = (props) => {
 export const getStaticProps: GetStaticProps = async (): Promise<
   GetStaticPropsResult<Props>
 > => {
-  const query = '*[_type == "temainnhold" && tema->tema == "Omstilling"]';
+  const query = '*[_type == "temaInnhold" && tema->tema == "Omstilling"]';
   const relatertInnholdQuery =
-    '*[_type == "relatertinnhold" && tema->tema == "Omstilling"]{tittel, lenker}';
+    '*[_type == "relatertInnhold" && tema->tema == "Omstilling"]{tittel, lenker}';
 
   const innholdResponse = await sanityClient.fetch(query);
   const relatertInnholdResponse = await sanityClient.fetch(

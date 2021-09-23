@@ -20,9 +20,9 @@ const Oppsigelse: NextPage<Props> = (props) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (): Promise<GetServerSidePropsResult<Props>> => {
-  const query = '*[_type == "temainnhold" && tema->tema == "Nedbemanning"]';
+  const query = '*[_type == "temaInnhold" && tema->tema == "Nedbemanning"]';
   const relatertInnholdQuery =
-    '*[_type == "relatertinnhold" && tema->tema == "Nedbemanning"]{tittel, lenker}';
+    '*[_type == "relatertInnhold" && tema->tema == "Nedbemanning"]{tittel, lenker}';
 
   const innholdResponse = await sanityClient.fetch(query);
   const relatertInnholdResponse = await sanityClient.fetch(

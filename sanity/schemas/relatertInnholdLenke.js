@@ -1,6 +1,6 @@
 export default {
   title: "Relatert innhold",
-  name: "relatertinnholdlenke",
+  name: "relatertInnholdLenke",
   type: "object",
   fields: [
     {

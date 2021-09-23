@@ -1,6 +1,6 @@
 export default {
   title: "Temainnhold",
-  name: "temainnhold",
+  name: "temaInnhold",
   type: "document",
   fields: [
     {
