@@ -41,7 +41,13 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
       "varselfrist": *[id == "varselfrist"],
       "nyePermitteringsregler": *[id == "nyePermitteringsregler"],
       "forlengeDagpengeperioder": *[id == "forlengeDagpengeperioder"],
-      "infoTilAnsatte": *[id == "infoTilAnsatte"],
+      "infoTilAnsatte": *[id == "infoTilAnsatte"]{
+        ...,
+        innhold[]{
+          _type == "reference" => @->,
+          _type != "reference" => @
+        }
+      },
       "permitteringsperioden": *[id == "permitteringsperioden"],
     }
   `;
