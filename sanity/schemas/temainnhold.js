@@ -22,7 +22,10 @@ export default {
       title: "Innhold",
       name: "innhold",
       type: "array",
-      of: [{ type: "block" }],
+      of: [
+        { type: "block" },
+        { type: "reference", to: [{ type: "infofelt" }] },
+      ],
     },
     {
       title: "Tema",
