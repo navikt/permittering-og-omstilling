@@ -1,24 +1,28 @@
 import type { NextPage } from "next";
-import "@navikt/ds-css";
-import { LinkPanel, PageHeader} from "@navikt/ds-react";
-import Container from "../components/container/Container";
-import styles from './index.module.css'
+import { LinkPanel, PageHeader } from "@navikt/ds-react";
+import styles from "./index.module.css";
 
-const Home: NextPage = () => {
-  return (
-      <>
-          <PageHeader className={styles.banner}>Veiviser for permittering</PageHeader>
-      <div className={styles.container}>
-    <Container>
-      <div className={styles.lenkepanelContainer}>
-      <LinkPanel className={styles.navdsPanel} href={"permittering-og-omstilling" + "/permittering"}>Veiviser for permittering</LinkPanel>
-      <LinkPanel className={styles.navdsPanel} href={"permittering-og-omstilling" + "/omstilling"}>Omstilling og nedbemanning </LinkPanel>
-      <LinkPanel className={styles.navdsPanel} href={"permittering-og-omstilling" + "/oppsigelse"}>Oppsigelse</LinkPanel>
-        </div>
-    </Container>
-          </div>
-        </>
-  );
-};
+const basePath = "permittering-og-omstilling";
 
-export default Home;
+const Forside: NextPage = () => (
+  <>
+    <PageHeader className={styles.banner}>Veiviser for permittering</PageHeader>
+    <div className={styles.container}>
+      <LinkPanel className={styles.linkPanel} href={`${basePath}/permittering`}>
+        <LinkPanel.Title>Veiviser for permittering</LinkPanel.Title>
+        <LinkPanel.Description>
+          Informasjon til arbeidsgivere om permittering av ansatte.
+        </LinkPanel.Description>
+      </LinkPanel>
+      <LinkPanel className={styles.linkPanel} href={`${basePath}/omstilling`}>
+        <LinkPanel.Title>Omstilling og nedbemanning</LinkPanel.Title>
+        <LinkPanel.Description>
+          NAV samarbeider med virksomheter i omstilling der mange ansatte mister
+          - eller står i fare for - å miste jobben.
+        </LinkPanel.Description>
+      </LinkPanel>
+    </div>
+  </>
+);
+
+export default Forside;
