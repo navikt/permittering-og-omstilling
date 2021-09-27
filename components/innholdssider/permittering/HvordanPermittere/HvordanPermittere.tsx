@@ -1,11 +1,12 @@
 import { Accordion, BodyShort, Button, Heading } from "@navikt/ds-react";
 import Container from "../../../container/Container";
 import { permitteringInnhold } from "../Permitteringsside";
-import { FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import Steg from "./Steg";
 import BlockContent from "@sanity/block-content-to-react";
 
 import styles from "./HvordanPermittere.module.css";
+import Lenkeknapp from "../../../lenkeknapp/Lenkeknapp";
 
 export type HvordanPermittereProps = {
   tittel: string;
@@ -44,6 +45,14 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
             beskrivelse={steg.beskrivelse}
             key={steg.steg}
           />
+          {index === 0 && (
+            <Lenkeknapp
+              className={styles.meldIfra}
+              href="https://www.nav.no/soknader/nb/bedrift/permitteringer-oppsigelser-og-konkurs/masseoppsigelser"
+            >
+              Meld ifra
+            </Lenkeknapp>
+          )}
           {index === 1 && (
             <Accordion className={styles.varselfrist}>
               <Accordion.Item>
