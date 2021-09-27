@@ -4,11 +4,31 @@
   margin-top: 2rem;
 }
 
+.oppsigelsesSide {
+  flex-direction: column;
+}
+
 .innhold {
+  display: flex;
+  flex-direction: column;
+}
+.oppsigelsesSide {
   display: flex;
   flex-direction: column;
 }
 
 .banner {
   background-color: var(--navds-color-blue-10);
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .oppsigelsesSide {
+    flex-direction: column;
+  }
 }

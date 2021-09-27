@@ -14,7 +14,7 @@ type Props = {
 
 const OppsigelsesSide: FunctionComponent<Props> = ( {oppsigelsesInnhold, relatertInnhold} ) => {
   return (
-    <>
+    <div className={styles.oppsigelsesSide}>
       <PageHeader className={styles.banner} description="Ved oppsigelse er det vanlig at NAV samhandler med arbeidsgiver og gir bistand til berørte arbeidstakere">
         Oppsigelse
       </PageHeader>
@@ -28,7 +28,7 @@ const OppsigelsesSide: FunctionComponent<Props> = ( {oppsigelsesInnhold, relater
           </Container>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

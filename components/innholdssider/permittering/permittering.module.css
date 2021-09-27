@@ -36,4 +36,20 @@
 
 .banner {
   background-color: var(--navds-color-blue-10);
+  display: flex;
+  width: 100%;
 }
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 1.5rem;
+    width: 100%;
+  }
+
+    .permitteringsSide {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
