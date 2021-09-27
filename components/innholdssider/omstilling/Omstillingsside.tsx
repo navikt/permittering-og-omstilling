@@ -3,9 +3,7 @@ import BlockContent from "@sanity/block-content-to-react";
 import {
   Alert,
   PageHeader,
-  Label,
   Heading,
-  Accordion,
 } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { RelatertInnhold } from "../RelatertInnhold";

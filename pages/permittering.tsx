@@ -1,6 +1,6 @@
 import type {
-  GetServerSideProps,
-  GetServerSidePropsResult,
+  GetStaticProps,
+  GetStaticPropsResult,
   NextPage,
 } from "next";
 import React, { useEffect } from "react";
@@ -30,8 +30,8 @@ const Permittering: NextPage<PermitteringssideProps> = (props) => {
   return <Permitteringsside {...props} />;
 };
 
-export const getServerSideProps: GetServerSideProps = async (): Promise<
-  GetServerSidePropsResult<PermitteringssideProps>
+export const getStaticProps: GetStaticProps = async (): Promise<
+  GetStaticPropsResult<PermitteringssideProps>
 > => {
   const query = `
     *[tema == "Permittering"] {
@@ -102,6 +102,7 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<
       infoTilAnsatte: infoTilAnsatte,
       permitteringsperioden: permitteringsperioden,
     },
+    revalidate: 60,
   };
 };
 
