@@ -19,6 +19,7 @@ const OppsigelsesSide: FunctionComponent<Props> = ( {oppsigelsesInnhold, relater
         Oppsigelse
       </PageHeader>
       <div className={styles.container}>
+        <TemaRelatertInnhold relatertInnhold={relatertInnhold} />
         <div className={styles.innhold}>
           <Container>
             {oppsigelsesInnhold.map((innhold) => (
@@ -26,7 +27,6 @@ const OppsigelsesSide: FunctionComponent<Props> = ( {oppsigelsesInnhold, relater
             ))}
           </Container>
         </div>
-        <TemaRelatertInnhold relatertInnhold={relatertInnhold} />
       </div>
     </>
   );

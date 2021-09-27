@@ -24,6 +24,7 @@ const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold, relatert
         Omstilling og nedbemanning
       </PageHeader>
       <div className={styles.container}>
+        <TemaRelatertInnhold relatertInnhold={relatertInnhold} />
         <div className={styles.innhold}>
           <Container>
             {omstillingInnhold.map((innhold) => (
@@ -45,7 +46,6 @@ const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold, relatert
             </Alert>
           </Container>
         </div>
-        <TemaRelatertInnhold relatertInnhold={relatertInnhold} />
       </div>
     </>
   );

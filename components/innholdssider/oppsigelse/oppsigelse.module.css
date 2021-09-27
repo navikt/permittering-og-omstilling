@@ -1,9 +1,14 @@
 .container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.innhold {
+  display: flex;
+  flex-direction: column;
 }
 
 .banner {
-    background-color: var(--navds-color-blue-10);
+  background-color: var(--navds-color-blue-10);
 }
