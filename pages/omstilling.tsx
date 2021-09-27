@@ -38,7 +38,13 @@ const Omstilling: NextPage<Props> = (props) => {
 export const getStaticProps: GetStaticProps = async (): Promise<
   GetStaticPropsResult<Props>
 > => {
-  const query = '*[_type == "temaInnhold" && tema->tema == "Omstilling"]';
+  const query = `*[_type == "temaInnhold" && tema->tema == "Omstilling"]{
+    ...,
+    innhold[]{
+      _type == "reference" => @->,
+      _type != "reference" => @
+    }
+  }`;
   const relatertInnholdQuery =
     '*[_type == "relatertInnhold" && tema->tema == "Omstilling"]{tittel, lenker}';
 

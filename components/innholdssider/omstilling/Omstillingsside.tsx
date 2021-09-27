@@ -5,6 +5,7 @@ import {
   PageHeader,
   Label,
   Heading,
+  Accordion,
 } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { RelatertInnhold } from "../RelatertInnhold";
@@ -17,6 +18,19 @@ type Props = {
   relatertInnhold: RelatertInnhold[];
 }
 
+const serializers = {
+  types: {
+    infofelt: (props: any) => (
+      <Alert variant="info" className={styles.forlengeRegelverkAlert}>
+        <Heading spacing size="medium">
+          {props.node.tittel}
+        </Heading>
+        <BlockContent blocks={props.node.beskrivelse} />
+      </Alert>
+    ),
+  },
+};
+
 const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold, relatertInnhold} ) => {
   return (
     <>
@@ -28,22 +42,8 @@ const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold, relatert
         <div className={styles.innhold}>
           <Container>
             {omstillingInnhold.map((innhold) => (
-                <BlockContent blocks={innhold.innhold} key={innhold.tittel}/>
+                <BlockContent blocks={innhold.innhold} key={innhold.tittel} serializers={serializers}/>
             ))}
-            <Alert variant="info" className={styles.forlengeRegelverkAlert}>
-              <Heading spacing size="medium">
-                Fakta
-              </Heading>
-              <Label>Omstilling kan skje i forbindelse med</Label>
-              <ul>
-                <li>Permittering</li>
-                <li>Driftsinnskrenkning/nedbemanning</li>
-                <li>Produksjonsendring og opp-/nedbemanning</li>
-                <li>Kvalifisering av allerede ansatte</li>
-                <li>Flytting av en virksomhet</li>
-                <li>Konkurs og annen driftsstans</li>
-              </ul>
-            </Alert>
           </Container>
         </div>
       </div>
