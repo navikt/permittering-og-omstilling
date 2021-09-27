@@ -20,7 +20,7 @@
   text-decoration-line: none;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .innholdsmeny {
     position: initial;
   }
