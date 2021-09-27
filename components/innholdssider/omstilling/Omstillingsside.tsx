@@ -33,7 +33,7 @@ const serializers = {
 
 const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold, relatertInnhold} ) => {
   return (
-    <>
+    <div className={styles.omstillingsSide}>
       <PageHeader className={styles.banner} description="NAV samarbeider med virksomheter i omstilling der mange ansatte mister - eller står i fare for - å miste jobben.">
         Omstilling og nedbemanning
       </PageHeader>
@@ -47,7 +47,7 @@ const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold, relatert
           </Container>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
