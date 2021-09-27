@@ -1,6 +1,6 @@
 FROM node:14-alpine
-RUN chown -R 1069:1069 /app
 WORKDIR /app
+RUN chown -R 1069:1069 /app
 COPY package.json yarn.lock /app/
 RUN yarn install --frozen-lockfile
 ADD . /app/
