@@ -6,7 +6,7 @@
   background-color: var(--navds-color-white);
   align-self: flex-start;
   padding: 1rem;
-  margin-right: 2rem;
+  margin: 0 2rem 2rem 0;
   width: 17rem;
 }
   
@@ -19,4 +19,11 @@
   border-top: 1px solid #eee;
   padding: 1rem;
   text-decoration-line: none;
+}
+
+@media (max-width: 992px) {
+  .relatertinnhold {
+    //align-self: center;
+    position: initial;
+  }
 }

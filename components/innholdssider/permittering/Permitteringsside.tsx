@@ -52,7 +52,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   permitteringsperioden,
 }) => {
   return (
-    <>
+    <div className={styles.permitteringsSide}>
       <PageHeader className={styles.banner}>
         Veiviser for permittering
       </PageHeader>
@@ -66,7 +66,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
           <VanligeSporsmal vanligeSpørsmål={vanligeSpørsmål} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
