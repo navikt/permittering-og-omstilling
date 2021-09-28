@@ -27,8 +27,6 @@ spec:
       external:
         - host: dekoratoren.dev.nav.no
         - host: utwe983u.api.sanity.io
-  envFrom:
-    - secret: permittering-og-omstilling-secrets
   env:
     - name: NODE_EXTRA_CA_CERTS
       value: /etc/ssl/ca-bundle.pem
