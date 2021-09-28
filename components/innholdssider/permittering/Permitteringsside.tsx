@@ -54,6 +54,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   permitteringsperioden,
   sistOppdatert,
 }) => {
+
   return (
     <div className={styles.permitteringsSide}>
       <PageHeader className={styles.banner}>
