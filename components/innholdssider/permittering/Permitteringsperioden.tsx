@@ -1,10 +1,9 @@
-import { Alert, Heading } from "@navikt/ds-react";
+import { Accordion, Alert, Heading } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { permitteringInnhold } from "./Permitteringsside";
 import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 import React, { FunctionComponent } from "react";
 import BlockContent from "@sanity/block-content-to-react";
-import styles from "../omstilling/omstilling.module.css";
 
 export type PermitteringsperiodenProps = {
   tittel: string;
@@ -32,11 +31,26 @@ const Permitteringsperioden: FunctionComponent<PermitteringsperiodenProps> = ({
 
 const serializers = {
   types: {
-    infofelt: (props: any) => (
-      <Alert variant="warning">
-        <BlockContent blocks={props.node.beskrivelse} />
-      </Alert>
-    ),
+    infofelt: (props: any) => {
+      if (props.node.id === "forlengeDagpengeperioder") {
+        return (
+          <Alert variant="warning">
+            <BlockContent blocks={props.node.beskrivelse} />
+          </Alert>
+        );
+      } else {
+        return (
+          <Accordion>
+            <Accordion.Item>
+              <Accordion.Header>{props.node.tittel}</Accordion.Header>
+              <Accordion.Content>
+                <BlockContent blocks={props.node.beskrivelse} />
+              </Accordion.Content>
+            </Accordion.Item>
+          </Accordion>
+        );
+      }
+    },
   },
 };
 
