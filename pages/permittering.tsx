@@ -31,8 +31,17 @@ export const getStaticProps: GetStaticProps = async (): Promise<
 > => {
   const query = `
     *[tema == "Permittering"] {
-      "hvordanPermittere": *[id == "hvordanPermittere"],
       "vanligeSporsmal": *[_type == "vanligSporsmal" && references(^._id)],
+      "hvordanPermittere": *[id == "hvordanPermittere"]{
+        ...,
+        steg[]{
+          ...,
+          beskrivelse[]{
+            _type == "reference" => @->,
+            _type != "reference" => @
+          }
+        },
+      },
       "lonnsplikt": *[id == "lonnsplikt"]{
         ...,
         innhold[]{
@@ -40,7 +49,6 @@ export const getStaticProps: GetStaticProps = async (): Promise<
           _type != "reference" => @
         }
       },
-      "varselfrist": *[id == "varselfrist"],
       "infoTilAnsatte": *[id == "infoTilAnsatte"]{
         ...,
         innhold[]{
@@ -73,10 +81,6 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       steg: steg.steg,
       beskrivelse: steg.beskrivelse,
     })),
-    varselfristinfo: {
-      tittel: response[0].varselfrist[0].tittel,
-      beskrivelse: response[0].varselfrist[0].beskrivelse,
-    },
   };
 
   const lønnsplikt: LønnspliktProps = {

@@ -12,7 +12,10 @@ export default {
       title: "Beskrivelse",
       name: "beskrivelse",
       type: "array",
-      of: [{ type: "block" }],
+      of: [
+        { type: "block" },
+        { type: "reference", to: [{ type: "infofelt" }] },
+      ],
     },
     {
       title: "Tema",

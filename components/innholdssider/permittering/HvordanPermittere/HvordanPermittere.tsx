@@ -1,4 +1,4 @@
-import { Accordion, BodyShort, Button, Heading } from "@navikt/ds-react";
+import { Accordion, Heading } from "@navikt/ds-react";
 import Container from "../../../container/Container";
 import { permitteringInnhold } from "../Permitteringsside";
 import React, { FunctionComponent } from "react";
@@ -11,10 +11,6 @@ import Lenkeknapp from "../../../lenkeknapp/Lenkeknapp";
 export type HvordanPermittereProps = {
   tittel: string;
   alleSteg: StegType[];
-  varselfristinfo: {
-    tittel: string;
-    beskrivelse: SanityBlockContent;
-  };
 };
 
 export type StegType = {
@@ -27,7 +23,6 @@ export type SanityBlockContent = any;
 const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
   tittel,
   alleSteg,
-  varselfristinfo,
 }) => {
   return (
     <Container>
@@ -52,16 +47,6 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
             >
               Meld ifra
             </Lenkeknapp>
-          )}
-          {index === 1 && (
-            <Accordion className={styles.varselfrist}>
-              <Accordion.Item>
-                <Accordion.Header>{varselfristinfo.tittel}</Accordion.Header>
-                <Accordion.Content>
-                  <BlockContent blocks={varselfristinfo.beskrivelse} />
-                </Accordion.Content>
-              </Accordion.Item>
-            </Accordion>
           )}
         </>
       ))}
