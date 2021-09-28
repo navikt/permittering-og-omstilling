@@ -43,12 +43,24 @@
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-    padding: 1.5rem;
-    width: 100%;
+    padding: 1rem;
   }
 
   .permitteringsSide {
     flex-direction: column;
     align-items: center;
   }
+
+  .banner {
+    background-color: var(--navds-color-blue-10);
+    display: flex;
+    width: 100%;
+    padding-left: 1rem;
+  }
+
+  .innhold {
+    width: 100%;
+    padding: 0;
+  }
+
 }
