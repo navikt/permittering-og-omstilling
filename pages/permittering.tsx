@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
   const query = `
     *[tema == "Permittering"] {
       "hvordanPermittere": *[id == "hvordanPermittere"],
-      "vanligeSporsmal": *[_type == "vanligsporsmal" && references(^._id)],
+      "vanligeSporsmal": *[_type == "vanligSporsmal" && references(^._id)],
       "lonnsplikt": *[id == "lonnsplikt"]{
         ...,
         innhold[]{
