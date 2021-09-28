@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { StegType } from "./HvordanPermittere";
 import BlockContent from "@sanity/block-content-to-react";
-import { Heading } from "@navikt/ds-react";
+import { Accordion, Heading } from "@navikt/ds-react";
 
 const Steg: FunctionComponent<StegType> = ({ steg, beskrivelse }) => {
   return (
@@ -9,9 +9,24 @@ const Steg: FunctionComponent<StegType> = ({ steg, beskrivelse }) => {
       <Heading spacing size="small">
         {steg}
       </Heading>
-      <BlockContent blocks={beskrivelse} />
+      <BlockContent blocks={beskrivelse} serializers={serializers} />
     </>
   );
+};
+
+const serializers = {
+  types: {
+    infofelt: (props: any) => (
+      <Accordion>
+        <Accordion.Item>
+          <Accordion.Header>{props.node.tittel}</Accordion.Header>
+          <Accordion.Content>
+            <BlockContent blocks={props.node.beskrivelse} />
+          </Accordion.Content>
+        </Accordion.Item>
+      </Accordion>
+    ),
+  },
 };
 
 export default Steg;

@@ -12,6 +12,7 @@ import Innholdsmeny from "./innholdsmeny/Innholdsmeny";
 import { FunctionComponent } from "react";
 import { VanligSpørsmålType } from "./VanligeSpørsmål/VanligSpørsmål";
 import VanligeSporsmal from "./VanligeSpørsmål/VanligeSporsmal";
+import SistOppdatertTema from "../../sistOppdatertTema/SistOppdatertTema";
 
 export const permitteringInnhold = {
   hvordanPermittere: {
@@ -42,6 +43,7 @@ export type PermitteringssideProps = {
   lønnsplikt: LønnspliktProps;
   infoTilAnsatte: InfoTilAnsatteProps;
   permitteringsperioden: PermitteringsperiodenProps;
+  sistOppdatert: Date[];
 };
 
 const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
@@ -50,6 +52,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   lønnsplikt,
   infoTilAnsatte,
   permitteringsperioden,
+  sistOppdatert
 }) => {
   return (
     <div className={styles.permitteringsSide}>
@@ -59,6 +62,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
       <div className={styles.container}>
         <Innholdsmeny />
         <div className={styles.innhold}>
+          <SistOppdatertTema sistOppdatert={sistOppdatert}/>
           <HvordanPermittere {...hvordanPermittere} />
           <Lønnsplikt {...lønnsplikt} />
           <Permitteringsperioden {...permitteringsperioden} />

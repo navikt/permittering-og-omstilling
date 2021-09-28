@@ -31,8 +31,17 @@ export const getStaticProps: GetStaticProps = async (): Promise<
 > => {
   const query = `
     *[tema == "Permittering"] {
-      "hvordanPermittere": *[id == "hvordanPermittere"],
-      "vanligeSporsmal": *[_type == "vanligsporsmal" && references(^._id)],
+      "vanligeSporsmal": *[_type == "vanligSporsmal" && references(^._id)],
+      "hvordanPermittere": *[id == "hvordanPermittere"]{
+        ...,
+        steg[]{
+          ...,
+          beskrivelse[]{
+            _type == "reference" => @->,
+            _type != "reference" => @
+          }
+        },
+      },
       "lonnsplikt": *[id == "lonnsplikt"]{
         ...,
         innhold[]{
@@ -40,7 +49,6 @@ export const getStaticProps: GetStaticProps = async (): Promise<
           _type != "reference" => @
         }
       },
-      "varselfrist": *[id == "varselfrist"],
       "infoTilAnsatte": *[id == "infoTilAnsatte"]{
         ...,
         innhold[]{
@@ -58,7 +66,14 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     }
   `;
 
+  const sistOppdatertQuery = `
+    *[_type == "temaInnhold" && tema->tema=="Permittering"]{
+      _updatedAt
+    }
+  `;
+
   const response = await sanityClient.fetch(query);
+  const lastUpdatedResponse = await sanityClient.fetch(sistOppdatertQuery);
 
   const vanligeSpørsmål: VanligSpørsmålType[] = response[0].vanligeSporsmal.map(
     (spørsmål: any) => ({
@@ -73,10 +88,6 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       steg: steg.steg,
       beskrivelse: steg.beskrivelse,
     })),
-    varselfristinfo: {
-      tittel: response[0].varselfrist[0].tittel,
-      beskrivelse: response[0].varselfrist[0].beskrivelse,
-    },
   };
 
   const lønnsplikt: LønnspliktProps = {
@@ -94,6 +105,8 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     innhold: response[0].permitteringsperioden[0].innhold,
   };
 
+  const sistOppdatert: Date[] = lastUpdatedResponse.flatMap((oppdatert: any) => oppdatert._updatedAt);
+
   return {
     props: {
       vanligeSpørsmål: vanligeSpørsmål,
@@ -101,6 +114,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       lønnsplikt: lønnsplikt,
       infoTilAnsatte: infoTilAnsatte,
       permitteringsperioden: permitteringsperioden,
+      sistOppdatert: sistOppdatert
     },
     revalidate: 60,
   };
