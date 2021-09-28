@@ -1,4 +1,4 @@
-import { Accordion, Alert, Heading } from "@navikt/ds-react";
+import { Accordion, Alert, Heading, Link } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { permitteringInnhold } from "./Permitteringsside";
 import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
@@ -31,6 +31,11 @@ const Permitteringsperioden: FunctionComponent<PermitteringsperiodenProps> = ({
 };
 
 const serializers = {
+  marks: {
+    link: (props: any) => {
+      return <Link href={props.mark.href}>{props.children[0]}</Link>
+    }
+  },
   types: {
     infofelt: (props: any) => {
       if (props.node.id === "forlengeDagpengeperioder") {

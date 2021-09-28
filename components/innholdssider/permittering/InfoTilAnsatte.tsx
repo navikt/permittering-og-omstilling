@@ -1,4 +1,4 @@
-import { Accordion, Heading } from "@navikt/ds-react";
+import { Accordion, Heading, Link } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { permitteringInnhold } from "./Permitteringsside";
 import React, { FunctionComponent } from "react";
@@ -29,6 +29,11 @@ const InfoTilAnsatte: FunctionComponent<InfoTilAnsatteProps> = ({
 };
 
 const serializers = {
+  marks: {
+    link: (props: any) => {
+      return <Link href={props.mark.href}>{props.children[0]}</Link>
+    }
+  },
   types: {
     infofelt: (props: any) => (
       <Accordion>

@@ -4,6 +4,7 @@ import {
   Alert,
   PageHeader,
   Heading,
+  Link,
 } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { RelatertInnhold } from "../RelatertInnhold";
@@ -19,6 +20,11 @@ type Props = {
 }
 
 const serializers = {
+  marks: {
+    link: (props: any) => {
+      return <Link href={props.mark.href}>{props.children[0]}</Link>
+    }
+  },
   types: {
     infofelt: (props: any) => (
       <Alert variant="info" className={styles.forlengeRegelverkAlert}>
