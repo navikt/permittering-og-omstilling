@@ -12,20 +12,20 @@ spec:
   team: permittering-og-nedbemanning
   port: 3000
   ingresses:
-    - https://permittering-og-omstilling.dev.nav.no/permittering-og-omstilling
+    - https://arbeidsgiver.nav.no/permittering-og-omstilling
   liveness:
     path: /permittering-og-omstilling/api/internal/isAlive
-    initialDelay: 20
+    initialDelay: 10
   readiness:
     path: /permittering-og-omstilling/api/internal/isReady
-    initialDelay: 20
+    initialDelay: 10
   replicas:
     min: 2
     max: 2
   accessPolicy:
     outbound:
       external:
-        - host: dekoratoren.dev.nav.no
+        - host: dekoratoren.nav.no
         - host: utwe983u.api.sanity.io
   envFrom:
     - secret: permittering-og-omstilling-secrets
