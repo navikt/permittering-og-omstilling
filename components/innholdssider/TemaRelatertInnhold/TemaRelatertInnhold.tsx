@@ -11,7 +11,7 @@ const TemaRelatertInnhold: FunctionComponent<Props> = ( {relatertInnhold} ) => {
   return (
     <div>
       {relatertInnhold.map((innhold: RelatertInnhold, index) => (
-        <div className={styles.relatertinnhold}>
+        <div className={styles.relatertinnhold} key={index}>
             <Heading size={"medium"} spacing>{innhold.tittel}</Heading>
             {innhold.lenker.map((lenke: RelatertInnholdLenke) => (
               <BodyShort spacing key={lenke.navn}><Link href={lenke.lenke}>{lenke.navn}</Link></BodyShort>

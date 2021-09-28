@@ -81,6 +81,8 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       svar: spørsmål.svar,
     })
   );
+  
+  const sistOppdatert: Date[] = lastUpdatedResponse.flatMap((oppdatert: any) => oppdatert._updatedAt);
 
   const hvordanPermittereAnsatte: HvordanPermittereProps = {
     tittel: response[0].hvordanPermittere[0].tittel,
@@ -88,6 +90,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       steg: steg.steg,
       beskrivelse: steg.beskrivelse,
     })),
+    sistOppdatert: sistOppdatert
   };
 
   const lønnsplikt: LønnspliktProps = {
@@ -105,7 +108,6 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     innhold: response[0].permitteringsperioden[0].innhold,
   };
 
-  const sistOppdatert: Date[] = lastUpdatedResponse.flatMap((oppdatert: any) => oppdatert._updatedAt);
 
   return {
     props: {

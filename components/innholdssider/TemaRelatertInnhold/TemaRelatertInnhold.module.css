@@ -1,6 +1,5 @@
 .relatertinnhold {
   top: 1rem;
-  position: sticky;
   display: flex;
   flex-direction: column;
   background-color: var(--navds-color-white);
