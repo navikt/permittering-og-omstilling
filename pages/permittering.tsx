@@ -66,7 +66,14 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     }
   `;
 
+  const sistOppdatertQuery = `
+    *[_type == "temaInnhold" && tema->tema=="Permittering"]{
+      _updatedAt
+    }
+  `;
+
   const response = await sanityClient.fetch(query);
+  const lastUpdatedResponse = await sanityClient.fetch(sistOppdatertQuery);
 
   const vanligeSpørsmål: VanligSpørsmålType[] = response[0].vanligeSporsmal.map(
     (spørsmål: any) => ({
@@ -98,6 +105,8 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     innhold: response[0].permitteringsperioden[0].innhold,
   };
 
+  const sistOppdatert: Date[] = lastUpdatedResponse.flatMap((oppdatert: any) => oppdatert._updatedAt);
+
   return {
     props: {
       vanligeSpørsmål: vanligeSpørsmål,
@@ -105,6 +114,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       lønnsplikt: lønnsplikt,
       infoTilAnsatte: infoTilAnsatte,
       permitteringsperioden: permitteringsperioden,
+      sistOppdatert: sistOppdatert
     },
     revalidate: 60,
   };

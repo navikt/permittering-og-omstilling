@@ -12,7 +12,6 @@ import Innholdsmeny from "./innholdsmeny/Innholdsmeny";
 import { FunctionComponent } from "react";
 import { VanligSpørsmålType } from "./VanligeSpørsmål/VanligSpørsmål";
 import VanligeSporsmal from "./VanligeSpørsmål/VanligeSporsmal";
-import { SistOppdatert } from "../SistOppdatert";
 import SistOppdatertTema from "../../sistOppdatertTema/SistOppdatertTema";
 
 export const permitteringInnhold = {
