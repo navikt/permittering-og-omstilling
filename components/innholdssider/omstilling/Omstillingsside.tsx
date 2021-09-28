@@ -10,10 +10,12 @@ import { RelatertInnhold } from "../RelatertInnhold";
 import { TemaInnhold } from "../TemaInnhold";
 import styles from "./omstilling.module.css";
 import TemaRelatertInnhold from "../TemaRelatertInnhold/TemaRelatertInnhold";
+import SistOppdatertTema from "../../sistOppdatertTema/SistOppdatertTema";
 
 type Props = {
   omstillingInnhold: TemaInnhold[];
   relatertInnhold: RelatertInnhold[];
+  sistOppdatert: Date[];
 }
 
 const serializers = {
@@ -29,7 +31,8 @@ const serializers = {
   },
 };
 
-const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold, relatertInnhold} ) => {
+const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold, relatertInnhold, sistOppdatert} ) => {
+  console.log("omstillinginnhold", omstillingInnhold);
   return (
     <div className={styles.omstillingsSide}>
       <PageHeader className={styles.banner} description="NAV samarbeider med virksomheter i omstilling der mange ansatte mister - eller står i fare for - å miste jobben.">
@@ -39,6 +42,7 @@ const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold, relatert
         <TemaRelatertInnhold relatertInnhold={relatertInnhold} />
         <div className={styles.innhold}>
           <Container>
+            <SistOppdatertTema sistOppdatert={sistOppdatert}/>
             {omstillingInnhold.map((innhold) => (
                 <BlockContent blocks={innhold.innhold} key={innhold.tittel} serializers={serializers}/>
             ))}
