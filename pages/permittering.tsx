@@ -1,8 +1,4 @@
-import type {
-  GetStaticProps,
-  GetStaticPropsResult,
-  NextPage,
-} from "next";
+import type { GetStaticProps, GetStaticPropsResult, NextPage } from "next";
 import React, { useEffect } from "react";
 import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
 import Permitteringsside, {
@@ -37,10 +33,14 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     *[tema == "Permittering"] {
       "hvordanPermittere": *[id == "hvordanPermittere"],
       "vanligeSporsmal": *[_type == "vanligsporsmal" && references(^._id)],
-      "lonnsplikt": *[id == "lonnsplikt"],
+      "lonnsplikt": *[id == "lonnsplikt"]{
+        ...,
+        innhold[]{
+          _type == "reference" => @->,
+          _type != "reference" => @
+        }
+      },
       "varselfrist": *[id == "varselfrist"],
-      "nyePermitteringsregler": *[id == "nyePermitteringsregler"],
-      "forlengeDagpengeperioder": *[id == "forlengeDagpengeperioder"],
       "infoTilAnsatte": *[id == "infoTilAnsatte"]{
         ...,
         innhold[]{
@@ -48,7 +48,13 @@ export const getStaticProps: GetStaticProps = async (): Promise<
           _type != "reference" => @
         }
       },
-      "permitteringsperioden": *[id == "permitteringsperioden"],
+      "permitteringsperioden": *[id == "permitteringsperioden"]{
+        ...,
+        innhold[]{
+          _type == "reference" => @->,
+          _type != "reference" => @
+        }
+      },
     }
   `;
 
@@ -76,12 +82,6 @@ export const getStaticProps: GetStaticProps = async (): Promise<
   const lønnsplikt: LønnspliktProps = {
     tittel: response[0].lonnsplikt[0].tittel,
     innhold: response[0].lonnsplikt[0].innhold,
-    nyePermitteringsregler: {
-      tittel: response[0].nyePermitteringsregler[0].tittel,
-      beskrivelse: response[0].nyePermitteringsregler[0].beskrivelse,
-    },
-    forlengeDagpengeperioder:
-      response[0].forlengeDagpengeperioder[0].beskrivelse,
   };
 
   const infoTilAnsatte: InfoTilAnsatteProps = {
