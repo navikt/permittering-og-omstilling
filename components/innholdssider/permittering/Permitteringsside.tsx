@@ -52,7 +52,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   lønnsplikt,
   infoTilAnsatte,
   permitteringsperioden,
-  sistOppdatert
+  sistOppdatert,
 }) => {
   return (
     <div className={styles.permitteringsSide}>
@@ -62,8 +62,10 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
       <div className={styles.container}>
         <Innholdsmeny />
         <div className={styles.innhold}>
-          <SistOppdatertTema sistOppdatert={sistOppdatert}/>
-          <HvordanPermittere {...hvordanPermittere} />
+          <HvordanPermittere
+            {...hvordanPermittere}
+            sistOppdatert={sistOppdatert}
+          />
           <Lønnsplikt {...lønnsplikt} />
           <Permitteringsperioden {...permitteringsperioden} />
           <InfoTilAnsatte {...infoTilAnsatte} />

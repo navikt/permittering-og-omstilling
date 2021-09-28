@@ -1,16 +1,17 @@
-import { Accordion, Heading } from "@navikt/ds-react";
+import { Heading } from "@navikt/ds-react";
 import Container from "../../../container/Container";
 import { permitteringInnhold } from "../Permitteringsside";
 import React, { FunctionComponent } from "react";
 import Steg from "./Steg";
-import BlockContent from "@sanity/block-content-to-react";
 
 import styles from "./HvordanPermittere.module.css";
 import Lenkeknapp from "../../../lenkeknapp/Lenkeknapp";
+import SistOppdatertTema from "../../../sistOppdatertTema/SistOppdatertTema";
 
 export type HvordanPermittereProps = {
   tittel: string;
   alleSteg: StegType[];
+  sistOppdatert: Date[];
 };
 
 export type StegType = {
@@ -23,13 +24,16 @@ export type SanityBlockContent = any;
 const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
   tittel,
   alleSteg,
+  sistOppdatert,
 }) => {
   return (
     <Container>
+      <SistOppdatertTema sistOppdatert={sistOppdatert} />
       <Heading
         spacing
         size="xlarge"
         id={permitteringInnhold.hvordanPermittere.anker}
+        className={styles.tittel}
       >
         {tittel}
       </Heading>
