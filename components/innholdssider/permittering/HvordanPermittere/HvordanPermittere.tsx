@@ -49,7 +49,7 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
               className={styles.meldIfra}
               href="https://www.nav.no/soknader/nb/bedrift/permitteringer-oppsigelser-og-konkurs/masseoppsigelser"
             >
-              Meld ifra
+              Meld fra
             </Lenkeknapp>
           )}
         </>

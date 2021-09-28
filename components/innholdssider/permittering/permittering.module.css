@@ -9,10 +9,6 @@
   flex-direction: column;
 }
 
-.stegTitle {
-  margin-top: 2rem;
-}
-
 .forlengeRegelverkAlert {
   margin-bottom: 2rem;
 }
@@ -21,15 +17,7 @@
   margin-bottom: 2rem;
 }
 
-.kalkulator {
-  margin-top: 1.5rem;
-}
-
-.før1septemberTitle {
-  margin-top: 2rem;
-}
-
-.ikkeOmfattetAvAvtalenAccordion {
+.accordion {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
@@ -59,5 +47,4 @@
     width: 100%;
     padding: 0;
   }
-
 }

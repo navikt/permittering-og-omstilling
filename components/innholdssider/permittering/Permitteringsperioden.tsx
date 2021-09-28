@@ -4,6 +4,7 @@ import { permitteringInnhold } from "./Permitteringsside";
 import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 import React, { FunctionComponent } from "react";
 import BlockContent from "@sanity/block-content-to-react";
+import styles from "./permittering.module.css";
 
 export type PermitteringsperiodenProps = {
   tittel: string;
@@ -40,7 +41,7 @@ const serializers = {
         );
       } else {
         return (
-          <Accordion>
+          <Accordion className={styles.accordion}>
             <Accordion.Item>
               <Accordion.Header>{props.node.tittel}</Accordion.Header>
               <Accordion.Content>
