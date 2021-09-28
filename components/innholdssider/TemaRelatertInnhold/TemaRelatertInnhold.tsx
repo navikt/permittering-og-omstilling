@@ -8,9 +8,10 @@ type Props = {
 }
 
 const TemaRelatertInnhold: FunctionComponent<Props> = ( {relatertInnhold} ) => {
+  const relatertInnholdSorted = relatertInnhold.sort((a, b) => a.sortOrder - b.sortOrder);
   return (
     <div>
-      {relatertInnhold.map((innhold: RelatertInnhold, index) => (
+      {relatertInnholdSorted.map((innhold: RelatertInnhold, index) => (
         <div className={styles.relatertinnhold} key={index}>
             <Heading size={"medium"} spacing>{innhold.tittel}</Heading>
             {innhold.lenker.map((lenke: RelatertInnholdLenke) => (

@@ -24,6 +24,11 @@ export default {
       ],
     },
     {
+      title: "Rekkefølge",
+      type: "number",
+      name: "sortOrder",
+    },
+    {
       title: "Tema",
       name: "tema",
       type: "reference",

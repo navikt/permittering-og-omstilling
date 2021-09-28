@@ -6,5 +6,6 @@ export type RelatertInnholdLenke = {
 
 export type RelatertInnhold = {
     tittel: string,
-    lenker: Array<RelatertInnholdLenke>
+    lenker: Array<RelatertInnholdLenke>,
+    sortOrder: number
 }

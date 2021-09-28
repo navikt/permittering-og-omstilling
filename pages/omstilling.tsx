@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     }
   }`;
   const relatertInnholdQuery =
-    '*[_type == "relatertInnhold" && tema->tema == "Omstilling"]{tittel, lenker}';
+    '*[_type == "relatertInnhold" && tema->tema == "Omstilling"]{tittel, lenker, sortOrder}';
   const sistOppdatertQuery = `
     *[_type == "temaInnhold" && tema->tema=="Permittering"]{
       _updatedAt
@@ -73,7 +73,8 @@ export const getStaticProps: GetStaticProps = async (): Promise<
   const relatertInnhold: RelatertInnhold[] = relatertInnholdResponse.map(
     (innhold: any) => ({ 
       tittel: innhold.tittel,
-      lenker: innhold.lenker
+      lenker: innhold.lenker,
+      sortOrder: innhold.sortOrder != null ? innhold.sortOrder : 100
     })
   );
 
