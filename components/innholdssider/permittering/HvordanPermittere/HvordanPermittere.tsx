@@ -12,8 +12,6 @@ export type HvordanPermittereProps = {
   tittel: string;
   alleSteg: StegType[];
   sistOppdatert: Date[];
-  elementIviewport: (elemtId: string) => boolean;
-  setNåværendeHash: (hash: string) => void;
 };
 
 export type StegType = {
@@ -33,8 +31,7 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
 
 
   return (
-      <div id={"hvordan-permittere"}>
-    <Container>
+    <Container id={"hvordan-permittere"}>
       <SistOppdatertTema sistOppdatert={sistOppdatert} />
       <Heading
         spacing
@@ -72,7 +69,6 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
         allowFullScreen
       />
     </Container>
-          </div>
   );
 };
 
