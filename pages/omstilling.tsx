@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
   const relatertInnholdQuery =
     '*[_type == "relatertInnhold" && tema->tema == "Omstilling"]{tittel, lenker, sortOrder}';
   const sistOppdatertQuery = `
-    *[_type == "temaInnhold" && tema->tema=="Permittering"]{
+    *[_type == "temaInnhold" && tema->tema=="Omstilling"]{
       _updatedAt
     }
   `;
