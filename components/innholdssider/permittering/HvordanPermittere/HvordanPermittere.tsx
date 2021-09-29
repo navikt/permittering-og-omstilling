@@ -37,9 +37,7 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
   if (typeof window !== "undefined") {
     const element = document.getElementById("hvordan-permittere")
     if (element) {
-      console.log('fant element')
       element.addEventListener('scroll',(event) => {
-        console.log('onscroll')
         setNåværendeHash("hvordan-permittere");
       });
 

@@ -49,7 +49,6 @@ export type PermitteringssideProps = {
 const avstandFraElementTilSkjermTopp = (elementId: string) => {
   const rect = document.getElementById(elementId)?.getBoundingClientRect();
   if (rect) {
-    console.log("avstand: "+Math.abs(rect.top), elementId)
     return (
         Math.abs(rect.top)
     );
