@@ -9,13 +9,11 @@ import BlockContent from "@sanity/block-content-to-react";
 export type LønnspliktProps = {
   tittel: string;
   innhold: SanityBlockContent;
-  elementIviewPort: (elemtId: string) => void;
 };
 
 const Lønnsplikt: FunctionComponent<LønnspliktProps> = ({
   tittel,
   innhold,
-    elementIviewPort
 }) => {
   return (
     <Container id={permitteringInnhold.lønnsplikt.anker}>
