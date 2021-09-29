@@ -12,7 +12,6 @@ import Innholdsmeny from "./innholdsmeny/Innholdsmeny";
 import {FunctionComponent, useEffect, useState} from "react";
 import { VanligSpørsmålType } from "./VanligeSpørsmål/VanligSpørsmål";
 import VanligeSporsmal from "./VanligeSpørsmål/VanligeSporsmal";
-import {min} from "rxjs/operators";
 
 export const permitteringInnhold = {
   hvordanPermittere: {
@@ -83,7 +82,6 @@ const finnHvilketInnholdSomErScrolletTil = () => {
   if (avstandVanligeSpørsmål< minAvstand) {
     innholdsAnker = permitteringInnhold.vanligeSpørsmål.anker
   }
-  console.log("minste avstand: ", minAvstand, innholdsAnker)
   return innholdsAnker
 }
 
@@ -112,15 +110,11 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
 
   },[]);
 
-  if (typeof window !== "undefined") {
-    /*avstandFraElementTilSkjermTopp(permitteringInnhold.vanligeSpørsmål.anker);
-    avstandFraElementTilSkjermTopp(permitteringInnhold.hvordanPermittere.anker);
-    avstandFraElementTilSkjermTopp(permitteringInnhold.infoTilAnsatte.anker);
-    avstandFraElementTilSkjermTopp(permitteringInnhold.lønnsplikt.anker);
-    avstandFraElementTilSkjermTopp(permitteringInnhold.permitteringsperioden.anker);
-
-     */
-  }
+  useEffect(() => {
+    if (global.location && nåværendeHash) {
+      global.location.hash = nåværendeHash
+    }
+  },[nåværendeHash]);
 
   return (
     <div className={styles.permitteringsSide}>
@@ -130,7 +124,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
       <div className={styles.container}>
         <Innholdsmeny setNåværendeHash={setNåværendeHash} nåværendeHash={nåværendeHash}/>
         <div className={styles.innhold}>
-          <HvordanPermittere elementIviewPort={avstandFraElementTilSkjermTopp}
+          <HvordanPermittere
             {...hvordanPermittere}
             sistOppdatert={sistOppdatert}
           />

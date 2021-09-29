@@ -28,25 +28,12 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
   tittel,
   alleSteg,
   sistOppdatert,
-  elementIviewport,
-    setNåværendeHash
 }) => {
 
 
 
-  if (typeof window !== "undefined") {
-    const element = document.getElementById("hvordan-permittere")
-    if (element) {
-      element.addEventListener('scroll',(event) => {
-        setNåværendeHash("hvordan-permittere");
-      });
-
-    }
-
-  }
-
   return (
-      <div id={"hvordan-permittere"} onScroll={() => setNåværendeHash("hvordan-permittere")}>
+      <div id={"hvordan-permittere"}>
     <Container>
       <SistOppdatertTema sistOppdatert={sistOppdatert} />
       <Heading
