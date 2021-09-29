@@ -4,6 +4,7 @@ import { permitteringInnhold } from "./Permitteringsside";
 import React, { FunctionComponent } from "react";
 import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 import BlockContent from "@sanity/block-content-to-react";
+import KopierLenke from "../../kopierlenke/KopierLenke";
 
 export type InfoTilAnsatteProps = {
   tittel: string;
@@ -17,12 +18,12 @@ const InfoTilAnsatte: FunctionComponent<InfoTilAnsatteProps> = ({
   return (
     <Container>
       <Heading
-        spacing
         size="xlarge"
         id={permitteringInnhold.infoTilAnsatte.anker}
       >
         {tittel}
       </Heading>
+      <KopierLenke anker={permitteringInnhold.infoTilAnsatte.anker} />
       <BlockContent blocks={innhold} serializers={serializers} />
     </Container>
   );

@@ -5,6 +5,7 @@ import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 import React, { FunctionComponent } from "react";
 import BlockContent from "@sanity/block-content-to-react";
 import styles from "./permittering.module.css";
+import KopierLenke from "../../kopierlenke/KopierLenke";
 
 export type PermitteringsperiodenProps = {
   tittel: string;
@@ -18,13 +19,12 @@ const Permitteringsperioden: FunctionComponent<PermitteringsperiodenProps> = ({
   return (
     <Container>
       <Heading
-        spacing
         size="xlarge"
         id={permitteringInnhold.permitteringsperioden.anker}
       >
         {tittel}
       </Heading>
-
+      <KopierLenke anker={permitteringInnhold.infoTilAnsatte.anker} />
       <BlockContent blocks={innhold} serializers={serializers} />
     </Container>
   );

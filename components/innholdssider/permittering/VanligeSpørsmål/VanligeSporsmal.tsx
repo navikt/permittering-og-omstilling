@@ -1,8 +1,9 @@
 import { Heading, Link } from "@navikt/ds-react";
 import Container from "../../../container/Container";
 import { permitteringInnhold } from "../Permitteringsside";
-import { FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import VanligSpørsmål, { VanligSpørsmålType } from "./VanligSpørsmål";
+import KopierLenke from "../../../kopierlenke/KopierLenke";
 
 type Props = {
   vanligeSpørsmål: VanligSpørsmålType[];
@@ -12,12 +13,12 @@ const VanligeSporsmal: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
   return (
     <Container>
       <Heading
-        spacing
         size="xlarge"
         id={permitteringInnhold.vanligeSpørsmål.anker}
       >
         Vanlige spørsmål
       </Heading>
+      <KopierLenke anker={permitteringInnhold.infoTilAnsatte.anker} />
       {vanligeSpørsmål.map((vanligSpørsmål) => (
         <VanligSpørsmål {...vanligSpørsmål} key={vanligSpørsmål.sporsmal} />
       ))}
