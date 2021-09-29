@@ -1,7 +1,7 @@
 import { Heading } from "@navikt/ds-react";
 import Container from "../../../container/Container";
 import { permitteringInnhold } from "../Permitteringsside";
-import React, { FunctionComponent } from "react";
+import React, {createRef, FunctionComponent} from "react";
 import Steg from "./Steg";
 
 import styles from "./HvordanPermittere.module.css";
@@ -12,11 +12,14 @@ export type HvordanPermittereProps = {
   tittel: string;
   alleSteg: StegType[];
   sistOppdatert: Date[];
+  elementIviewport: (elemtId: string) => boolean;
+  setNåværendeHash: (hash: string) => void;
 };
 
 export type StegType = {
   steg: string;
   beskrivelse: SanityBlockContent;
+
 };
 
 export type SanityBlockContent = any;
@@ -25,8 +28,27 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
   tittel,
   alleSteg,
   sistOppdatert,
+  elementIviewport,
+    setNåværendeHash
 }) => {
+
+
+
+  if (typeof window !== "undefined") {
+    const element = document.getElementById("hvordan-permittere")
+    if (element) {
+      console.log('fant element')
+      element.addEventListener('scroll',(event) => {
+        console.log('onscroll')
+        setNåværendeHash("hvordan-permittere");
+      });
+
+    }
+
+  }
+
   return (
+      <div id={"hvordan-permittere"} onScroll={() => setNåværendeHash("hvordan-permittere")}>
     <Container>
       <SistOppdatertTema sistOppdatert={sistOppdatert} />
       <Heading
@@ -65,6 +87,7 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
         allowFullScreen
       />
     </Container>
+          </div>
   );
 };
 

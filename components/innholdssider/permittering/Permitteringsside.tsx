@@ -9,10 +9,10 @@ import Permitteringsperioden, {
 import InfoTilAnsatte, { InfoTilAnsatteProps } from "./InfoTilAnsatte";
 import styles from "./permittering.module.css";
 import Innholdsmeny from "./innholdsmeny/Innholdsmeny";
-import { FunctionComponent } from "react";
+import {FunctionComponent, useEffect, useState} from "react";
 import { VanligSpørsmålType } from "./VanligeSpørsmål/VanligSpørsmål";
 import VanligeSporsmal from "./VanligeSpørsmål/VanligeSporsmal";
-import SistOppdatertTema from "../../sistOppdatertTema/SistOppdatertTema";
+import {min} from "rxjs/operators";
 
 export const permitteringInnhold = {
   hvordanPermittere: {
@@ -46,6 +46,48 @@ export type PermitteringssideProps = {
   sistOppdatert: Date[];
 };
 
+const avstandFraElementTilSkjermTopp = (elementId: string) => {
+  const rect = document.getElementById(elementId)?.getBoundingClientRect();
+  if (rect) {
+    console.log("avstand: "+Math.abs(rect.top), elementId)
+    return (
+        Math.abs(rect.top)
+    );
+  }
+  return 1000;
+}
+
+const finnHvilketInnholdSomErScrolletTil = () => {
+  let innholdsAnker = permitteringInnhold.hvordanPermittere.anker;
+  let minAvstand = 10000000;
+  const avstandHvordanPermittere = avstandFraElementTilSkjermTopp(permitteringInnhold.hvordanPermittere.anker);
+  if (avstandHvordanPermittere < minAvstand) {
+    innholdsAnker = permitteringInnhold.hvordanPermittere.anker
+    minAvstand=avstandHvordanPermittere;
+  }
+  const avstandPermitteringsperioden = avstandFraElementTilSkjermTopp(permitteringInnhold.permitteringsperioden.anker);
+  if (avstandPermitteringsperioden < minAvstand) {
+    innholdsAnker = permitteringInnhold.permitteringsperioden.anker
+    minAvstand=avstandPermitteringsperioden;
+  }
+  const avstandLønnsplikt = avstandFraElementTilSkjermTopp(permitteringInnhold.lønnsplikt.anker);
+  if (avstandLønnsplikt< minAvstand) {
+    innholdsAnker = permitteringInnhold.lønnsplikt.anker
+    minAvstand=avstandLønnsplikt;
+  }
+  const avstandInfoTilAnsatte = avstandFraElementTilSkjermTopp(permitteringInnhold.infoTilAnsatte.anker);
+  if (avstandInfoTilAnsatte< minAvstand) {
+    innholdsAnker = permitteringInnhold.infoTilAnsatte.anker
+    minAvstand=avstandInfoTilAnsatte;
+  }
+  const avstandVanligeSpørsmål = avstandFraElementTilSkjermTopp(permitteringInnhold.vanligeSpørsmål.anker);
+  if (avstandVanligeSpørsmål< minAvstand) {
+    innholdsAnker = permitteringInnhold.vanligeSpørsmål.anker
+  }
+  console.log("minste avstand: ", minAvstand, innholdsAnker)
+  return innholdsAnker
+}
+
 const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   vanligeSpørsmål,
   hvordanPermittere,
@@ -54,6 +96,32 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   permitteringsperioden,
   sistOppdatert,
 }) => {
+  const [nåværendeHash, setNåværendeHash] = useState<string|undefined>(undefined);
+
+  useEffect(() => {
+    const hash= global.location ? global.location.hash.slice(1): null;
+    if (hash) {
+      setNåværendeHash(hash);
+    }
+  },[])
+
+  useEffect(() => {
+    window.addEventListener('scroll',(event) => {
+      const anker = finnHvilketInnholdSomErScrolletTil();
+      setNåværendeHash(anker);
+    });
+
+  },[]);
+
+  if (typeof window !== "undefined") {
+    /*avstandFraElementTilSkjermTopp(permitteringInnhold.vanligeSpørsmål.anker);
+    avstandFraElementTilSkjermTopp(permitteringInnhold.hvordanPermittere.anker);
+    avstandFraElementTilSkjermTopp(permitteringInnhold.infoTilAnsatte.anker);
+    avstandFraElementTilSkjermTopp(permitteringInnhold.lønnsplikt.anker);
+    avstandFraElementTilSkjermTopp(permitteringInnhold.permitteringsperioden.anker);
+
+     */
+  }
 
   return (
     <div className={styles.permitteringsSide}>
@@ -61,9 +129,9 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
         Veiviser for permittering
       </PageHeader>
       <div className={styles.container}>
-        <Innholdsmeny />
+        <Innholdsmeny setNåværendeHash={setNåværendeHash} nåværendeHash={nåværendeHash}/>
         <div className={styles.innhold}>
-          <HvordanPermittere
+          <HvordanPermittere elementIviewPort={avstandFraElementTilSkjermTopp}
             {...hvordanPermittere}
             sistOppdatert={sistOppdatert}
           />

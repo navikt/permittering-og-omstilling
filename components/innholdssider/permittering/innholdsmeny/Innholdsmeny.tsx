@@ -2,17 +2,13 @@
 import styles from "./innholdsmeny.module.css";
 import {AccordionMenu, Heading} from "@navikt/ds-react";
 import { permitteringInnhold } from "../Permitteringsside";
-import {useEffect, useState} from "react";
+import {FunctionComponent} from "react";
+type InnholdsmenyProps = {
+    nåværendeHash: string|undefined
+    setNåværendeHash: (hash: string) => void;
+};
 
-const Innholdsmeny = () => {
- const [nåærendeHash, setNåværendeHash] = useState<string|undefined>(undefined);
-
-    useEffect(() => {
-        const hash= global.location ? global.location.hash.slice(1): null;
-        if (hash) {
-            setNåværendeHash(hash);
-        }
-    },[])
+const Innholdsmeny: FunctionComponent<InnholdsmenyProps> = ({nåværendeHash,setNåværendeHash}) => {
 
   return (
       <AccordionMenu className={styles.innholdsmeny}>
@@ -20,7 +16,7 @@ const Innholdsmeny = () => {
               Innhold på siden
           </Heading>
           {Object.values(permitteringInnhold).map((innhold) => {
-                  return  nåærendeHash?.includes(innhold.anker) ?
+                  return  nåværendeHash?.includes(innhold.anker) ?
               <AccordionMenu.Item active href={`#${innhold.anker}`} key={innhold.anker}>
                   {innhold.tittel}
               </AccordionMenu.Item>

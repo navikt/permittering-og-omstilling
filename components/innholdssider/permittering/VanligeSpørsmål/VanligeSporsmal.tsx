@@ -10,7 +10,7 @@ type Props = {
 
 const VanligeSporsmal: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
   return (
-    <Container>
+    <Container id={permitteringInnhold.vanligeSpørsmål.anker}>
       <Heading
         spacing
         size="xlarge"
