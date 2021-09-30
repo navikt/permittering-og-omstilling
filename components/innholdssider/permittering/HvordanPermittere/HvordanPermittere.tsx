@@ -1,7 +1,7 @@
 import { Heading } from "@navikt/ds-react";
 import Container from "../../../container/Container";
 import { permitteringInnhold } from "../Permitteringsside";
-import React, { FunctionComponent } from "react";
+import React, {createRef, FunctionComponent} from "react";
 import Steg from "./Steg";
 
 import styles from "./HvordanPermittere.module.css";
@@ -18,6 +18,7 @@ export type HvordanPermittereProps = {
 export type StegType = {
   steg: string;
   beskrivelse: SanityBlockContent;
+
 };
 
 export type SanityBlockContent = any;
@@ -27,8 +28,11 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
   alleSteg,
   sistOppdatert,
 }) => {
+
+
+
   return (
-    <Container>
+    <Container id={"hvordan-permittere"}>
       <SistOppdatertTema sistOppdatert={sistOppdatert} />
       <Heading
         size="xlarge"

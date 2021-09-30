@@ -18,7 +18,7 @@ const Lønnsplikt: FunctionComponent<LønnspliktProps> = ({
   innhold,
 }) => {
   return (
-    <Container>
+    <Container id={permitteringInnhold.lønnsplikt.anker}>
       <Heading size="xlarge" id={permitteringInnhold.lønnsplikt.anker}>
         {tittel}
       </Heading>

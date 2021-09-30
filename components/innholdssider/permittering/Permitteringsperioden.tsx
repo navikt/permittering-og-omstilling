@@ -18,7 +18,7 @@ const Permitteringsperioden: FunctionComponent<PermitteringsperiodenProps> = ({
   innhold,
 }) => {
   return (
-    <Container>
+    <Container id={permitteringInnhold.permitteringsperioden.anker}>
       <Heading
         size="xlarge"
         id={permitteringInnhold.permitteringsperioden.anker}

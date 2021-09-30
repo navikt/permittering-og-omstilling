@@ -17,7 +17,7 @@ const InfoTilAnsatte: FunctionComponent<InfoTilAnsatteProps> = ({
   innhold,
 }) => {
   return (
-    <Container>
+    <Container id={permitteringInnhold.infoTilAnsatte.anker}>
       <Heading size="xlarge" id={permitteringInnhold.infoTilAnsatte.anker}>
         {tittel}
       </Heading>
