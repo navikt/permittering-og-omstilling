@@ -7,6 +7,7 @@ import Steg from "./Steg";
 import styles from "./HvordanPermittere.module.css";
 import Lenkeknapp from "../../../lenkeknapp/Lenkeknapp";
 import SistOppdatertTema from "../../../sistOppdatertTema/SistOppdatertTema";
+import KopierLenke from "../../../kopierlenke/KopierLenke";
 
 export type HvordanPermittereProps = {
   tittel: string;
@@ -34,13 +35,13 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
     <Container id={"hvordan-permittere"}>
       <SistOppdatertTema sistOppdatert={sistOppdatert} />
       <Heading
-        spacing
         size="xlarge"
         id={permitteringInnhold.hvordanPermittere.anker}
         className={styles.tittel}
       >
         {tittel}
       </Heading>
+      <KopierLenke anker={permitteringInnhold.infoTilAnsatte.anker} />
       {alleSteg.map((steg, index) => (
         <>
           <Steg

@@ -5,6 +5,8 @@ import styles from "./permittering.module.css";
 import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 import React, { FunctionComponent } from "react";
 import BlockContent from "@sanity/block-content-to-react";
+import KopierLenke from "../../kopierlenke/KopierLenke";
+import Lenke from "../../lenke/Lenke";
 
 export type LønnspliktProps = {
   tittel: string;
@@ -17,15 +19,21 @@ const Lønnsplikt: FunctionComponent<LønnspliktProps> = ({
 }) => {
   return (
     <Container id={permitteringInnhold.lønnsplikt.anker}>
-      <Heading spacing size="xlarge" id={permitteringInnhold.lønnsplikt.anker}>
+      <Heading size="xlarge" id={permitteringInnhold.lønnsplikt.anker}>
         {tittel}
       </Heading>
+      <KopierLenke anker={permitteringInnhold.lønnsplikt.anker} />
       <BlockContent blocks={innhold} serializers={serializers} />
     </Container>
   );
 };
 
 const serializers = {
+  marks: {
+    link: (props: any) => {
+      return <Lenke href={props.mark.href}>{props.children[0]}</Lenke>;
+    },
+  },
   types: {
     infofelt: (props: any) => {
       if (props.node.id === "forlengeDagpengeperioder") {

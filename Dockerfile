@@ -1,8 +1,15 @@
 FROM node:14-alpine
+
 WORKDIR /app
-COPY package.json yarn.lock /app/
-RUN yarn install --frozen-lockfile
-ADD . /app/
-RUN yarn build
-RUN chown -R 1069:1069 /app
+ENV NODE_ENV production
+
+COPY .next ./.next
+COPY public ./public
+COPY package.json ./package.json
+COPY next.config.js ./next.config.js
+
+RUN yarn add next
+
+RUN chown -R 1069:1069 /app/.next
+
 CMD ["yarn", "start"]

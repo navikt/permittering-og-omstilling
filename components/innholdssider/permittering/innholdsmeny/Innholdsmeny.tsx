@@ -1,4 +1,3 @@
-
 import styles from "./innholdsmeny.module.css";
 import {AccordionMenu, Heading} from "@navikt/ds-react";
 import { permitteringInnhold } from "../Permitteringsside";

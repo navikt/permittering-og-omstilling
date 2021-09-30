@@ -6,7 +6,7 @@ type Props = {
 
 const SistOppdatertTema: FunctionComponent<Props> = ({ sistOppdatert }) => {
   const sistOppdatertDato = sistOppdatert.sort((a: Date, b: Date) => {
-    return new Date(a).getTime() - new Date(b).getTime();
+    return new Date(b).getTime() - new Date(a).getTime();
   })[0];
 
   const formattedDate = new Date(sistOppdatertDato).toLocaleDateString("no-NO");

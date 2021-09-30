@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { StegType } from "./HvordanPermittere";
 import BlockContent from "@sanity/block-content-to-react";
 import { Accordion, Heading } from "@navikt/ds-react";
+import Lenke from "../../../lenke/Lenke";
 
 const Steg: FunctionComponent<StegType> = ({ steg, beskrivelse }) => {
   return (
@@ -15,6 +16,11 @@ const Steg: FunctionComponent<StegType> = ({ steg, beskrivelse }) => {
 };
 
 const serializers = {
+  marks: {
+    link: (props: any) => {
+      return <Lenke href={props.mark.href}>{props.children[0]}</Lenke>;
+    },
+  },
   types: {
     infofelt: (props: any) => (
       <Accordion>

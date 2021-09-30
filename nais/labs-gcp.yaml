@@ -15,10 +15,10 @@ spec:
     - https://permittering-og-omstilling.labs.nais.io/permittering-og-omstilling
   liveness:
     path: /permittering-og-omstilling/api/internal/isAlive
-    initialDelay: 10
+    initialDelay: 5
   readiness:
     path: /permittering-og-omstilling/api/internal/isReady
-    initialDelay: 10
+    initialDelay: 5
   env:
     - name: NODE_EXTRA_CA_CERTS
       value: "/etc/ssl/ca-bundle.pem"

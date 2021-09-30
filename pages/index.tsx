@@ -6,7 +6,9 @@ const basePath = "permittering-og-omstilling";
 
 const Forside: NextPage = () => (
   <>
-    <PageHeader className={styles.banner}>Veiviser for permittering</PageHeader>
+    <PageHeader className={styles.banner}>
+      Permittering og omstilling
+    </PageHeader>
     <div className={styles.container}>
       <LinkPanel className={styles.linkPanel} href={`${basePath}/permittering`}>
         <LinkPanel.Title>Veiviser for permittering</LinkPanel.Title>
