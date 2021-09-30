@@ -1,7 +1,7 @@
-import Link from "next/link";
 import styles from "./innholdsmeny.module.css";
 import { Heading } from "@navikt/ds-react";
 import { permitteringInnhold } from "../Permitteringsside";
+import Lenke from "../../../lenke/Lenke";
 
 const Innholdsmeny = () => {
   return (
@@ -10,9 +10,13 @@ const Innholdsmeny = () => {
         Innhold på siden
       </Heading>
       {Object.values(permitteringInnhold).map((innhold) => (
-        <Link href={`#${innhold.anker}`} key={innhold.anker}>
-          <a className={styles.lenke}>{innhold.tittel}</a>
-        </Link>
+        <Lenke
+          href={`#${innhold.anker}`}
+          className={styles.lenke}
+          key={innhold.anker}
+        >
+          {innhold.tittel}
+        </Lenke>
       ))}
     </nav>
   );

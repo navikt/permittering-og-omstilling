@@ -1,29 +1,25 @@
 import React, { FunctionComponent } from "react";
 import BlockContent from "@sanity/block-content-to-react";
-import {
-  Alert,
-  PageHeader,
-  Heading,
-  Link,
-} from "@navikt/ds-react";
+import { Alert, PageHeader, Heading } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { RelatertInnhold } from "../RelatertInnhold";
 import { TemaInnhold } from "../TemaInnhold";
 import styles from "./omstilling.module.css";
 import TemaRelatertInnhold from "../TemaRelatertInnhold/TemaRelatertInnhold";
 import SistOppdatertTema from "../../sistOppdatertTema/SistOppdatertTema";
+import Lenke from "../../lenke/Lenke";
 
 type Props = {
   omstillingInnhold: TemaInnhold[];
   relatertInnhold: RelatertInnhold[];
   sistOppdatert: Date[];
-}
+};
 
 const serializers = {
   marks: {
     link: (props: any) => {
-      return <Link href={props.mark.href}>{props.children[0]}</Link>
-    }
+      return <Lenke href={props.mark.href}>{props.children[0]}</Lenke>;
+    },
   },
   types: {
     infofelt: (props: any) => (
@@ -37,19 +33,30 @@ const serializers = {
   },
 };
 
-const OmstillingsSide: FunctionComponent<Props> = ( {omstillingInnhold, relatertInnhold, sistOppdatert} ) => {
+const OmstillingsSide: FunctionComponent<Props> = ({
+  omstillingInnhold,
+  relatertInnhold,
+  sistOppdatert,
+}) => {
   return (
     <div className={styles.omstillingsSide}>
-      <PageHeader className={styles.banner} description="NAV samarbeider med virksomheter i omstilling der mange ansatte mister - eller står i fare for - å miste jobben.">
+      <PageHeader
+        className={styles.banner}
+        description="NAV samarbeider med virksomheter i omstilling der mange ansatte mister - eller står i fare for - å miste jobben."
+      >
         Omstilling og nedbemanning
       </PageHeader>
       <div className={styles.container}>
         <TemaRelatertInnhold relatertInnhold={relatertInnhold} />
         <div className={styles.innhold}>
           <Container>
-            <SistOppdatertTema sistOppdatert={sistOppdatert}/>
+            <SistOppdatertTema sistOppdatert={sistOppdatert} />
             {omstillingInnhold.map((innhold) => (
-                <BlockContent blocks={innhold.innhold} key={innhold.tittel} serializers={serializers}/>
+              <BlockContent
+                blocks={innhold.innhold}
+                key={innhold.tittel}
+                serializers={serializers}
+              />
             ))}
           </Container>
         </div>

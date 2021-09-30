@@ -1,4 +1,4 @@
-import { Alert, Heading, Link } from "@navikt/ds-react";
+import { Alert, Heading } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { permitteringInnhold } from "./Permitteringsside";
 import styles from "./permittering.module.css";
@@ -6,6 +6,7 @@ import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 import React, { FunctionComponent } from "react";
 import BlockContent from "@sanity/block-content-to-react";
 import KopierLenke from "../../kopierlenke/KopierLenke";
+import Lenke from "../../lenke/Lenke";
 
 export type LønnspliktProps = {
   tittel: string;
@@ -30,8 +31,8 @@ const Lønnsplikt: FunctionComponent<LønnspliktProps> = ({
 const serializers = {
   marks: {
     link: (props: any) => {
-      return <Link href={props.mark.href}>{props.children[0]}</Link>
-    }
+      return <Lenke href={props.mark.href}>{props.children[0]}</Lenke>;
+    },
   },
   types: {
     infofelt: (props: any) => {

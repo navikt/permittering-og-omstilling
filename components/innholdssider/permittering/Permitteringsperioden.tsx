@@ -6,6 +6,7 @@ import React, { FunctionComponent } from "react";
 import BlockContent from "@sanity/block-content-to-react";
 import styles from "./permittering.module.css";
 import KopierLenke from "../../kopierlenke/KopierLenke";
+import Lenke from "../../lenke/Lenke";
 
 export type PermitteringsperiodenProps = {
   tittel: string;
@@ -33,8 +34,13 @@ const Permitteringsperioden: FunctionComponent<PermitteringsperiodenProps> = ({
 const serializers = {
   marks: {
     link: (props: any) => {
-      return <Link href={props.mark.href}>{props.children[0]}</Link>
-    }
+      return (
+        <Lenke href={props.mark.href}>
+          {/*<a className={styles.test}>{props.children[0]}</a>*/}
+          {props.children[0]}
+        </Lenke>
+      );
+    },
   },
   types: {
     infofelt: (props: any) => {

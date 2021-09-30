@@ -1,10 +1,11 @@
-import { Accordion, Heading, Link } from "@navikt/ds-react";
+import { Accordion, Heading } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { permitteringInnhold } from "./Permitteringsside";
 import React, { FunctionComponent } from "react";
 import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 import BlockContent from "@sanity/block-content-to-react";
 import KopierLenke from "../../kopierlenke/KopierLenke";
+import Lenke from "../../lenke/Lenke";
 
 export type InfoTilAnsatteProps = {
   tittel: string;
@@ -17,10 +18,7 @@ const InfoTilAnsatte: FunctionComponent<InfoTilAnsatteProps> = ({
 }) => {
   return (
     <Container>
-      <Heading
-        size="xlarge"
-        id={permitteringInnhold.infoTilAnsatte.anker}
-      >
+      <Heading size="xlarge" id={permitteringInnhold.infoTilAnsatte.anker}>
         {tittel}
       </Heading>
       <KopierLenke anker={permitteringInnhold.infoTilAnsatte.anker} />
@@ -32,8 +30,8 @@ const InfoTilAnsatte: FunctionComponent<InfoTilAnsatteProps> = ({
 const serializers = {
   marks: {
     link: (props: any) => {
-      return <Link href={props.mark.href}>{props.children[0]}</Link>
-    }
+      return <Lenke href={props.mark.href}>{props.children[0]}</Lenke>;
+    },
   },
   types: {
     infofelt: (props: any) => (
