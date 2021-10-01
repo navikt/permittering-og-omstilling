@@ -19,6 +19,7 @@ const Innholdsmeny: FunctionComponent<InnholdsmenyProps> = ({
       </Heading>
       {Object.values(permitteringInnhold).map((innhold) => (
         <AccordionMenu.Item
+          className={styles.lenke}
           active={nåværendeHash?.includes(innhold.anker)}
           onClick={() => setNåværendeHash(innhold.anker)}
           href={`#${innhold.anker}`}
