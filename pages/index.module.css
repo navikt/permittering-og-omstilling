@@ -14,6 +14,16 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    margin-top: 1rem;
+    flex-direction: column;
+  }
+
+  .linkPanel {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
   .banner {
     padding-left: 1rem;
   }
