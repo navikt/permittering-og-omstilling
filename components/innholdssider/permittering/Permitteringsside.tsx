@@ -9,7 +9,7 @@ import Permitteringsperioden, {
 import InfoTilAnsatte, { InfoTilAnsatteProps } from "./InfoTilAnsatte";
 import styles from "./permittering.module.css";
 import Innholdsmeny from "./innholdsmeny/Innholdsmeny";
-import {FunctionComponent, useEffect, useState} from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { VanligSpørsmålType } from "./VanligeSpørsmål/VanligSpørsmål";
 import VanligeSporsmal from "./VanligeSpørsmål/VanligeSporsmal";
 
@@ -48,42 +48,50 @@ export type PermitteringssideProps = {
 const avstandFraElementTilSkjermTopp = (elementId: string) => {
   const rect = document.getElementById(elementId)?.getBoundingClientRect();
   if (rect) {
-    return (
-        Math.abs(rect.top)
-    );
+    return Math.abs(rect.top);
   }
   return 1000;
-}
+};
 
 const finnHvilketInnholdSomErScrolletTil = () => {
   let innholdsAnker = permitteringInnhold.hvordanPermittere.anker;
   let minAvstand = 10000000;
-  const avstandHvordanPermittere = avstandFraElementTilSkjermTopp(permitteringInnhold.hvordanPermittere.anker);
+  const avstandHvordanPermittere = avstandFraElementTilSkjermTopp(
+    permitteringInnhold.hvordanPermittere.anker
+  );
   if (avstandHvordanPermittere < minAvstand) {
-    innholdsAnker = permitteringInnhold.hvordanPermittere.anker
-    minAvstand=avstandHvordanPermittere;
+    innholdsAnker = permitteringInnhold.hvordanPermittere.anker;
+    minAvstand = avstandHvordanPermittere;
   }
-  const avstandPermitteringsperioden = avstandFraElementTilSkjermTopp(permitteringInnhold.permitteringsperioden.anker);
+  const avstandPermitteringsperioden = avstandFraElementTilSkjermTopp(
+    permitteringInnhold.permitteringsperioden.anker
+  );
   if (avstandPermitteringsperioden < minAvstand) {
-    innholdsAnker = permitteringInnhold.permitteringsperioden.anker
-    minAvstand=avstandPermitteringsperioden;
+    innholdsAnker = permitteringInnhold.permitteringsperioden.anker;
+    minAvstand = avstandPermitteringsperioden;
   }
-  const avstandLønnsplikt = avstandFraElementTilSkjermTopp(permitteringInnhold.lønnsplikt.anker);
-  if (avstandLønnsplikt< minAvstand) {
-    innholdsAnker = permitteringInnhold.lønnsplikt.anker
-    minAvstand=avstandLønnsplikt;
+  const avstandLønnsplikt = avstandFraElementTilSkjermTopp(
+    permitteringInnhold.lønnsplikt.anker
+  );
+  if (avstandLønnsplikt < minAvstand) {
+    innholdsAnker = permitteringInnhold.lønnsplikt.anker;
+    minAvstand = avstandLønnsplikt;
   }
-  const avstandInfoTilAnsatte = avstandFraElementTilSkjermTopp(permitteringInnhold.infoTilAnsatte.anker);
-  if (avstandInfoTilAnsatte< minAvstand) {
-    innholdsAnker = permitteringInnhold.infoTilAnsatte.anker
-    minAvstand=avstandInfoTilAnsatte;
+  const avstandInfoTilAnsatte = avstandFraElementTilSkjermTopp(
+    permitteringInnhold.infoTilAnsatte.anker
+  );
+  if (avstandInfoTilAnsatte < minAvstand) {
+    innholdsAnker = permitteringInnhold.infoTilAnsatte.anker;
+    minAvstand = avstandInfoTilAnsatte;
   }
-  const avstandVanligeSpørsmål = avstandFraElementTilSkjermTopp(permitteringInnhold.vanligeSpørsmål.anker);
-  if (avstandVanligeSpørsmål< minAvstand) {
-    innholdsAnker = permitteringInnhold.vanligeSpørsmål.anker
+  const avstandVanligeSpørsmål = avstandFraElementTilSkjermTopp(
+    permitteringInnhold.vanligeSpørsmål.anker
+  );
+  if (avstandVanligeSpørsmål < minAvstand) {
+    innholdsAnker = permitteringInnhold.vanligeSpørsmål.anker;
   }
-  return innholdsAnker
-}
+  return innholdsAnker;
+};
 
 const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   vanligeSpørsmål,
@@ -93,28 +101,25 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   permitteringsperioden,
   sistOppdatert,
 }) => {
-  const [nåværendeHash, setNåværendeHash] = useState<string|undefined>(undefined);
+  const [nåværendeHash, setNåværendeHash] = useState<string | undefined>(
+    undefined
+  );
 
   useEffect(() => {
-    const hash= global.location ? global.location.hash.slice(1): null;
+    const hash = global.location ? global.location.hash.slice(1) : null;
     if (hash) {
       setNåværendeHash(hash);
     }
-  },[])
+  }, []);
 
   useEffect(() => {
-    window.addEventListener('scroll',(event) => {
+    const scrollListener = () => {
       const anker = finnHvilketInnholdSomErScrolletTil();
       setNåværendeHash(anker);
-    });
-
-  },[]);
-
-  useEffect(() => {
-    if (global.location && nåværendeHash) {
-      global.location.hash = nåværendeHash
-    }
-  },[nåværendeHash]);
+    };
+    window.addEventListener("scroll", scrollListener);
+    return () => window.removeEventListener("scroll", scrollListener);
+  }, []);
 
   return (
     <div className={styles.permitteringsSide}>
@@ -122,7 +127,10 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
         Veiviser for permittering
       </PageHeader>
       <div className={styles.container}>
-        <Innholdsmeny setNåværendeHash={setNåværendeHash} nåværendeHash={nåværendeHash}/>
+        <Innholdsmeny
+          setNåværendeHash={setNåværendeHash}
+          nåværendeHash={nåværendeHash}
+        />
         <div className={styles.innhold}>
           <HvordanPermittere
             {...hvordanPermittere}
