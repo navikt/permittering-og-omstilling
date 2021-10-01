@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import BlockContent from "@sanity/block-content-to-react";
 import { Alert, PageHeader, Heading } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { RelatertInnhold } from "../RelatertInnhold";
@@ -7,30 +6,12 @@ import { TemaInnhold } from "../TemaInnhold";
 import styles from "./omstilling.module.css";
 import TemaRelatertInnhold from "../TemaRelatertInnhold/TemaRelatertInnhold";
 import SistOppdatertTema from "../../sistOppdatertTema/SistOppdatertTema";
-import Lenke from "../../lenke/Lenke";
+import BlockContent from "../BlockContent/BlockContent";
 
 type Props = {
   omstillingInnhold: TemaInnhold[];
   relatertInnhold: RelatertInnhold[];
   sistOppdatert: Date[];
-};
-
-const serializers = {
-  marks: {
-    link: (props: any) => {
-      return <Lenke href={props.mark.href}>{props.children[0]}</Lenke>;
-    },
-  },
-  types: {
-    infofelt: (props: any) => (
-      <Alert variant="info" className={styles.forlengeRegelverkAlert}>
-        <Heading spacing size="medium">
-          {props.node.tittel}
-        </Heading>
-        <BlockContent blocks={props.node.beskrivelse} />
-      </Alert>
-    ),
-  },
 };
 
 const OmstillingsSide: FunctionComponent<Props> = ({
@@ -63,6 +44,19 @@ const OmstillingsSide: FunctionComponent<Props> = ({
       </div>
     </div>
   );
+};
+
+const serializers = {
+  types: {
+    infofelt: (props: any) => (
+      <Alert variant="info" className={styles.forlengeRegelverkAlert}>
+        <Heading spacing size="medium">
+          {props.node.tittel}
+        </Heading>
+        <BlockContent blocks={props.node.beskrivelse} />
+      </Alert>
+    ),
+  },
 };
 
 export default OmstillingsSide;

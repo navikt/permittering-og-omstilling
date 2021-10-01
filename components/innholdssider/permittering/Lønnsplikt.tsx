@@ -4,9 +4,9 @@ import { permitteringInnhold } from "./Permitteringsside";
 import styles from "./permittering.module.css";
 import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 import React, { FunctionComponent } from "react";
-import BlockContent from "@sanity/block-content-to-react";
 import KopierLenke from "../../kopierlenke/KopierLenke";
 import Lenke from "../../lenke/Lenke";
+import BlockContent from "../BlockContent/BlockContent";
 
 export type LønnspliktProps = {
   tittel: string;
@@ -29,11 +29,6 @@ const Lønnsplikt: FunctionComponent<LønnspliktProps> = ({
 };
 
 const serializers = {
-  marks: {
-    link: (props: any) => {
-      return <Lenke href={props.mark.href}>{props.children[0]}</Lenke>;
-    },
-  },
   types: {
     infofelt: (props: any) => {
       if (props.node.id === "forlengeDagpengeperioder") {

@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { BodyShort, Heading } from "@navikt/ds-react";
 import { SanityBlockContent } from "../HvordanPermittere/HvordanPermittere";
-import BlockContent from "@sanity/block-content-to-react";
 import styles from "./VanligeSpørsmål.module.css";
+import BlockContent from "../../BlockContent/BlockContent";
 
 export type VanligSpørsmålType = {
   sporsmal: string;

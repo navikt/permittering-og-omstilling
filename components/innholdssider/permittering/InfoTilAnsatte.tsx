@@ -3,9 +3,8 @@ import Container from "../../container/Container";
 import { permitteringInnhold } from "./Permitteringsside";
 import React, { FunctionComponent } from "react";
 import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
-import BlockContent from "@sanity/block-content-to-react";
 import KopierLenke from "../../kopierlenke/KopierLenke";
-import Lenke from "../../lenke/Lenke";
+import BlockContent from "../BlockContent/BlockContent";
 
 export type InfoTilAnsatteProps = {
   tittel: string;
@@ -28,11 +27,6 @@ const InfoTilAnsatte: FunctionComponent<InfoTilAnsatteProps> = ({
 };
 
 const serializers = {
-  marks: {
-    link: (props: any) => {
-      return <Lenke href={props.mark.href}>{props.children[0]}</Lenke>;
-    },
-  },
   types: {
     infofelt: (props: any) => (
       <Accordion>
