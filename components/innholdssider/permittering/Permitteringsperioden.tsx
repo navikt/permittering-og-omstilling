@@ -1,4 +1,4 @@
-import { Accordion, Alert, Heading, Link } from "@navikt/ds-react";
+import { Accordion, Alert, Heading } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { permitteringInnhold } from "./Permitteringsside";
 import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
@@ -35,7 +35,10 @@ const serializers = {
     infofelt: (props: any) => {
       if (props.node.id === "forlengeDagpengeperioder") {
         return (
-          <Alert variant="warning">
+          <Alert
+            variant="warning"
+            className={styles.forlengeDagpengeperioderAlert}
+          >
             <BlockContent blocks={props.node.beskrivelse} />
           </Alert>
         );
