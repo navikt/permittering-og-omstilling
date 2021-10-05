@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { LinkPanel, PageHeader } from "@navikt/ds-react";
 import styles from "./index.module.css";
 
-const basePath = "permittering-og-omstilling";
+export const basePath = "permittering-og-omstilling";
 
 const Forside: NextPage = () => (
   <>
