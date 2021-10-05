@@ -9,10 +9,12 @@ export const loggSidevinsing = (url:string) => {
     try {
         import("./amplitudeConfig").then((logging) => {
 
-            logging.loggInstance.logEvent("sidevisning", {url: url});
+            logging.loggInstance.logEvent("sidevisning", {url: url, test: "test"});
         });
+        console.log("prøver å logge ")
     } catch (e) {
         console.error("Kunne ikke logge til amplitdue:", e);
+        console.log("feiler")
     }
 };
 
