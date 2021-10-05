@@ -7,7 +7,7 @@ import styles from "./omstilling.module.css";
 import TemaRelatertInnhold from "../TemaRelatertInnhold/TemaRelatertInnhold";
 import SistOppdatertTema from "../../sistOppdatertTema/SistOppdatertTema";
 import BlockContent from "../BlockContent/BlockContent";
-import {loggSidevinsing} from "../../../utils/amplitudeEvents";
+import {loggSidevinsing} from "../../../utils/logging";
 
 type Props = {
   omstillingInnhold: TemaInnhold[];

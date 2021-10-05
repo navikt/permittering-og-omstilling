@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { LinkPanel, PageHeader } from "@navikt/ds-react";
 import styles from "./index.module.css";
 import {useEffect} from "react";
-import {loggSidevinsing} from "../utils/amplitudeEvents";
+import {loggSidevinsing} from "../utils/logging";
 
 const basePath = "permittering-og-omstilling";
 

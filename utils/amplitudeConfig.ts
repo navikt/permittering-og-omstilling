@@ -1,4 +1,4 @@
-import amplitude from 'amplitude-js';
+import amplitude from "amplitude-js";
 
 const getApiKey = () => {
     return window.location.hostname === 'arbeidsgiver.nav.no'
@@ -6,13 +6,11 @@ const getApiKey = () => {
         : '55477baea93c5227d8c0f6b813653615';
 };
 
-const amplitudeInstance = amplitude.getInstance();
-amplitudeInstance.init(getApiKey(), '', {
-    apiEndpoint: 'amplitude.nav.no/collect',
+export const loggInstance = amplitude.getInstance();
+loggInstance.init(getApiKey(), "", {
+    apiEndpoint: "amplitude.nav.no/collect",
     saveEvents: false,
     includeUtm: true,
     batchEvents: false,
     includeReferrer: true,
 });
-
-export default amplitudeInstance;

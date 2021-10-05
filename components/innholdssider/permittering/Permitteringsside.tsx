@@ -12,7 +12,8 @@ import Innholdsmeny from "./innholdsmeny/Innholdsmeny";
 import { FunctionComponent, useEffect, useState } from "react";
 import { VanligSpørsmålType } from "./VanligeSpørsmål/VanligSpørsmål";
 import VanligeSporsmal from "./VanligeSpørsmål/VanligeSporsmal";
-import {loggSidevinsing} from "../../../utils/amplitudeEvents";
+import {loggSidevinsing} from "../../../utils/logging";
+
 
 export const permitteringInnhold = {
   hvordanPermittere: {
