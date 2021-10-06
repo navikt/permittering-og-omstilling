@@ -12,6 +12,8 @@ import Innholdsmeny from "./innholdsmeny/Innholdsmeny";
 import { FunctionComponent, useEffect, useState } from "react";
 import { VanligSpørsmålType } from "./VanligeSpørsmål/VanligSpørsmål";
 import VanligeSporsmal from "./VanligeSpørsmål/VanligeSporsmal";
+import {loggSidevinsing} from "../../../utils/logging";
+
 
 export const permitteringInnhold = {
   hvordanPermittere: {
@@ -104,6 +106,10 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   const [nåværendeHash, setNåværendeHash] = useState<string | undefined>(
     undefined
   );
+
+  useEffect(() => {
+    loggSidevinsing("https://arbeidsgiver.nav.no/permittering-og-omstilling/permittering")
+  }, []);
 
   useEffect(() => {
     const hash = global.location ? global.location.hash.slice(1) : null;

@@ -37,8 +37,7 @@ jobs:
 
   deploy-to-dev-gcp:
     name: Deploy to dev-gcp
-    # Endre branch her for å deploye den til dev-gcp :)              vvvvvv
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/hotjar'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/legg-til-amplitude'
     needs: compile-test-and-build
     runs-on: ubuntu-latest
     steps:
