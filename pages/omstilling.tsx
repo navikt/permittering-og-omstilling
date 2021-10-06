@@ -1,14 +1,11 @@
 import React, { useEffect } from "react";
 import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
-import {
-  GetStaticProps,
-  GetStaticPropsResult,
-  NextPage,
-} from "next";
+import { GetStaticProps, GetStaticPropsResult, NextPage } from "next";
 import OmstillingsSide from "../components/innholdssider/omstilling/Omstillingsside";
 import { sanityClient } from "../sanity/sanity";
 import { TemaInnhold } from "../components/innholdssider/TemaInnhold";
 import { RelatertInnhold } from "../components/innholdssider/RelatertInnhold";
+import { ekspanderReferanser } from "../utils/sanityUtils";
 
 type Props = {
   omstillingInnhold: TemaInnhold[];
@@ -42,10 +39,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
 > => {
   const query = `*[_type == "temaInnhold" && tema->tema == "Omstilling"]{
     ...,
-    innhold[]{
-      _type == "reference" => @->,
-      _type != "reference" => @
-    }
+    ${ekspanderReferanser("innhold")}
   }`;
   const relatertInnholdQuery =
     '*[_type == "relatertInnhold" && tema->tema == "Omstilling"]{tittel, lenker, sortOrder}';
@@ -66,25 +60,27 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       tittel: innhold.tittel,
       ingress: innhold.ingress,
       innhold: innhold.innhold,
-      sistOppdatert: innhold._updatedAt
+      sistOppdatert: innhold._updatedAt,
     })
   );
 
   const relatertInnhold: RelatertInnhold[] = relatertInnholdResponse.map(
-    (innhold: any) => ({ 
+    (innhold: any) => ({
       tittel: innhold.tittel,
       lenker: innhold.lenker,
-      sortOrder: innhold.sortOrder != null ? innhold.sortOrder : 100
+      sortOrder: innhold.sortOrder != null ? innhold.sortOrder : 100,
     })
   );
 
-  const sistOppdatert: Date[] = lastUpdatedResponse.flatMap((oppdatert: any) => oppdatert._updatedAt);
+  const sistOppdatert: Date[] = lastUpdatedResponse.flatMap(
+    (oppdatert: any) => oppdatert._updatedAt
+  );
 
   return {
     props: {
       omstillingInnhold: omstillingInnhold,
       relatertInnhold: relatertInnhold,
-      sistOppdatert: sistOppdatert
+      sistOppdatert: sistOppdatert,
     },
     revalidate: 60,
   };

@@ -4,7 +4,7 @@ import styles from "./index.module.css";
 import {useEffect} from "react";
 import {loggSidevinsing} from "../utils/logging";
 
-const basePath = "permittering-og-omstilling";
+export const basePath = "permittering-og-omstilling";
 
 const Forside: NextPage = () => {
 

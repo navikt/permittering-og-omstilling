@@ -10,6 +10,7 @@ import { VanligSpørsmålType } from "../components/innholdssider/permittering/V
 import { LønnspliktProps } from "../components/innholdssider/permittering/Lønnsplikt";
 import { InfoTilAnsatteProps } from "../components/innholdssider/permittering/InfoTilAnsatte";
 import { PermitteringsperiodenProps } from "../components/innholdssider/permittering/Permitteringsperioden";
+import { ekspanderReferanser } from "../utils/sanityUtils";
 
 const Permittering: NextPage<PermitteringssideProps> = (props) => {
   useEffect(() => {
@@ -36,32 +37,20 @@ export const getStaticProps: GetStaticProps = async (): Promise<
         ...,
         steg[]{
           ...,
-          beskrivelse[]{
-            _type == "reference" => @->,
-            _type != "reference" => @
-          }
+          ${ekspanderReferanser("beskrivelse")}
         },
       },
       "lonnsplikt": *[id == "lonnsplikt"]{
         ...,
-        innhold[]{
-          _type == "reference" => @->,
-          _type != "reference" => @
-        }
+        ${ekspanderReferanser("innhold")}
       },
       "infoTilAnsatte": *[id == "infoTilAnsatte"]{
         ...,
-        innhold[]{
-          _type == "reference" => @->,
-          _type != "reference" => @
-        }
+        ${ekspanderReferanser("innhold")}
       },
       "permitteringsperioden": *[id == "permitteringsperioden"]{
         ...,
-        innhold[]{
-          _type == "reference" => @->,
-          _type != "reference" => @
-        }
+        ${ekspanderReferanser("innhold")}
       },
     }
   `;
@@ -81,8 +70,10 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       svar: spørsmål.svar,
     })
   );
-  
-  const sistOppdatert: Date[] = lastUpdatedResponse.flatMap((oppdatert: any) => oppdatert._updatedAt);
+
+  const sistOppdatert: Date[] = lastUpdatedResponse.flatMap(
+    (oppdatert: any) => oppdatert._updatedAt
+  );
 
   const hvordanPermittereAnsatte: HvordanPermittereProps = {
     tittel: response[0].hvordanPermittere[0].tittel,
@@ -90,7 +81,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       steg: steg.steg,
       beskrivelse: steg.beskrivelse,
     })),
-    sistOppdatert: sistOppdatert
+    sistOppdatert: sistOppdatert,
   };
 
   const lønnsplikt: LønnspliktProps = {
@@ -108,7 +99,6 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     innhold: response[0].permitteringsperioden[0].innhold,
   };
 
-
   return {
     props: {
       vanligeSpørsmål: vanligeSpørsmål,
@@ -116,7 +106,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       lønnsplikt: lønnsplikt,
       infoTilAnsatte: infoTilAnsatte,
       permitteringsperioden: permitteringsperioden,
-      sistOppdatert: sistOppdatert
+      sistOppdatert: sistOppdatert,
     },
     revalidate: 60,
   };
