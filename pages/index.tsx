@@ -27,8 +27,7 @@ const Forside: NextPage = () => {
                 <LinkPanel className={styles.linkPanel} href={`${basePath}/omstilling`}>
                     <LinkPanel.Title>Omstilling og nedbemanning</LinkPanel.Title>
                     <LinkPanel.Description>
-                        NAV samarbeider med virksomheter i omstilling der mange ansatte mister
-                        - eller står i fare for - å miste jobben.
+                        NAV samarbeider med virksomheter der mange ansatte mister eller står i fare for å miste jobben.
                     </LinkPanel.Description>
                 </LinkPanel>
             </div>
