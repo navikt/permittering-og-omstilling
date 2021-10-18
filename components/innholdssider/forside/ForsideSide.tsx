@@ -1,12 +1,19 @@
 import { NextPage } from "next";
 import React from "react";
-import { Heading } from "@navikt/ds-react";
+import { LinkPanel, PageHeader } from "@navikt/ds-react";
 import styles from "./forside.module.css";
+import HvaKanNavHjelpeDegMed from "./HvaKanNavHjelpeDegMed/HvaKanNavHjelpeDegMed";
 
 const ForsideSide: NextPage = () => {
   return (
-    <div className={styles.container}>
-      <Heading size="large">Den nye forsiden</Heading>
+    <div>
+      <PageHeader description="Her er beskrivelsen">Forside</PageHeader>
+      <div>Her er introduksjonen til permittering/omstilling...</div>
+      <LinkPanel href="/permittering-og-omstilling/permittering#hvordan-permittere">
+        <LinkPanel.Title>Hvordan permittere ansatte</LinkPanel.Title>
+      </LinkPanel>
+
+      <HvaKanNavHjelpeDegMed />
     </div>
   );
 };
