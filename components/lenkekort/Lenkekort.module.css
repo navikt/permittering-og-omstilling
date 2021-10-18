@@ -1,0 +1,32 @@
+.lenkekort {
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 15rem;
+  min-height: 25rem;
+  text-decoration: inherit;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.14), 0 2px 1px rgba(38, 38, 38, 0.12),
+    0 1px 3px rgba(38, 38, 38, 0.2);
+  cursor: pointer;
+}
+
+.lenkekort:hover {
+  box-shadow: 0 0 0 2px #0067c5;
+}
+
+.heading {
+  text-decoration: underline;
+}
+.lenkekort:hover .heading {
+  text-decoration: none;
+  color: var(--navds-color-text-link);
+}
+
+.ikon {
+  align-self: center;
+  margin-bottom: 2.3rem;
+}

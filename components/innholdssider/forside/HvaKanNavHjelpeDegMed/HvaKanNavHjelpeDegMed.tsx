@@ -1,29 +1,31 @@
 import React, { FunctionComponent } from "react";
 import { Heading } from "@navikt/ds-react";
-import LinkCard from "../../../linkcard/LinkCard";
+import Lenkekort from "../../../lenkekort/Lenkekort";
 
 import styles from "./HvaKanNavHjelpeDegMed.module.css";
 
-type Props = {
-};
+type Props = {};
 
 const HvaKanNavHjelpeDegMed: FunctionComponent<Props> = () => {
   return (
     <div className={styles.container}>
       <Heading size="xlarge">Hva kan Nav hjelpe deg med?</Heading>
       <div className={styles.cards}>
-        <LinkCard 
+        <Lenkekort
           tittel="Hvordan permittere ansatte"
           href="/permittering"
-          text="Skal du permittering ansatte melder du fra til NAV så tidlig som mulig" />
-        <LinkCard
+          innhold="Skal du permittering ansatte melder du fra til NAV så tidlig som mulig"
+        />
+        <Lenkekort
           tittel="Skal du omstille?"
           href="/omstilling"
-          text="Skal du omstille" />
-        <LinkCard
+          innhold="Skal du omstille"
+        />
+        <Lenkekort
           tittel="Trenger du hjelp fra NAV eller andre?"
           href="/hjelp"
-          text="Se på muligheter for å søke om støtte fra NAV" />
+          innhold="Se på muligheter for å søke om støtte fra NAV"
+        />
       </div>
     </div>
   );
