@@ -1,0 +1,7 @@
+.cards {
+    display: flex;
+}
+
+.container {
+    background-color: var(--navds-color-blue-10);
+}
