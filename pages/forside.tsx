@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import React from "react";
-import { Heading } from "@navikt/ds-react";
 import Head from "next/head";
+import ForsideSide from "../components/innholdssider/forside/ForsideSide";
 
 const Forside: NextPage = () => {
   return (
@@ -10,7 +10,7 @@ const Forside: NextPage = () => {
         {/* Hindre Google å indeksere siden: https://nextjs.org/learn/seo/crawling-and-indexing/metatags */}
         <meta name="robots" content="noindex,nofollow" />
       </Head>
-      <Heading size="large">Den nye forsiden</Heading>
+      <ForsideSide />
     </>
   );
 };
