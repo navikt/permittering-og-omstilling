@@ -4,7 +4,7 @@ import { permitteringInnhold } from "./Permitteringsside";
 import React, { FunctionComponent } from "react";
 import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 import KopierLenke from "../../kopierlenke/KopierLenke";
-import BlockContent from "../BlockContent/BlockContent";
+import BlockContent from "../../BlockContent/BlockContent";
 
 export type InfoTilAnsatteProps = {
   tittel: string;

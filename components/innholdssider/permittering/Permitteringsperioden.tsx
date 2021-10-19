@@ -5,7 +5,7 @@ import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 import React, { FunctionComponent } from "react";
 import styles from "./permittering.module.css";
 import KopierLenke from "../../kopierlenke/KopierLenke";
-import BlockContent from "../BlockContent/BlockContent";
+import BlockContent from "../../BlockContent/BlockContent";
 
 export type PermitteringsperiodenProps = {
   tittel: string;

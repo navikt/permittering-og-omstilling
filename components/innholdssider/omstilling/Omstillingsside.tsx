@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useEffect} from "react";
+import React, { FunctionComponent, useEffect } from "react";
 import { Alert, PageHeader, Heading } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { RelatertInnhold } from "../RelatertInnhold";
@@ -6,8 +6,8 @@ import { TemaInnhold } from "../TemaInnhold";
 import styles from "./omstilling.module.css";
 import TemaRelatertInnhold from "../TemaRelatertInnhold/TemaRelatertInnhold";
 import SistOppdatertTema from "../../sistOppdatertTema/SistOppdatertTema";
-import BlockContent from "../BlockContent/BlockContent";
-import {loggSidevinsing} from "../../../utils/logging";
+import BlockContent from "../../BlockContent/BlockContent";
+import { loggSidevinsing } from "../../../utils/logging";
 
 type Props = {
   omstillingInnhold: TemaInnhold[];
@@ -20,10 +20,11 @@ const OmstillingsSide: FunctionComponent<Props> = ({
   relatertInnhold,
   sistOppdatert,
 }) => {
-
-    useEffect(() => {
-        loggSidevinsing("https://arbeidsgiver.nav.no/permittering-og-omstilling/omstilling")
-    }, []);
+  useEffect(() => {
+    loggSidevinsing(
+      "https://arbeidsgiver.nav.no/permittering-og-omstilling/omstilling"
+    );
+  }, []);
 
   return (
     <div className={styles.omstillingsSide}>

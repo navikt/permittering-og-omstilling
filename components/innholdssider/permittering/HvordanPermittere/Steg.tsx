@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { StegType } from "./HvordanPermittere";
 import { Accordion, Heading } from "@navikt/ds-react";
-import BlockContent from "../../BlockContent/BlockContent";
+import BlockContent from "../../../BlockContent/BlockContent";
 
 const Steg: FunctionComponent<StegType> = ({ steg, beskrivelse }) => {
   return (

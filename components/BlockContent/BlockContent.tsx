@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import Lenke from "../../lenke/Lenke";
+import Lenke from "../lenke/Lenke";
 import BlockContentFraBibliotek from "@sanity/block-content-to-react";
 
 type SanityBlockContent = any;

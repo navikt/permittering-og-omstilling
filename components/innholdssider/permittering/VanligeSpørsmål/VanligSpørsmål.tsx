@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { BodyShort, Heading } from "@navikt/ds-react";
 import { SanityBlockContent } from "../HvordanPermittere/HvordanPermittere";
 import styles from "./VanligeSpørsmål.module.css";
-import BlockContent from "../../BlockContent/BlockContent";
+import BlockContent from "../../../BlockContent/BlockContent";
 
 export type VanligSpørsmålType = {
   sporsmal: string;

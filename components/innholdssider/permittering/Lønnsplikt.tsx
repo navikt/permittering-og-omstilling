@@ -5,7 +5,7 @@ import styles from "./permittering.module.css";
 import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 import React, { FunctionComponent } from "react";
 import KopierLenke from "../../kopierlenke/KopierLenke";
-import BlockContent from "../BlockContent/BlockContent";
+import BlockContent from "../../BlockContent/BlockContent";
 
 export type LønnspliktProps = {
   tittel: string;
