@@ -23,6 +23,7 @@ const EksternKontaktKort: FunctionComponent<Props> = ({
           {tittel}
         </Heading>
         <BodyShort spacing>{innhold}</BodyShort>
+        <BodyShort className={styles.kategori}>{kategori}</BodyShort>
       </a>
     </Link>
   );
