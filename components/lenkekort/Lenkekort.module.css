@@ -32,3 +32,11 @@
   align-self: center;
   margin-bottom: 2.3rem;
 }
+
+.kategori {
+  font-weight: 400;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: var(--navds-color-gray-90);
+  margin-top: auto;
+}
