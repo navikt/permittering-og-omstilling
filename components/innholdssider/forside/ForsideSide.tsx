@@ -5,6 +5,7 @@ import HvaKanNavHjelpeDegMed from "./HvaKanNavHjelpeDegMed/HvaKanNavHjelpeDegMed
 import Container from "../../container/Container";
 
 import styles from "./forside.module.css";
+import AndreSomKanHjelpe from "./AndreSomKanHjelpe/AndreSomKanHjelpe";
 
 const ForsideSide: NextPage = () => {
   return (
@@ -30,6 +31,7 @@ const ForsideSide: NextPage = () => {
       </div>
 
       <HvaKanNavHjelpeDegMed />
+      <AndreSomKanHjelpe />
     </div>
   );
 };
