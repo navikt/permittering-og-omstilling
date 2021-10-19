@@ -6,11 +6,21 @@
 
 .heading {
   max-width: 56.5rem;
-  margin: 0 auto 1rem;
+  margin: 0 auto 2rem;
 }
 
 .cards {
   display: flex;
   max-width: 56.5rem;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    margin-left: 1rem;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
 }

@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 15rem;
+  width: 100%;
   min-height: 25rem;
   text-decoration: inherit;
   padding: 1.5rem;
@@ -39,4 +39,11 @@
   text-transform: uppercase;
   color: var(--navds-color-gray-90);
   margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .lenkekort {
+    margin: 0.5rem;
+    width: unset;
+  }
 }
