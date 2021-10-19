@@ -9,7 +9,9 @@ type Props = {};
 const HvaKanNavHjelpeDegMed: FunctionComponent<Props> = () => {
   return (
     <div className={styles.container}>
-      <Heading size="xlarge">Hva kan Nav hjelpe deg med?</Heading>
+      <Heading size="xlarge" className={styles.heading}>
+        Hva kan Nav hjelpe deg med?
+      </Heading>
       <div className={styles.cards}>
         <Lenkekort
           tittel="Hvordan permittere ansatte"
