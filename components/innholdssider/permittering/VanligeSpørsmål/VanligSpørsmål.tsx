@@ -7,6 +7,7 @@ import BlockContent from "../../../BlockContent/BlockContent";
 export type VanligSpørsmålType = {
   sporsmal: string;
   svar: SanityBlockContent;
+  sortOrder: number;
 };
 
 const VanligSpørsmål: FunctionComponent<VanligSpørsmålType> = ({

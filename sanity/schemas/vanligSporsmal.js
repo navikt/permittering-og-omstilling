@@ -15,6 +15,11 @@ export default {
             of: [{type: 'block'}]
         },
         {
+            title: "Rekkefølge",
+            type: "number",
+            name: "sortOrder",
+        },
+        {
             title: "Tema",
             name: "tema",
             type: "reference",

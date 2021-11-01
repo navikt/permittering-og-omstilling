@@ -11,13 +11,16 @@ type Props = {
 };
 
 const VanligeSporsmal: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
+  const vanligeSporsmalSorted = vanligeSpørsmål.sort(
+    (a, b) => a.sortOrder - b.sortOrder
+  );
   return (
     <Container id={permitteringInnhold.vanligeSpørsmål.anker}>
       <Heading size="xlarge" id={permitteringInnhold.vanligeSpørsmål.anker}>
         Vanlige spørsmål
       </Heading>
       <KopierLenke anker={permitteringInnhold.infoTilAnsatte.anker} />
-      {vanligeSpørsmål.map((vanligSpørsmål) => (
+      {vanligeSporsmalSorted.map((vanligSpørsmål) => (
         <VanligSpørsmål {...vanligSpørsmål} key={vanligSpørsmål.sporsmal} />
       ))}
       <Heading spacing size="small">

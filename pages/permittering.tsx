@@ -68,6 +68,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     (spørsmål: any) => ({
       sporsmal: spørsmål.sporsmal,
       svar: spørsmål.svar,
+      sortOrder: spørsmål.sortOrder ? spørsmål.sortOrder : 100
     })
   );
 
