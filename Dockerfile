@@ -8,7 +8,7 @@ COPY public ./public
 COPY package.json ./package.json
 COPY next.config.js ./next.config.js
 
-RUN yarn add next
+RUN yarn add next@11.1.2
 
 RUN chown -R 1069:1069 /app/.next
 
