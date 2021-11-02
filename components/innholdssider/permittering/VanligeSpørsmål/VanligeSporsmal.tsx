@@ -23,9 +23,6 @@ const VanligeSporsmal: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
       {vanligeSporsmalSorted.map((vanligSpørsmål) => (
         <VanligSpørsmål {...vanligSpørsmål} key={vanligSpørsmål.sporsmal} />
       ))}
-      <Lenke href="https://www.nav.no/person/kontakt-oss/chat/arbeidsgiver">
-        Chat med NAV om permittering.
-      </Lenke>
     </Container>
   );
 };
