@@ -33,7 +33,7 @@ const serializers = {
       if (props.node.id === "forlengeDagpengeperioder") {
         return (
           <Alert
-            variant="warning"
+            variant="info"
             className={styles.forlengeDagpengeperioderAlert}
           >
             <BlockContent blocks={props.node.beskrivelse} />
