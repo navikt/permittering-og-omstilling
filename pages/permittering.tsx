@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
   `;
 
   const sistOppdatertQuery = `
-    *[_type == "temaInnhold" && tema->tema=="Permittering"]{
+    *[(_type == "temaInnhold" || _type == "infofelt") && tema->tema=="Permittering"]{
       _updatedAt
     }
   `;
