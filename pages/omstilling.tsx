@@ -14,6 +14,11 @@ type Props = {
 };
 
 const Omstilling: NextPage<Props> = (props) => {
+  if (global.location) {
+    global.location.href =
+      "https://www.nav.no/no/bedrift/omstilling-og-nedbemanning";
+  }
+
   useEffect(() => {
     setBreadcrumbs([
       {
