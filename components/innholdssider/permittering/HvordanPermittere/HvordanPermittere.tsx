@@ -58,7 +58,7 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
         Informasjonsfilm om permittering
       </Heading>
       <iframe
-        src="https://player.vimeo.com/video/398208025?h=a21e1f79cb"
+        src="https://player.vimeo.com/video/566050967?h=2a5d7fdcd6"
         width="100%"
         height="300"
         frameBorder="0"
