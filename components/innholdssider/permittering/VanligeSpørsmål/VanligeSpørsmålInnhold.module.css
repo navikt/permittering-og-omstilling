@@ -1,0 +1,9 @@
+.vanligSporsmalInnhold {
+  margin-bottom: 1rem;
+}
+
+.innholdLenke {
+  font-size: var(--navds-font-size-l);
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+}

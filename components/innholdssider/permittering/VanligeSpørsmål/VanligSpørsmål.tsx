@@ -16,7 +16,7 @@ const VanligSpørsmål: FunctionComponent<VanligSpørsmålType> = ({
 }) => {
   return (
     <>
-      <Heading spacing size="small">
+      <Heading id={sporsmal} spacing size="small">
         {sporsmal}
       </Heading>
       <BodyShort className={styles.vanligSpørsmål}>
