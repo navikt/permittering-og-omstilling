@@ -5,13 +5,14 @@ import React, { FunctionComponent } from "react";
 import VanligSpørsmål, { VanligSpørsmålType } from "./VanligSpørsmål";
 import KopierLenke from "../../../kopierlenke/KopierLenke";
 import Lenke from "../../../lenke/Lenke";
+import VanligeSpørsmålInnhold from "./VanligeSpørsmålInnhold";
 
 type Props = {
   vanligeSpørsmål: VanligSpørsmålType[];
 };
 
 const VanligeSporsmal: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
-  const vanligeSporsmalSorted = vanligeSpørsmål.sort(
+  const vanligeSporsmalSorted: VanligSpørsmålType[] = vanligeSpørsmål.sort(
     (a, b) => a.sortOrder - b.sortOrder
   );
   return (
@@ -20,8 +21,9 @@ const VanligeSporsmal: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
         Vanlige spørsmål
       </Heading>
       <KopierLenke anker={permitteringInnhold.infoTilAnsatte.anker} />
-      {vanligeSporsmalSorted.map((vanligSpørsmål) => (
-        <VanligSpørsmål {...vanligSpørsmål} key={vanligSpørsmål.sporsmal} />
+      <VanligeSpørsmålInnhold vanligeSpørsmål={vanligeSporsmalSorted} />
+      {vanligeSporsmalSorted.map((vanligSpørsmål, i) => (
+        <VanligSpørsmål {...vanligSpørsmål} key={i} />
       ))}
     </Container>
   );
