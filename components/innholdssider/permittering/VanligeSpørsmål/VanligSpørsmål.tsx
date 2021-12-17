@@ -16,14 +16,14 @@ const VanligSpørsmål: FunctionComponent<VanligSpørsmålType> = ({
   svar,
 }) => {
   return (
-    <>
+    <div>
       <Heading id={createAnchor(sporsmal)} spacing size="small">
         {sporsmal}
       </Heading>
       <BodyShort className={styles.vanligSpørsmål}>
         <BlockContent blocks={svar} />
       </BodyShort>
-    </>
+    </div>
   );
 };
 
