@@ -2,6 +2,7 @@ import { Link } from "@navikt/ds-react";
 import { FunctionComponent } from "react";
 import  { VanligSpørsmålType } from "./VanligSpørsmål";
 import styles from "./VanligeSpørsmålInnhold.module.css";
+import { createAnchor } from "../../../../utils/anchorFromText";
 
 type Props = {
   vanligeSpørsmål: VanligSpørsmålType[];
@@ -15,7 +16,7 @@ const VanligeSporsmalInnhold: FunctionComponent<Props> = ({ vanligeSpørsmål })
           <div key={vanligSpørsmål.sporsmal}>
             <Link
               className={styles.innholdLenke}
-              href={`#${vanligSpørsmål.sporsmal}`}
+              href={`#${createAnchor(vanligSpørsmål.sporsmal)}`}
             >
               {vanligSpørsmål.sporsmal}
             </Link>

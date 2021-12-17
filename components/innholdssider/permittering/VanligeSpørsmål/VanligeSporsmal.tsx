@@ -22,8 +22,8 @@ const VanligeSporsmal: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
       </Heading>
       <KopierLenke anker={permitteringInnhold.infoTilAnsatte.anker} />
       <VanligeSpørsmålInnhold vanligeSpørsmål={vanligeSporsmalSorted} />
-      {vanligeSporsmalSorted.map((vanligSpørsmål) => (
-        <VanligSpørsmål {...vanligSpørsmål} key={vanligSpørsmål.sporsmal} />
+      {vanligeSporsmalSorted.map((vanligSpørsmål, i) => (
+        <VanligSpørsmål {...vanligSpørsmål} key={i} />
       ))}
     </Container>
   );
