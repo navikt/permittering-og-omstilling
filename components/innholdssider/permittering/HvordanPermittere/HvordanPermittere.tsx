@@ -43,12 +43,7 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
           arbeidstakere kan fortsette i arbeid fremfor å bli permittert.{" "}
           <a href="https://www.regjeringen.no/no/aktuelt/ny-lonnsstotteordning/id2892833/">
             Les mer om lønnsstøtteordningen på regjeringen.no
-          </a>
-          .{" "}
-          <a href="https://www.regjeringen.no/no/aktuelt/mer-fleksibel-lonnsstotteordning/id2892878/">
-            Les også om hvorfor ordningen er mer fleksibel
-          </a>
-          .
+          </a>.
         </>
       </Alert>
       {alleSteg.map((steg, index) => (
