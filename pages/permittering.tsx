@@ -11,6 +11,7 @@ import { LønnspliktProps } from "../components/innholdssider/permittering/Lønn
 import { InfoTilAnsatteProps } from "../components/innholdssider/permittering/InfoTilAnsatte";
 import { PermitteringsperiodenProps } from "../components/innholdssider/permittering/Permitteringsperioden";
 import { ekspanderReferanser } from "../utils/sanityUtils";
+import { RelatertInnhold } from "../components/innholdssider/RelatertInnhold";
 
 const Permittering: NextPage<PermitteringssideProps> = (props) => {
   useEffect(() => {
@@ -55,6 +56,9 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     }
   `;
 
+  const relatertInnholdQuery =
+    '*[_type == "relatertInnhold" && tema->tema == "Permittering"]{tittel, lenker, sortOrder}';
+
   const sistOppdatertQuery = `
     *[(_type == "temaInnhold" || _type == "infofelt") && tema->tema=="Permittering"]{
       _updatedAt
@@ -63,6 +67,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
 
   const response = await sanityClient.fetch(query);
   const lastUpdatedResponse = await sanityClient.fetch(sistOppdatertQuery);
+  const relatertInnholdResponse = await sanityClient.fetch(relatertInnholdQuery);
 
   const vanligeSpørsmål: VanligSpørsmålType[] = response[0].vanligeSporsmal.map(
     (spørsmål: any) => ({
@@ -74,6 +79,14 @@ export const getStaticProps: GetStaticProps = async (): Promise<
 
   const sistOppdatert: Date[] = lastUpdatedResponse.flatMap(
     (oppdatert: any) => oppdatert._updatedAt
+  );
+
+  const relatertInnhold: RelatertInnhold[] = relatertInnholdResponse.map(
+    (innhold: any) => ({
+      tittel: innhold.tittel,
+      lenker: innhold.lenker,
+      sortOrder: innhold.sortOrder != null ? innhold.sortOrder : 100,
+    })
   );
 
   const hvordanPermittereAnsatte: HvordanPermittereProps = {
@@ -107,6 +120,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       lønnsplikt: lønnsplikt,
       infoTilAnsatte: infoTilAnsatte,
       permitteringsperioden: permitteringsperioden,
+      relatertInnhold: relatertInnhold,
       sistOppdatert: sistOppdatert,
     },
     revalidate: 60,
