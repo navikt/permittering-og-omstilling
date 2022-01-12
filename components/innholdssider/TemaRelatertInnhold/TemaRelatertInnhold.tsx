@@ -1,8 +1,8 @@
 import { BodyShort, Heading } from "@navikt/ds-react";
 import { FunctionComponent } from "react";
-import styles from "./TemaRelatertInnhold.module.css";
-import { RelatertInnhold, RelatertInnholdLenke } from "../RelatertInnhold";
-import Lenke from "../../lenke/Lenke";
+import Container from "../../container/Container";
+import { RelatertInnhold } from "../RelatertInnhold";
+import RelatertInnholdDetalje from "./RelatertInnholdDetalje";
 
 type Props = {
   relatertInnhold: RelatertInnhold[];
@@ -14,20 +14,11 @@ const TemaRelatertInnhold: FunctionComponent<Props> = ({ relatertInnhold }) => {
   );
 
   return (
-    <div>
+    <>
       {relatertInnholdSorted.map((innhold: RelatertInnhold, index) => (
-        <div className={styles.relatertinnhold} key={index}>
-          <Heading size={"medium"} spacing>
-            {innhold.tittel}
-          </Heading>
-          {innhold.lenker.map((lenke: RelatertInnholdLenke) => (
-            <BodyShort spacing key={lenke.navn}>
-              <Lenke href={lenke.lenke}>{lenke.navn}</Lenke>
-            </BodyShort>
-          ))}
-        </div>
+        <RelatertInnholdDetalje relatertInnhold={innhold} key={index} />
       ))}
-    </div>
+    </>
   );
 };
 

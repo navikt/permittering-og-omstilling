@@ -13,7 +13,9 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { VanligSpørsmålType } from "./VanligeSpørsmål/VanligSpørsmål";
 import VanligeSporsmal from "./VanligeSpørsmål/VanligeSporsmal";
 import {loggSidevinsing} from "../../../utils/logging";
-
+import TemaRelatertInnhold from "../TemaRelatertInnhold/TemaRelatertInnhold";
+import { RelatertInnhold } from "../RelatertInnhold";
+import PermitteringSkjemaOgRegelverk from "./PermitteringSkjemaOgRegelverk/PermitteringSkjemaOgRegelverk";
 
 export const permitteringInnhold = {
   hvordanPermittere: {
@@ -36,6 +38,10 @@ export const permitteringInnhold = {
     tittel: "Vanlige spørsmål",
     anker: "vanlige-sporsmal",
   },
+  skjemaOgRegelverk: {
+    tittel: "Skjemaer og regelverk",
+    anker: "skjemaOgRegelverk"
+  }
 };
 
 export type PermitteringssideProps = {
@@ -44,6 +50,7 @@ export type PermitteringssideProps = {
   lønnsplikt: LønnspliktProps;
   infoTilAnsatte: InfoTilAnsatteProps;
   permitteringsperioden: PermitteringsperiodenProps;
+  relatertInnhold: RelatertInnhold[];
   sistOppdatert: Date[];
 };
 
@@ -91,7 +98,16 @@ const finnHvilketInnholdSomErScrolletTil = () => {
   );
   if (avstandVanligeSpørsmål < minAvstand) {
     innholdsAnker = permitteringInnhold.vanligeSpørsmål.anker;
+    minAvstand = avstandVanligeSpørsmål;
   }
+
+  const avstandSkjema = avstandFraElementTilSkjermTopp(
+    permitteringInnhold.skjemaOgRegelverk.anker
+  );
+  if (avstandSkjema < minAvstand) {
+    innholdsAnker = permitteringInnhold.skjemaOgRegelverk.anker;
+  }
+
   return innholdsAnker;
 };
 
@@ -101,6 +117,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
   lønnsplikt,
   infoTilAnsatte,
   permitteringsperioden,
+  relatertInnhold,
   sistOppdatert,
 }) => {
   const [nåværendeHash, setNåværendeHash] = useState<string | undefined>(
@@ -146,6 +163,7 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
           <Permitteringsperioden {...permitteringsperioden} />
           <InfoTilAnsatte {...infoTilAnsatte} />
           <VanligeSporsmal vanligeSpørsmål={vanligeSpørsmål} />
+          <PermitteringSkjemaOgRegelverk relatertInnhold={relatertInnhold} />
         </div>
       </div>
     </div>

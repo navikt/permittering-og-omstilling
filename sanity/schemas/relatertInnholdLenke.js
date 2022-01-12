@@ -13,5 +13,16 @@ export default {
       name: "lenke",
       type: "url",
     },
+    {
+      title: "Type",
+      name: "variant",
+      type: "string",
+      options: {
+        list: [ 
+          { title: 'Skjema', value: 'skjema'},
+          { title: 'Regelverk', value: 'regelverk' }
+        ]
+      }
+    },
   ],
 };

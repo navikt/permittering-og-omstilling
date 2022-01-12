@@ -1,6 +1,7 @@
 export type RelatertInnholdLenke = {
     navn: string,
     lenke: string,
+    variant: string,
     tema: string
 }
 
