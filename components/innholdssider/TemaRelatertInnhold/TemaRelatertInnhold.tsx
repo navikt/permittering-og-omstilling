@@ -6,9 +6,10 @@ import RelatertInnholdDetalje from "./RelatertInnholdDetalje";
 
 type Props = {
   relatertInnhold: RelatertInnhold[];
+  anker?: string;
 };
 
-const TemaRelatertInnhold: FunctionComponent<Props> = ({ relatertInnhold }) => {
+const TemaRelatertInnhold: FunctionComponent<Props> = ({ relatertInnhold, anker }) => {
   const relatertInnholdSorted = relatertInnhold.sort(
     (a, b) => a.sortOrder - b.sortOrder
   );
@@ -16,7 +17,7 @@ const TemaRelatertInnhold: FunctionComponent<Props> = ({ relatertInnhold }) => {
   return (
     <>
       {relatertInnholdSorted.map((innhold: RelatertInnhold, index) => (
-        <RelatertInnholdDetalje relatertInnhold={innhold} key={index} />
+        <RelatertInnholdDetalje relatertInnhold={innhold} anker={anker ? anker : innhold.tittel} key={index} />
       ))}
     </>
   );

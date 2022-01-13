@@ -13,7 +13,7 @@ const PermitteringSkjemaOgRegelverk: FunctionComponent<Props> = ({
 }) => {
   return (
     <Container id={permitteringInnhold.skjemaOgRegelverk.anker}>
-      <TemaRelatertInnhold relatertInnhold={relatertInnhold} />
+      <TemaRelatertInnhold relatertInnhold={relatertInnhold} anker={permitteringInnhold.skjemaOgRegelverk.anker}/>
     </Container>
   )
 };

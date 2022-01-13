@@ -3,19 +3,22 @@ import { FunctionComponent } from "react";
 import { RelatertInnhold, RelatertInnholdLenke } from "../RelatertInnhold";
 import Lenke from "../../lenke/Lenke";
 import styles from "./TemaRelatertInnhold.module.css";
+import KopierLenke from "../../kopierlenke/KopierLenke";
 
 type Props = {
   relatertInnhold: RelatertInnhold;
+  anker: string
 };
 
-const RelatertInnholdDetalje: FunctionComponent<Props> = ({ relatertInnhold }) => {
+const RelatertInnholdDetalje: FunctionComponent<Props> = ({ relatertInnhold, anker }) => {
   const skjemaLenker: RelatertInnholdLenke[] = relatertInnhold.lenker.filter((lenke) => (lenke.variant === 'skjema'));
   const regelverkLenker = relatertInnhold.lenker.filter((lenke) => (lenke.variant === 'regelverk'));
   return (
     <div className={styles.relatertinnhold} >
-      <Heading size={"medium"} spacing>
+      <Heading size={"xlarge"}>
         {relatertInnhold.tittel}
       </Heading>
+      <KopierLenke anker={anker} />
       <Heading size={"small"} spacing>
         Skjemaer
       </Heading>
