@@ -36,14 +36,15 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
       >
         {tittel}
       </Heading>
-      <KopierLenke anker={permitteringInnhold.infoTilAnsatte.anker} />
+      <KopierLenke anker={permitteringInnhold.hvordanPermittere.anker} />
       <Alert variant="info" className={styles.regjeringAlert}>
         <>
           Regjeringen foreslår å innføre en ny lønnsstøtteordning slik at
           arbeidstakere kan fortsette i arbeid fremfor å bli permittert.{" "}
           <a href="https://www.regjeringen.no/no/aktuelt/ny-lonnsstotteordning/id2892833/">
             Les mer om lønnsstøtteordningen på regjeringen.no
-          </a>.
+          </a>
+          .
         </>
       </Alert>
       {alleSteg.map((steg, index) => (
