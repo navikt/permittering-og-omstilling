@@ -20,7 +20,7 @@ const VanligeSporsmal: FunctionComponent<Props> = ({ vanligeSpørsmål }) => {
       <Heading size="xlarge" id={permitteringInnhold.vanligeSpørsmål.anker}>
         Vanlige spørsmål
       </Heading>
-      <KopierLenke anker={permitteringInnhold.infoTilAnsatte.anker} />
+      <KopierLenke anker={permitteringInnhold.vanligeSpørsmål.anker} />
       <VanligeSpørsmålInnhold vanligeSpørsmål={vanligeSporsmalSorted} />
       {vanligeSporsmalSorted.map((vanligSpørsmål, i) => (
         <VanligSpørsmål {...vanligSpørsmål} key={i} />

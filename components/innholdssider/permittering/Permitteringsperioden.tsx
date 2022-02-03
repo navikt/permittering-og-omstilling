@@ -24,7 +24,7 @@ const Permitteringsperioden: FunctionComponent<PermitteringsperiodenProps> = ({
       >
         {tittel}
       </Heading>
-      <KopierLenke anker={permitteringInnhold.infoTilAnsatte.anker} />
+      <KopierLenke anker={permitteringInnhold.permitteringsperioden.anker} />
       <BlockContent blocks={innhold} serializers={serializers} />
     </Container>
   );
