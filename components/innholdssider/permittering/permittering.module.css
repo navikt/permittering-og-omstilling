@@ -9,18 +9,6 @@
   flex-direction: column;
 }
 
-.forlengeRegelverkAlert {
-  margin-bottom: 2rem;
-}
-
-.forlengeDagpengeperioderAlert {
-  margin-bottom: 2rem;
-}
-
-.forlengeDagpengeperioderAlert p {
-  margin: 0;
-}
-
 .accordion {
   margin-top: 2rem;
   margin-bottom: 2rem;

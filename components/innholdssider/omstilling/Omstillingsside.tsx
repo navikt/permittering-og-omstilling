@@ -43,7 +43,6 @@ const OmstillingsSide: FunctionComponent<Props> = ({
               <BlockContent
                 blocks={innhold.innhold}
                 key={innhold.tittel}
-                serializers={serializers}
               />
             ))}
           </Container>
@@ -51,19 +50,6 @@ const OmstillingsSide: FunctionComponent<Props> = ({
       </div>
     </div>
   );
-};
-
-const serializers = {
-  types: {
-    infofelt: (props: any) => (
-      <Alert variant="info" className={styles.forlengeRegelverkAlert}>
-        <Heading spacing size="medium">
-          {props.node.tittel}
-        </Heading>
-        <BlockContent blocks={props.node.beskrivelse} />
-      </Alert>
-    ),
-  },
 };
 
 export default OmstillingsSide;

@@ -20,6 +20,20 @@ export default {
       of: [{ type: "block" }],
     },
     {
+      title: "Type",
+      name: "variant",
+      type: "string",
+      options: {
+        list: [
+          { title: 'Info', value: 'info'},
+          { title: 'Success', value: 'success' },
+          { title: 'Warning', value: 'warning' },
+          { title: 'Error', value: 'error' },
+          { title: 'Dropdown', value: 'dropdown'}
+        ]
+      }
+    },
+    {
       title: "Tema",
       name: "tema",
       type: "reference",

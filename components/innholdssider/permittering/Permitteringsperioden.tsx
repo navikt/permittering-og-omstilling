@@ -1,9 +1,8 @@
-import { Accordion, Alert, Heading } from "@navikt/ds-react";
+import { Heading } from "@navikt/ds-react";
 import Container from "../../container/Container";
 import { permitteringInnhold } from "./Permitteringsside";
 import { SanityBlockContent } from "./HvordanPermittere/HvordanPermittere";
 import React, { FunctionComponent } from "react";
-import styles from "./permittering.module.css";
 import KopierLenke from "../../kopierlenke/KopierLenke";
 import BlockContent from "../../BlockContent/BlockContent";
 
@@ -25,37 +24,9 @@ const Permitteringsperioden: FunctionComponent<PermitteringsperiodenProps> = ({
         {tittel}
       </Heading>
       <KopierLenke anker={permitteringInnhold.permitteringsperioden.anker} />
-      <BlockContent blocks={innhold} serializers={serializers} />
+      <BlockContent blocks={innhold} />
     </Container>
   );
-};
-
-const serializers = {
-  types: {
-    infofelt: (props: any) => {
-      if (props.node.id === "forlengeDagpengeperioder") {
-        return (
-          <Alert
-            variant="info"
-            className={styles.forlengeDagpengeperioderAlert}
-          >
-            <BlockContent blocks={props.node.beskrivelse} />
-          </Alert>
-        );
-      } else {
-        return (
-          <Accordion className={styles.accordion}>
-            <Accordion.Item>
-              <Accordion.Header>{props.node.tittel}</Accordion.Header>
-              <Accordion.Content>
-                <BlockContent blocks={props.node.beskrivelse} />
-              </Accordion.Content>
-            </Accordion.Item>
-          </Accordion>
-        );
-      }
-    },
-  },
 };
 
 export default Permitteringsperioden;
