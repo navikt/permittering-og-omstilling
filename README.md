@@ -2,7 +2,7 @@
 Monorepo for frontendapplikasjon og sanityprosjekt. Informasjon til arbeidsgiver for permittering og omstilling
 
 ## Teknologi
-Basert på next.js med data in Sanity.io cms.
+Basert på next.js med data i Sanity.io cms.
 
 Start sanity med
 
