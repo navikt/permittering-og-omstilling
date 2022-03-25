@@ -66,7 +66,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       streikInnhold: streikInnhold,
       sistOppdatert: sistOppdatert,
     },
-    revalidate: 60,
+    revalidate: 120,
   };
 };
 

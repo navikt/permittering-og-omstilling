@@ -87,7 +87,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       relatertInnhold: relatertInnhold,
       sistOppdatert: sistOppdatert,
     },
-    revalidate: 60,
+    revalidate: 600,
   };
 };
 
