@@ -1,0 +1,33 @@
+.container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.banner {
+  background-color: var(--navds-color-blue-10);
+  width: 100%;
+}
+
+.innhold {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 1rem;
+    margin-top: 0;
+  }
+
+  .streikSide {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+  

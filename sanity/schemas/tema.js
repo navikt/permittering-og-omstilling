@@ -1,7 +1,7 @@
 export default {
   title: "Tema/Område",
   name: "tema",
-  type: "object",
+  type: "document",
   fields: [
     {
       title: "Tema",
