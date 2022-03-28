@@ -36,11 +36,11 @@ const StreikSide: FunctionComponent<Props> = ({
         <div className={styles.innhold}>
           <Container>
             <SistOppdatertTema sistOppdatert={sistOppdatert} />
-            <h1
+            <h2
               className={styles.tittel}
             >
               Melding om massepermittering ved streik
-            </h1>
+            </h2>
             <BodyShort size={"medium"} spacing={true}>
               Melding om massepermittering skal også sendes inn i forbindelse med streik. 
             </BodyShort>
