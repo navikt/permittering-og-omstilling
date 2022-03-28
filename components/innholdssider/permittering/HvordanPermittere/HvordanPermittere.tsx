@@ -1,4 +1,4 @@
-import { Alert, Heading } from "@navikt/ds-react";
+import { Alert, BodyShort, Heading, Link } from "@navikt/ds-react";
 import Container from "../../../container/Container";
 import { permitteringInnhold } from "../Permitteringsside";
 import React, { FunctionComponent } from "react";
@@ -37,6 +37,16 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
         {tittel}
       </Heading>
       <KopierLenke anker={permitteringInnhold.hvordanPermittere.anker} />
+      <Alert
+        variant={"info"}
+        className={styles.alertMargins}
+      >
+        <strong>Permittering ved streik</strong><br/>
+        <BodyShort>
+          <Link href="/permittering-og-omstilling/streik">Her finner du informasjon om permitteringsvarsel og lønnsplikt ved streik.</Link>
+        </BodyShort>
+      </Alert>
+      <br/>
       {alleSteg.map((steg, index) => (
         <>
           <Steg
