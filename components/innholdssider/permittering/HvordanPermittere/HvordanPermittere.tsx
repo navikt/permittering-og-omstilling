@@ -73,6 +73,7 @@ const HvordanPermittere: FunctionComponent<HvordanPermittereProps> = ({
         height="300"
         frameBorder="0"
         allowFullScreen
+        title="Arbeidsgiver og permittering"
       />
     </Container>
   );
