@@ -1,4 +1,5 @@
 import type { GetStaticProps, GetStaticPropsResult, NextPage } from "next";
+import Head from 'next/head'
 import React, { useEffect } from "react";
 import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
 import Permitteringsside, {
@@ -25,7 +26,16 @@ const Permittering: NextPage<PermitteringssideProps> = (props) => {
       console.error("klarte ikke å oppdatere breadcrumbs");
     });
   });
-  return <Permitteringsside {...props} />;
+  return (
+    <>
+      <Head>
+        <title>
+          Veiviser for permittering
+        </title>
+      </Head>
+      <Permitteringsside {...props} />;
+    </>
+  )
 };
 
 export const getStaticProps: GetStaticProps = async (): Promise<

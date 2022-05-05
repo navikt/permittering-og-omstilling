@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Head from 'next/head'
 import { LinkPanel, PageHeader } from "@navikt/ds-react";
 import styles from "./index.module.css";
 import {useEffect} from "react";
@@ -14,6 +15,11 @@ const Forside: NextPage = () => {
 
     return (
         <>
+            <Head>
+                <title>
+                    Permittering og omstilling
+                </title>
+            </Head>
             <PageHeader className={styles.banner}>
                 Permittering og omstilling
             </PageHeader>

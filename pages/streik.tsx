@@ -1,5 +1,6 @@
 import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
 import { GetStaticProps, GetStaticPropsResult, NextPage } from "next";
+import Head from 'next/head'
 import { useEffect } from "react";
 import StreikSide from "../components/innholdssider/streik/streikside";
 import { TemaInnhold } from "../components/innholdssider/TemaInnhold";
@@ -26,10 +27,17 @@ const Streik: NextPage<Props> = (props) => {
     });
   });
   return (
-    <StreikSide
-      streikInnhold={props.streikInnhold}
-      sistOppdatert={props.sistOppdatert}
-    />
+    <>
+      <Head>
+        <title>
+          Permittering ved streik
+        </title>
+      </Head>
+      <StreikSide
+        streikInnhold={props.streikInnhold}
+        sistOppdatert={props.sistOppdatert}
+      />
+    </>
   );
 };
 

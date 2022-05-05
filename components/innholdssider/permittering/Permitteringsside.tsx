@@ -1,4 +1,5 @@
 import { PageHeader } from "@navikt/ds-react";
+import Head from 'next/head'
 import HvordanPermittere, {
   HvordanPermittereProps,
 } from "./HvordanPermittere/HvordanPermittere";
@@ -146,6 +147,9 @@ const Permitteringsside: FunctionComponent<PermitteringssideProps> = ({
 
   return (
     <div className={styles.permitteringsSide}>
+      <Head>
+        Veiviser for permittering
+      </Head>
       <PageHeader className={styles.banner}>
         Veiviser for permittering
       </PageHeader>
