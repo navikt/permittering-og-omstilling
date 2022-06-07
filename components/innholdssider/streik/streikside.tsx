@@ -39,10 +39,10 @@ const StreikSide: FunctionComponent<Props> = ({
             <h2
               className={styles.tittel}
             >
-              Melding om massepermittering ved streik
+              Hva gjør du hvis virksomheten din blir rammet av streik?
             </h2>
             <BodyShort size={"medium"} spacing={true}>
-              Melding om massepermittering skal også sendes inn i forbindelse med streik. 
+              Melding om permittering skal også sendes inn i forbindelse med streik. Meld fra så tidlig som mulig.
             </BodyShort>
             <Lenkeknapp
               className={styles.meldIfra}
