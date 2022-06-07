@@ -2954,7 +2954,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-next-sanity@^1.1.1:
+next-sanity@^0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/next-sanity/-/next-sanity-0.5.2.tgz#b86110f9affa28d53a6ea1273d1aa73a0dff1ed3"
   integrity sha512-yw+1pIJvZPeokxZ7eorTHlY0KjYGGPSD6rVuGVjVTq8R94+m6tJTlxgNsoKAlxdDgNIdixYJxXXzhyZ6VE7VkA==
