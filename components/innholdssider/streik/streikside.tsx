@@ -1,10 +1,8 @@
 import React, { FunctionComponent, useEffect } from "react";
-import { Alert, PageHeader, Heading, BodyShort } from "@navikt/ds-react";
+import { PageHeader, BodyShort } from "@navikt/ds-react";
 import Container from "../../container/Container";
-import { RelatertInnhold } from "../RelatertInnhold";
 import { TemaInnhold } from "../TemaInnhold";
 import styles from "./streik.module.css";
-import TemaRelatertInnhold from "../TemaRelatertInnhold/TemaRelatertInnhold";
 import SistOppdatertTema from "../../sistOppdatertTema/SistOppdatertTema";
 import BlockContent from "../../BlockContent/BlockContent";
 import { loggSidevinsing } from "../../../utils/logging";
@@ -28,6 +26,8 @@ const StreikSide: FunctionComponent<Props> = ({
     );
   }, []);
 
+  console.log(permitteringsmeldingVedStreik[0].innhold)
+
   return (
     <div className={styles.streikSide}>
       <PageHeader
@@ -39,7 +39,6 @@ const StreikSide: FunctionComponent<Props> = ({
         <div className={styles.innhold}>
           <Container>
             <SistOppdatertTema sistOppdatert={sistOppdatert} />
-            <>{permitteringsmeldingVedStreik[0].innhold}</>
             <h2
               className={styles.tittel}
             >
@@ -48,6 +47,7 @@ const StreikSide: FunctionComponent<Props> = ({
             <BodyShort size={"medium"} spacing={true}>
               Melding om permittering skal også sendes inn i forbindelse med streik. Meld fra så tidlig som mulig.
             </BodyShort>
+            <BlockContent blocks={permitteringsmeldingVedStreik[0].innhold}></BlockContent>
             <Lenkeknapp
               className={styles.meldIfra}
               href="https://www.nav.no/soknader/nb/bedrift/permitteringer-oppsigelser-og-konkurs/masseoppsigelser"
