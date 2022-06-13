@@ -3,7 +3,8 @@ import "../styles/globals.css";
 import "@navikt/ds-css";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
+  const AnyComponent = Component as any;
+  return <AnyComponent {...pageProps} />;
 };
 
 export default MyApp;

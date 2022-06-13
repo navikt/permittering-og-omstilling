@@ -9,15 +9,18 @@ import SistOppdatertTema from "../../sistOppdatertTema/SistOppdatertTema";
 import BlockContent from "../../BlockContent/BlockContent";
 import { loggSidevinsing } from "../../../utils/logging";
 import Lenkeknapp from "../../lenkeknapp/Lenkeknapp";
+import {PermitteringsmeldingVedStreik} from "../PermitteringsmeldingVedStreik";
 
 type Props = {
   streikInnhold: TemaInnhold[];
   sistOppdatert: Date[];
+  permitteringsmeldingVedStreik: PermitteringsmeldingVedStreik[]
 };
 
 const StreikSide: FunctionComponent<Props> = ({
   streikInnhold,
   sistOppdatert,
+    permitteringsmeldingVedStreik
 }) => {
   useEffect(() => {
     loggSidevinsing(
@@ -36,6 +39,7 @@ const StreikSide: FunctionComponent<Props> = ({
         <div className={styles.innhold}>
           <Container>
             <SistOppdatertTema sistOppdatert={sistOppdatert} />
+            <>{permitteringsmeldingVedStreik[0].innhold}</>
             <h2
               className={styles.tittel}
             >

@@ -11,6 +11,7 @@ import stegForSteg from "./stegForSteg";
 import steg from "./steg";
 import infofelt from "./infofelt";
 import relatertInnholdLenke from "./relatertInnholdLenke";
+import ingressPermitteringVedStreik from "./ingressPermitteringVedStreik";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -27,5 +28,6 @@ export default createSchema({
     tema,
     temainnhold,
     vanligSporsmal,
+      ingressPermitteringVedStreik,
   ]),
 });
