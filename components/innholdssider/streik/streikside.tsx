@@ -37,14 +37,6 @@ const StreikSide: FunctionComponent<Props> = ({
         <div className={styles.innhold}>
           <Container>
             <SistOppdatertTema sistOppdatert={sistOppdatert} />
-            <h2
-              className={styles.tittel}
-            >
-              Hva gjør du hvis virksomheten din blir rammet av streik?
-            </h2>
-            <BodyShort size={"medium"} spacing={true}>
-              Melding om permittering skal også sendes inn i forbindelse med streik. Meld fra så tidlig som mulig.
-            </BodyShort>
             <BlockContent blocks={permitteringsmeldingVedStreik[0].innhold}></BlockContent>
             <Lenkeknapp
               className={styles.meldIfra}
