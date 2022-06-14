@@ -11,10 +11,7 @@ export const loggSidevinsing = (url:string) => {
 
             logging.loggInstance.logEvent("sidevisning", {url: url});
         });
-        console.log("prøver å logge ")
     } catch (e) {
-        console.error("Kunne ikke logge til amplitdue:", e);
-        console.log("feiler")
     }
 };
 

@@ -6,11 +6,13 @@ import StreikSide from "../components/innholdssider/streik/streikside";
 import { TemaInnhold } from "../components/innholdssider/TemaInnhold";
 import { sanityClient } from "../sanity/sanity";
 import { ekspanderReferanser } from "../utils/sanityUtils";
+import {PermitteringsmeldingVedStreik} from "../components/innholdssider/PermitteringsmeldingVedStreik";
 
 
 type Props = {
   streikInnhold: TemaInnhold[];
   sistOppdatert: Date[];
+  permitteringsmeldingVedStreik: PermitteringsmeldingVedStreik[];
 };
 
 
@@ -34,6 +36,7 @@ const Streik: NextPage<Props> = (props) => {
         </title>
       </Head>
       <StreikSide
+          permitteringsmeldingVedStreik={props.permitteringsmeldingVedStreik}
         streikInnhold={props.streikInnhold}
         sistOppdatert={props.sistOppdatert}
       />
@@ -53,9 +56,15 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       _updatedAt
     }
   `;
+  const permitteringsMeldingVedStreikQuery = `
+    *[_type == "permitteringsmeldingVedStreik"]{
+      innhold
+    }
+  `;
 
   const innholdResponse = await sanityClient.fetch(query);
   const lastUpdatedResponse = await sanityClient.fetch(sistOppdatertQuery);
+  const permitteringsMeldingVedStreikRespons = await sanityClient.fetch(permitteringsMeldingVedStreikQuery)
 
   const streikInnhold: TemaInnhold[] = innholdResponse.map(
     (innhold: any) => ({
@@ -69,10 +78,18 @@ export const getStaticProps: GetStaticProps = async (): Promise<
     (oppdatert: any) => oppdatert._updatedAt
   );
 
+  const permitteringsMeldingVedStreik: PermitteringsmeldingVedStreik[] = permitteringsMeldingVedStreikRespons.map(
+      (innhold: any) => ({
+        innhold: innhold.innhold,
+      })
+  );
+
   return {
     props: {
       streikInnhold: streikInnhold,
       sistOppdatert: sistOppdatert,
+      permitteringsmeldingVedStreik: permitteringsMeldingVedStreik
+
     },
     revalidate: 120,
   };
