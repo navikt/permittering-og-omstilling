@@ -26,8 +26,6 @@ const StreikSide: FunctionComponent<Props> = ({
     );
   }, []);
 
-  console.log(permitteringsmeldingVedStreik[0].innhold)
-
   return (
     <div className={styles.streikSide}>
       <PageHeader

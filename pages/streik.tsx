@@ -84,9 +84,6 @@ export const getStaticProps: GetStaticProps = async (): Promise<
       })
   );
 
-  console.log("juhhu")
-  console.log ( "logger respons", permitteringsMeldingVedStreikRespons)
-
   return {
     props: {
       streikInnhold: streikInnhold,
