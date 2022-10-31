@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage, GetStaticPropsResult } from "next";
 import Head from 'next/head'
 import { LinkPanel, PageHeader } from "@navikt/ds-react";
 import styles from "./index.module.css";
@@ -6,6 +6,8 @@ import {useEffect} from "react";
 import {loggSidevinsing} from "../utils/logging";
 
 export const basePath = "permittering-og-omstilling";
+
+type Props = { };
 
 const Forside: NextPage = () => {
 
@@ -41,5 +43,15 @@ const Forside: NextPage = () => {
     );
 
 };
+
+export const getStaticProps: GetStaticProps = async (): Promise<
+  GetStaticPropsResult<Props>
+> => {
+    return {
+        props: { },
+        revalidate: 600,
+    };
+}
+
 
 export default Forside;
