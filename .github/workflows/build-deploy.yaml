@@ -11,21 +11,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-      - uses: actions/cache@v1
-        with:
-          path: ./node_modules
-          key: ${{ runner.os }}-node-cache-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-cache-
-      - name: Install dependencies
-        run: |
-          yarn install --frozen-lockfile
-      - name: Build application
-        run: |
-          yarn run build
+      - name: Server yarn install
+        working-directory: ./server
+        run: yarn install
       - name: Build tag and push Docker container
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -37,7 +25,7 @@ jobs:
 
   deploy-to-dev-gcp:
     name: Deploy to dev-gcp
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/skjemaer-og-regelverk'
+    if: github.ref == 'refs/heads/main'
     needs: compile-test-and-build
     runs-on: ubuntu-latest
     steps:
@@ -52,7 +40,7 @@ jobs:
 
   deploy-to-labs-gcp:
     name: Deploy to labs-gcp
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/skjemaer-og-regelverk'
+    if: github.ref == 'refs/heads/main'
     needs: compile-test-and-build
     runs-on: ubuntu-latest
     steps:

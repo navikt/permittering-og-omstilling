@@ -5,8 +5,6 @@ metadata:
   namespace: permittering-og-nedbemanning
   labels:
     team: permittering-og-nedbemanning
-  annotations:
-    nais.io/read-only-file-system: "false"
 spec:
   image: {{ version }}
   team: permittering-og-nedbemanning
@@ -22,11 +20,6 @@ spec:
   replicas:
     min: 2
     max: 2
-  accessPolicy:
-    outbound:
-      external:
-        - host: dekoratoren.nav.no
-        - host: utwe983u.api.sanity.io
   env:
     - name: NODE_EXTRA_CA_CERTS
       value: /etc/ssl/ca-bundle.pem
