@@ -18,6 +18,9 @@ const startServer = () => {
     server.get(`${BASE_PATH}`, (req, res) => {
         res.redirect(301, 'https://www.nav.no/arbeidsgiver/permittere-nedbemanne');
     });
+    server.get(`${BASE_PATH}/*`, (req, res) => {
+        res.redirect(301, 'https://www.nav.no/arbeidsgiver/permittere-nedbemanne');
+    });
 
     server.listen(PORT, () => {
         console.log('Server listening on port', PORT);
